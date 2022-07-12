@@ -63,8 +63,7 @@ Some of the examples that node runners now have access to include:
 * Connecting multiple `pocket-core` processes that represent at least two nodes in close physical proximity to the same database.
 * Connecting multiple `pocket-core` process that represent multiple nodes to a database cluster to allow a collection of nodes to efficiently scale-up storage needs
 
-![Some example deployment configurations available when allowing for a Client Server architecture](../../assets/PersistenceClientServer.jpg)
-
+![Some example deployment configurations available when allowing for a Client Server architecture](/images/PersistenceClientServer.jpg)
 Since nodes know the maximum amount of relays that the applications it's serving can request, this gives node runners the ability to save costs by allocating resources only as needed.
 
 ## More Details

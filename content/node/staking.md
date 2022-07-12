@@ -30,8 +30,7 @@ In this scenario, there are two Pocket accounts necessary to the staking of a no
 
 In addition, this output account has much the same authority over the node as the operator account. The output account can also run node transactions (stake, unstake, unjail, etc.).
 
-![](../assets/non-custodial-staking.png)
-
+![](/images/non-custodial-staking.png)
 ## Benefits of non-custodial staking
 
 An operator address must reside in a "hot" wallet on the node. This could potentially represent a security risk when the server is operated by a third-party. As [third-party node hosting is common](hosting-services.md), there has arisen a need to have the recipient wallet for rewards not be on the same server as the node.

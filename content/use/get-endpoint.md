@@ -13,28 +13,24 @@ The [Pocket Portal](https://www.portal.pokt.network) lets you create an endpoint
 
 Go to the [Pocket Portal](https://www.portal.pokt.network), sign up and verify your email.
 
-![](../assets/portal-login.png)
-
+![](/images/portal-login.png)
 Once you've done so, log in and you'll be greeted by the Network Overview section.
 
-![](../assets/portal-network.png)
-
+![](/images/portal-network.png)
 {{% notice style="info" %}}
 In this section, you'll see all the important parts of the network: how many relays are being served daily, the overall success rate of the network, and the number of apps, nodes, and POKT staked. A summary of chains being served by the network is also available.
 {{% /notice %}}
 
 Head over to the "My Apps" section and create your app.
 
-![](../assets/portal-app-setup.png)
-
+![](/images/portal-app-setup.png)
 {{% notice style="info" %}}
 In this section, you'll be able to select one of the available chains that are currently available. More will be made available depending on demand.
 {{% /notice %}}
 
 Once you've hit "Launch Application", all is done and you can start using your endpoint! You should be greeted by the main application screen, which will show all the metrics, which as soon as you start submitting requests, should start appearing.
 
-![](../assets/portal-app.png)
-
+![](/images/portal-app.png)
 The view you see is the main view for your application. Here, you'll see key details:
 
 * On the top left, you'll see and will be able to copy your endpoint URL.
@@ -55,8 +51,7 @@ Turning on notifications is a great way to stay up to date with your app. We res
 * Click on the "Notifications" button on your app's dashboard, and you'll see the notifications screen.
 * Turn on any notifications you're interested in receiving, and then click "Save changes" when you're done.
 
-![](../assets/portal-notifications.png)
-
+![](/images/portal-notifications.png)
 ### Securing your Application
 
 For securing your endpoint, you can go to the "App Security" section of the Portal. This section of the app contains all the security settings you'll have at your disposal for security. We provide whitelisting for both origins and user agents and also let you enable and disable secret key usage.
@@ -153,8 +148,7 @@ First, you need to get an endpoint from the [Pocket Portal](https://www.portal.p
 
 Then you need to get the Gateway ID
 
-![](../assets/portal-app.png)
-
+![](/images/portal-app.png)
 and insert it like so
 
 ```

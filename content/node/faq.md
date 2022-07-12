@@ -221,8 +221,7 @@ Why does the third-party slow you down? Increasing the distance between your Poc
 
 Here is an illustration:
 
-![](../assets/pokt-world-map.jpg)
-
+![](/images/pokt-world-map.jpg)
 In this example, the Pocket nodes (pink) are on the other side of the US from the Blockchain data nodes (orange). The end-user is using the [Portal](https://portal.pokt.network) to communicate with the network. The path the end-user's request must take is: `End-user → Portal → Pocket Node → Blockchain Data Node → Pocket Node → Portal → End-user`
 
 The end-user's request must hop back and forth across the US 4 times and that's not including the hops between the user and the Portal. As a result, it may take up to 1 second for a user to receive something as simple as a balance query. That's not very good service.

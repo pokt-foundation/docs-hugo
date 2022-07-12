@@ -7,8 +7,7 @@ weight: 39
 
 ## Biohacker
 
-![](../../assets/daoist-banner1.png)
-
+![](/images/daoist-banner1.png)
 Greetings fledgling DAOist and aspiring Biohacker. It is now time to augment your skills via the cybernetic system, Pocket DAO, to truly enhance this community's mission. You will be considered a true Biohacker if you **acquire 2/3 of the following augments**, providing evidence in the [🏆trophies](https://discord.com/channels/553741558869131266/763504639299289138) channel, then submit the `!become-biohacker` command.
 
 ### Anode
@@ -29,8 +28,7 @@ This quest can't be completed currently because our proposal challenge system is
 
 ## Cyborg
 
-![](../../assets/daoist-banner2.png)
-
+![](/images/daoist-banner2.png)
 We're impressed with your augmentation capabilities, but to truly become a Cyborg you'll need to **acquire 3/5 of these augments**, providing evidence in the [🏆trophies](https://discord.com/channels/553741558869131266/763504639299289138) channel, then submit the `!become-cyborg` command.
 
 ### Cybernetic-Arm
@@ -65,8 +63,7 @@ This quest can't be completed currently because Aragon Court isn't live yet.
 You're now qualified for a vote in our DAO. Follow the rest of the steps outlined here to claim your vote:
 {{% /notice %}}
 
-![](../../assets/daoist-banner3.png)
-
+![](/images/daoist-banner3.png)
 So you have ventured where few still dare to go. Your current augments allow for deeply integrated communications with our cybernetic organization. **Acquire every augment from all ranks in the Governor path** then submit the `!become-singularity` command and you may just unlock infinite power... The Singularity is near...
 
 ### Nanobots

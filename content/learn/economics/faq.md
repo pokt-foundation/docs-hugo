@@ -71,8 +71,7 @@ Visit this [forum post](https://forum.pokt.network/t/secondary-markets-for-pokt/
 
 The initial supply of POKT is 650M, which is divided according to the following genesis distribution:
 
-![](../../assets/initial-distribution.jpg)
-
+![](/images/initial-distribution.jpg)
 The vast majority of these tokens are non-transferable and subject to use restrictions by the holders, starting from mainnet launch. __
 
 * **Private Sale 1/2:** one-year lockup and use restriction from the date of purchase. Those whose year had already expired pre-mainnet also agreed to an additional lockup according to the following schedule: 50% of tokens unlocked after 6 months, 100% of tokens unlocked after 12 months. 
@@ -88,8 +87,7 @@ The vast majority of these tokens are non-transferable and subject to use restri
 
 This all results in the following circulating supply schedule:
 
-![](../../assets/circulating-supply-schedule.jpg)
-
+![](/images/circulating-supply-schedule.jpg)
 ### Fully Diluted Supply
 
 While the initial total supply of POKT is 650M, Pocket Network uses minting to compensate nodes for performing work on the network. For this reason, POKT is permanently inflationary proportional to usage of the network, i.e. proportional to the number of relays being processed by nodes, but the total supply will be capped through a burning mechanism put in place by the DAO (more on this below).

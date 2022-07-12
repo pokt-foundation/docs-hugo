@@ -21,4 +21,4 @@ The POKT community has a number of OTC desks which can be found [here](https://f
 
 To receive POKT, you must use your Address, not your Public Key. The Public Key is used for API transactions, not basic wallet actions.
 
-![](../assets/Transfer.png)
+![](/images/Transfer.png)

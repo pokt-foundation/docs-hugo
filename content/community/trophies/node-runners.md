@@ -7,8 +7,7 @@ weight: 37
 
 ## Nodégé
 
-![](../../assets/node-banner1.png)
-
+![](/images/node-banner1.png)
 Greetings aspiring Node Runner, we have heard your call to join us in the battle against the corporate node overlords. In order to earn the Nodégé rank, you must **complete 3/3 of the following assignments**, providing evidence in the [🏆trophies](https://discord.com/channels/553741558869131266/763504639299289138) channel, then submit the `!become-nodege` command.
 
 ### Server
@@ -35,8 +34,7 @@ Avoid getting [jailed](../../learn/glossary.md#jail) for 7 days (672 consecutive
 
 ## Nodemad
 
-![](../../assets/node-banner2.png)
-
+![](/images/node-banner2.png)
 Congratulations Nodégé, lesser nodes have not made it this far, we are pleased with your progress. To earn the Nodemad rank, you must **complete 5/8 of the following assignments**, providing evidence in the [🏆trophies](https://discord.com/channels/553741558869131266/763504639299289138) channel, then submit the `!become-nodemad` command.
 
 ### Datacenter
@@ -79,8 +77,7 @@ Once you've reached Nodemad, you're now qualified for a vote in our DAO.
 
 ## Node Runner
 
-![](../../assets/node-banner3.png)
-
+![](/images/node-banner3.png)
 You've proven yourself a key member of our node army. **Complete all assignments from every rank of the Node Runner path** then submit the `!become-node-runner` command to cement your legacy in the pantheon of our greatest Node Runners.
 
 ### Cloud

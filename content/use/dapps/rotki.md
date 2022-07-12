@@ -16,20 +16,16 @@ To get started connecting to Pocket's censorship-resistant infrastructure for Et
 
 1\. Open and login into your local application.
 
-![](../../assets/rotki-step-1.png)
-
+![](/images/rotki-step-1.png)
 2\. Toggle to account, then open settings.
 
-![](../../assets/rotki-step-2.png)
-
+![](/images/rotki-step-2.png)
 3\. Scroll down to the Local Nodes section, then delete the default RPC endpoint.
 
-![](../../assets/rotki-step-3.png)
-
+![](/images/rotki-step-3.png)
 4\. Copy & Paste this URL into the Ethereum Node RPC Endpoint field:
 
 `https://eth-mainnet.gateway.pokt.network/v1/lb/615541c96ad539003506595e`
 
-![](../../assets/rotki-step-4.png)
-
+![](/images/rotki-step-4.png)
 Reference the [Rotki User Guide](https://rotki.readthedocs.io/en/latest/usage\_guide.html) for additional support.
