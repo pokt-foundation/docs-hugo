@@ -12,8 +12,7 @@ Pocket supports dozens of blockchains, with more being added all the time.
 
 [**View the list of supported blockchains**](supported-blockchains.md)
 
-![](assets/pocket_network_overview.png)
-
+![](/images/pocket_network_overview.png)
 ## Get Started
 
 ### Use Pocket Network's RPC
