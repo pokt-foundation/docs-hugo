@@ -36,7 +36,7 @@ theme = 'relearn'
   disableShortcutsTitle = false
   # If set to false, a Home button will appear below the search bar on the menu.
   # It is redirecting to the landing page of the current language if specified. (Default is "/")
-  disableLandingPageButton = true
+  disableLandingPageButton = false
   # When using mulitlingual website, disable the switch language button.
   disableLanguageSwitchingButton = false
   # Hide breadcrumbs in the header and only show the current page title
@@ -56,7 +56,7 @@ theme = 'relearn'
   # Initialization parameter for Mermaid, see Mermaid documentation
   mermaidInitialize = "{ \"theme\": \"default\" }"
   # If set to false, load the Swagger module on every page regardless if a Swagger shortcode is present
-  disableSwagger = false
+  disableSwagger = true
   # Specifies the remote location of the RapiDoc js
   customSwaggerURL = "https://unpkg.com/rapidoc/dist/rapidoc-min.js"
   # Initialization parameter for Swagger, see RapiDoc documentation
@@ -67,7 +67,7 @@ theme = 'relearn'
   # this can be overridden in the pages frontmatter
   ordersectionsby = "weight"
   # Change default color scheme with a variant one. Eg. can be "red", "blue", "green" or an array like [ "blue", "green" ].
-  themeVariant = "relearn-blue"
+  themeVariant = "blue"
   # Change the title separator. Default to "::".
   titleSeparator = "-"
   # If set to true, the menu in the sidebar will be displayed in a collapsible tree view.
@@ -119,3 +119,6 @@ name = "Discord"
 url = "https://discord.gg/pokt"
 weight = 28
 
+[Languages]
+[Languages.en]
+landingPageName = "👋 Welcome"
