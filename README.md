@@ -4,4 +4,8 @@
 
 2) Clone this repo and navigate into it.
 
-3) Run `hugo serve`
+3) Run `git submodule init`
+
+4) Run `git submodule update`
+
+5) Run `hugo serve`
