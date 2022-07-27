@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>⛓ Protocol on Pocket Network</title>
+    <link>https://docs.pokt.network/learn/protocol/</link>
+    <description>Recent content in ⛓ Protocol on Pocket Network</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.pokt.network/learn/protocol/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🤝 Servicing</title>
+      <link>https://docs.pokt.network/learn/protocol/servicing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/learn/protocol/servicing/</guid>
+      <description>Overview The Pocket Network’s Servicing layer is comprised of 2 main actors: Applications and Servicers. An Application submits a Relay Request, or an API requests to be routed to any Relay Chain. A Servicer ‘services’ the Application, by routing the Relay Request to the Relay Chain and forwarding the response to the Application. This interaction between an Application and a Servicer is the fundamental utility of Pocket Network.
+Basic Lifecycle To register for decentralized infrastructure, an Application must stake the native cryptocurrency POKT in the network.</description>
+    </item>
+    <item>
+      <title>🛡 Security</title>
+      <link>https://docs.pokt.network/learn/protocol/security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/learn/protocol/security/</guid>
+      <description>By enforcing POKT to be staked from both the Applications and the Validators, the protocol is able to economically penalize either actor participating in servicing
+Session Security The probability due to randomized selection without replacement is:
+$$P (A∩B) = P (A) P (B|A)$$Thus the probability of selecting any combination of Validators at any given Session in Pocket Network is:
+$$1 / (allvals (allvals-1) (allvals - 2) ... * (allvals - valspersession))$$Meaning, the more Validators in the network, the higher level of randomization and by extension security.</description>
+    </item>
+  </channel>
+</rss>

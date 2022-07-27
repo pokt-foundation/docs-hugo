@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>💰 Get POKT on Pocket Network</title>
+    <link>https://docs.pokt.network/pokt/</link>
+    <description>Recent content in 💰 Get POKT on Pocket Network</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.pokt.network/pokt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manage POKT</title>
+      <link>https://docs.pokt.network/pokt/wallets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/pokt/wallets/</guid>
+      <description>Before buying any POKT, you should first ensure that you know how to store it safely.
+Create Wallet You can use the official wallet web app to create your wallet. Note: desktop and Ledger apps are in development. This documentation will be updated when they are available to use.
+Click &amp;lsquo;Create&amp;rsquo;. 2. Enter a unique passphrase.
+WarningThe passphrase unlocks/decrypts an encrypted version of the private key that is stored in a Key File.</description>
+    </item>
+    <item>
+      <title>Buy POKT</title>
+      <link>https://docs.pokt.network/pokt/buy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/pokt/buy/</guid>
+      <description>Exchanges POKT is available to purchase on multiple global exchanges. Follow this DAO proposal for updates on official listings.
+Note that you can’t stake POKT from exchanges. To stake your POKT you would need to withdraw to your wallet (see below).
+Over-the-Counter (OTC) Over-the-Counter (OTC) trading desks are white-label markets operated by trusted intermediaries who match buyers and sellers. They are typically used for large volume trades.
+The POKT community has a number of OTC desks which can be found here.</description>
+    </item>
+    <item>
+      <title>Stake POKT</title>
+      <link>https://docs.pokt.network/pokt/stake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/pokt/stake/</guid>
+      <description>There is no many-to-one delegation in Pocket Network. You cannot simply stake POKT from your wallet and then forget about it. A POKT account must be staked on a node that is relaying RPC requests. However, if you do not have the skills to run a node yourself, you still have options.
+Run Your Own Node Running your own node is an option if you possess both of the following:</description>
+    </item>
+    <item>
+      <title>🎁 Wrapped POKT (wPOKT)</title>
+      <link>https://docs.pokt.network/pokt/wpokt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/pokt/wpokt/</guid>
+      <description>What is wPOKT? Wrapped POKT (wPOKT) is an ERC-20 token backed 1:1 by POKT on the Pocket blockchain and held by a POKT wallet where the underlying holdings are verifiable. wPOKT standardizes POKT to the ERC20 format, enabling and leveraging the usage of smart contracts. Check out the whole green paper here.
+How does staking wPOKT contribute to the Pocket Network? Data Farming allows Ethereum users to stake for infrastructure on behalf of their favorite Ethereum applications while earning rewards.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>👑 Governance on Pocket Network</title>
+    <link>https://docs.pokt.network/community/governance/</link>
+    <description>Recent content in 👑 Governance on Pocket Network</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.pokt.network/community/governance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Proposals</title>
+      <link>https://docs.pokt.network/community/governance/proposals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/community/governance/proposals/</guid>
+      <description>Submitting proposals to the DAO is pretty easy and anyone can do it.
+There are 3 types of proposals:
+PIP: Pocket Improvement Proposal PEP: Pocket Ecosystem Proposal PUP: Pocket Update Proposal Posting your proposal to Discourse puts it up for consideration and debate by the DAO. To kickstart a vote, you need a voter to submit it to our governance dashboard on your behalf.
+🦾 PIP – Pocket Improvement Proposal Pocket Improvement Proposals (PIPs) include any proposals that aim to level up the Pocket Network ecosystem, through:</description>
+    </item>
+  </channel>
+</rss>

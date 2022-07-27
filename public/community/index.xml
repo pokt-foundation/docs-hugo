@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Community on Pocket Network</title>
+    <link>https://docs.pokt.network/community/</link>
+    <description>Recent content in Community on Pocket Network</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.pokt.network/community/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>👑 Governance</title>
+      <link>https://docs.pokt.network/community/governance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/community/governance/</guid>
+      <description>Pocket Network is a pioneer in a new era of democratically-governed digital public goods. Our Decentralized Autonomous Organization (DAO) means that you, our community, will control all aspects of our protocol and ecosystem.
+Pocket uses off-chain governance because it’s the most flexible and future-proof way for us to organize our DAO. For more on our reasoning behind this, check out our Lean Governance Thesis.
+To learn how to earn a vote in the DAO and decide the future of Pocket Network, see the section on trophies.</description>
+    </item>
+    <item>
+      <title>🦸 Contribute</title>
+      <link>https://docs.pokt.network/community/contribute/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/community/contribute/</guid>
+      <description>How to Contribute Submit an RFP – Highlight a Need An RFP is a Request for Proposal. You would use this when you know that something is needed but you are unsure of exactly what the solution is or are unable to build it yourself. Posting an RFP should serve as a signal to other community members that there might be demand for their contributions.
+For example, this Node Deployment Solutions RFP which led to the successful PEP (POKT grant) for an automated deployment tool called Node Pilot.</description>
+    </item>
+    <item>
+      <title>🗳 Trophies</title>
+      <link>https://docs.pokt.network/community/trophies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/community/trophies/</guid>
+      <description>Claim Your Vote!
+The DAO onboarding process has been designed to assign governance powers to the most engaged, knowledgeable, and experienced members of the Pocket Network community.
+The steps for obtaining a vote are as follows&amp;hellip;
+1. Get Qualified First, you need to prove your knowledge of and participation in the Pocket Network by earning trophies.
+There are four paths that you can take on this journey:
+App Developers Node Runners Community Shepherds Governor/Contributors You will complete a series of quests and report your completion of these quests in the 🏆trophies channel in Discord.</description>
+    </item>
+  </channel>
+</rss>

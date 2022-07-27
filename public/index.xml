@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome on Pocket Network</title>
+    <link>https://docs.pokt.network/</link>
+    <description>Recent content in Welcome on Pocket Network</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.pokt.network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>✅ Supported Blockchains</title>
+      <link>https://docs.pokt.network/supported-blockchains/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/supported-blockchains/</guid>
+      <description>Pocket works out-of-the-box with any network/blockchain (RelayChain) that uses the RPC standard.
+Current RelayChains The following table shows the full list of supported, revenue-generating RelayChains. This list should be identical to the SupportedBlockchains parameter.
+Name Portal API Prefix RelayChainID Algorand algo-mainnet 0029 Avalanche avax-mainnet 0003 Binance Smart Chain bsc-mainnet 0004 Binance Smart Chain Archival bsc-archival 0010 Boba boba-mainnet 0048 DFKchain Subnet dfk-mainnet 03DF Evmos evmos-mainnet 0046 Ethereum eth-mainnet 0021 Ethereum Archival eth-archival 0022 Ethereum Archival Trace eth-archival-trace 0028 Ethereum Goerli eth-goerli 0026 Ethereum Kovan poa-kovan 0024 Ethereum Rinkeby eth-rinkeby 0025 Ethereum Ropsten eth-ropsten 0023 Fantom fantom-mainnet 0049 FUSE fuse-mainnet 0005 FUSE Archival fuse-archival 000A Gnosis Chain gnosischain-mainnet 0027 Gnosis Chain Archival gnosischain-archival 000C Harmony Shard 0 harmony-0 0040 IoTeX iotex-mainnet 0044 Moonbeam moonbeam-mainnet 0050 Moonriver moonriver-mainnet 0051 NEAR near-mainnet 0052 OKExChain oec-mainnet 0047 Optimism optimism-mainnet 0053 Pocket Network mainnet 0001 Polygon poly-mainnet 0009 Polygon Archival poly-archival 000B Solana sol-mainnet 0006 Swimmer Network Mainnet avax-cra 03CB Pocket Testnet RelayChains The following table shows the full list of currently-supported blockchains on the Pocket Testnet.</description>
+    </item>
+    <item>
+      <title>💰 Get POKT</title>
+      <link>https://docs.pokt.network/pokt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/pokt/</guid>
+      <description>POKT is the native cryptocurrency that powers Pocket. In this section, we&amp;rsquo;ll go over how to store your POKT safely, as well as buying and staking.
+Manage POKT Buy POKT Stake POKT Wrapped POKT (wPOKT) </description>
+    </item>
+    <item>
+      <title>Learn Pocket</title>
+      <link>https://docs.pokt.network/learn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/learn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Use Pocket</title>
+      <link>https://docs.pokt.network/use/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Run Nodes</title>
+      <link>https://docs.pokt.network/node/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/node/</guid>
+      <description>In this section, you&amp;rsquo;ll get information on running a Pocket node.
+These details are mostly for &amp;ldquo;intermediate&amp;rdquo; node runners, who are familiar with running full nodes and have the knowledge required to avoid getting lost. If you would like a more beginner&amp;rsquo;s tutorial, visit Zero To Node. You may also want to explore node-hosting services.
+Want to understand the economics of running a node before you dive in? Read about Node Economics.</description>
+    </item>
+    <item>
+      <title>Integrate</title>
+      <link>https://docs.pokt.network/integrate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/integrate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Community</title>
+      <link>https://docs.pokt.network/community/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/community/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>💬 More Information</title>
+      <link>https://docs.pokt.network/more-info/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/more-info/</guid>
+      <description>Pocket Network is an open-source multi-stakeholder community. Therefore, the best way to contact us is to join our community in Discourse and Discord.
+Discord You can join our Discord. We recommend doing this if you want to keep your finger on the pulse.
+Be sure to start in the 👋welcome channel, where you can choose the topics you&amp;rsquo;re interested in.
+Discourse (Pocket Forum) Ask for help Report a bug Request a feature Submit a proposal Ask for feedback Find or advertise node hosting services Find or advertise work in the Pocket ecosystem Social Media You can find us on the following sites:</description>
+    </item>
+  </channel>
+</rss>

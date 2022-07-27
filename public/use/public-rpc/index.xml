@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Public RPC Endpoints on Pocket Network</title>
+    <link>https://docs.pokt.network/use/public-rpc/</link>
+    <description>Recent content in Public RPC Endpoints on Pocket Network</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.pokt.network/use/public-rpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Avalanche \(AVAX\)</title>
+      <link>https://docs.pokt.network/use/public-rpc/avax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/avax/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/9SNGe2tfmmw&amp;quot; %}
+We have created a public Avalanche RPC endpoint with up to 1M requests per day to give people who use Metamask the opportunity to connect to Pocket&amp;rsquo;s decentralized, censorship-resistant infra.
+To get started connecting to Pocket&amp;rsquo;s infrastructure for Avalanche C-Chain, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write Avalanche Pocket Portal Within the New RPC URL field, copy and paste this endpoint URL https://avax-mainnet.</description>
+    </item>
+    <item>
+      <title>Binance Smart Chain \(BSC\)</title>
+      <link>https://docs.pokt.network/use/public-rpc/bsc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/bsc/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/fLTvtBtOEg0&amp;quot; %}
+We have created a public BSC RPC endpoint with up to 1M requests per day to give people who use Metamask the opportunity to connect to Pocket&amp;rsquo;s decentralized, censorship-resistant infra.
+To get started connecting to Pocket&amp;rsquo;s infrastructure for BSC, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write BSC Pocket Portal Within the New RPC URL field, copy and paste this endpoint URLhttps://bsc-mainnet.</description>
+    </item>
+    <item>
+      <title>Connecting MetaMask to DFK Chain</title>
+      <link>https://docs.pokt.network/use/public-rpc/dfk-chain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/dfk-chain/</guid>
+      <description>For those who play Defi Kingdoms, you can use Pocket&amp;rsquo;s public RPC endpoint for DFK Chain and take advantage of Pocket&amp;rsquo;s decentralized infrastructure.
+There are two ways to connect your MetaMask wallet to DFK Chain. Choose whichever method you prefer.
+Chainlist Navigate to https://chainlist.org/?search=dfk, or go to Chainlist and search for &amp;ldquo;dfk&amp;rdquo;. Click the down arrow under DFK Chain to expand the entry. In the row with the URL that begins with htps://avax-dfk.</description>
+    </item>
+    <item>
+      <title>Ethereum \(ETH\)</title>
+      <link>https://docs.pokt.network/use/public-rpc/ethereum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/ethereum/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/8ruuz3u2V2E&amp;quot; %}
+We have created a public Ethereum RPC endpoint with up to 10M requests per day to give people who use Metamask the opportunity to connect to Pocket&amp;rsquo;s decentralized, censorship-resistant infra.
+To get started connecting to Pocket&amp;rsquo;s infrastructure for Ethereum mainnet, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write Ethereum Pocket Portal Within the New RPC URL field, copy and paste this endpoint URL https://eth-rpc.</description>
+    </item>
+    <item>
+      <title>Evmos</title>
+      <link>https://docs.pokt.network/use/public-rpc/evmos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/evmos/</guid>
+      <description>We have minted a public Evmos RPC endpoint with up to XM requests per day to give people who use Metamask the opportunity to connect to Pocket&amp;rsquo;s decentralized, censorship-resistant infra.
+To get started connecting to Pocket&amp;rsquo;s infrastructure for Evmos, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write Evmos Pocket Portal Within the New RPC URL field, copy and paste this endpoint URL https://evmos-testnet.</description>
+    </item>
+    <item>
+      <title>Fuse</title>
+      <link>https://docs.pokt.network/use/public-rpc/fuse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/fuse/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/sSg8QWgR_T8&amp;quot; %}
+We have created a public Fuse RPC endpoint with up to 3M requests per day to give people who use Metamask the opportunity to connect to Pocket&amp;rsquo;s decentralized, censorship-resistant infra.
+To get started connecting to Pocket&amp;rsquo;s infrastructure for Fuse, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write Fuse Pocket Portal Within the New RPC URL field, copy and paste this endpoint URL https://fuse-rpc.</description>
+    </item>
+    <item>
+      <title>Gnosis Chain (xDAI)</title>
+      <link>https://docs.pokt.network/use/public-rpc/gnosis-chain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/gnosis-chain/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/9nfL7l6YtkU&amp;quot; %}
+We have minted a public Gnosis RPC endpoint to give people who use Metamask the opportunity to connect to Pocket&amp;rsquo;s decentralized, censorship-resistant infra.
+To get started connecting to Pocket&amp;rsquo;s infrastructure for xDAI, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write Gnosis Pocket Portal Within the New RPC URL field, copy and paste this endpoint URL https://gnosischain-rpc.</description>
+    </item>
+    <item>
+      <title>Harmony</title>
+      <link>https://docs.pokt.network/use/public-rpc/harmony/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/harmony/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/w9ZziTu0ROo&amp;quot; %}
+We have created a public Harmony RPC endpoint for applications and end-users to utilize!
+To get started connecting to Pocket&amp;rsquo;s infrastructure for Harmony Mainnet Shard 0, do the following: Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write Harmony Mainnet 0 POKT Portal Within the New RPC URL field, copy and paste this endpoint URL https://harmony-0-rpc.gateway.pokt.network Put the decimal 1666600000 in the ChainID field Write ONE as the Symbol Add https://explorer.</description>
+    </item>
+    <item>
+      <title>IoTeX</title>
+      <link>https://docs.pokt.network/use/public-rpc/iotex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/iotex/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/XXzlplnOR7M&amp;quot; %}
+We have minted a public IoTeX RPC endpoint with up to 1M requests per day to give people who use Metamask the opportunity to connect to Pocket&amp;rsquo;s decentralized, censorship-resistant infra.
+To get started connecting to Pocket&amp;rsquo;s infrastructure for IoTeX, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write IoTeX Pocket Portal Within the New RPC URL field, copy and paste this endpoint URL https://iotex-mainnet.</description>
+    </item>
+    <item>
+      <title>Polygon</title>
+      <link>https://docs.pokt.network/use/public-rpc/polygon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/public-rpc/polygon/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/C0jDq20pBYQ&amp;quot; %}
+We have created a public Polygon RPC endpoint with up to 5M requests per day to give people who use Metamask the opportunity to connect to Pocket&amp;rsquo;s decentralized, censorship-resistant infra.
+More details here:
+https://forum.matic.network/t/pocket-network-creates-free-polygon-rpc-community-endpoints/1597
+To get started connecting to Pocket&amp;rsquo;s infrastructure for Polygon, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write Polygon Pocket Portal Within the New RPC URL field, copy and paste this endpoint URL https://poly-rpc.</description>
+    </item>
+  </channel>
+</rss>

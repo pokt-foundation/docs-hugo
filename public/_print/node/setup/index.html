@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.101.0">
+    <meta name="generator" content="Relearn 5.0.3+tip">
+    <meta name="description" content="">
+    <title>Node Setup - Pocket Network</title>
+    <link href="/node/setup/" rel="canonical" type="text/html" title="Pocket Network">
+    <link href="/node/setup/index.xml" rel="alternate" type="application/rss+xml" title="Pocket Network">
+    <link href="/images/favicon.svg?1658922678" rel="icon" type="image/svg+xml">
+    
+    <link href="/css/fontawesome-all.min.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/featherlight.min.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/auto-complete.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <noscript>
+      <link href="/css/fontawesome-all.min.css?1658922678" rel="stylesheet">
+      <link href="/css/featherlight.min.css?1658922678" rel="stylesheet">
+      <link href="/css/auto-complete.css?1658922678" rel="stylesheet">
+    </noscript>
+    <link href="/css/perfect-scrollbar.min.css?1658922678" rel="stylesheet">
+    <link href="/css/nucleus.css?1658922678" rel="stylesheet">
+    <link href="/css/fonts.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/theme.css?1658922678" rel="stylesheet">
+    <link href="/css/theme-blue.css?1658922678" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1658922678" rel="stylesheet">
+    <link href="/css/variant.css?1658922678" rel="stylesheet">
+    <link href="/css/print.css?1658922678" rel="stylesheet">
+    <script src="/js/variant.js?1658922678"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/docs.pokt.network/';
+      variants.init( [ 'blue' ] );
+    </script>
+    <script src="/js/jquery.min.js?1658922678" defer></script>
+  </head>
+  <body class="mobile-support print" data-url="/node/setup/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/node/staking/" title="Custodial and non-custodial staking (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/node/environment/" title="Environment Setup (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="top-print-link">
+            <a class="print-link" title='Print whole chapter (CTRL+ALT+p)' href="/_print/node/setup/">
+              <i class="fas fa-print fa-fw"></i>
+            </a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+m)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
+            <span class="links">
+              Node Setup
+            </span>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#deploy-your-validator--full-nodes">Deploy Your Validator &amp; Full Nodes</a>
+      <ul>
+        <li><a href="#create-an-account">Create an account</a></li>
+        <li><a href="#backup-the-account">Backup the account</a></li>
+        <li><a href="#fund-the-account">Fund the account</a></li>
+        <li><a href="#set-the-account-as-validator">Set the account as Validator</a></li>
+        <li><a href="#set-relay-chains">Set Relay Chains</a></li>
+        <li><a href="#setup-the-genesis-configuration-file">Setup the Genesis Configuration File</a></li>
+        <li><a href="#test-your-node">Test your node</a></li>
+        <li><a href="#download-the-latest-snapshot">Download the Latest Snapshot</a></li>
+        <li><a href="#sync-the-blockchain">Sync the blockchain</a></li>
+        <li><a href="#stake-the-validator">Stake the Validator</a></li>
+      </ul>
+    </li>
+    <li><a href="#upgrade-your-node">Upgrade Your Node</a>
+      <ul>
+        <li><a href="#release-specific-changes">Release-specific Changes</a></li>
+        <li><a href="#1-shutdown-pocket-core">1. Shutdown Pocket Core</a></li>
+        <li><a href="#2-backup-your-blockchain-data">2. Backup Your Blockchain Data</a></li>
+        <li><a href="#3-ensure-the-latest-golang-version">3. Ensure the Latest Golang Version</a></li>
+        <li><a href="#4-rebuild-or-upgrade-your-binary">4. Rebuild or Upgrade Your Binary</a></li>
+        <li><a href="#5-upgrade-your-configjson">5. Upgrade Your config.json</a></li>
+        <li><a href="#6-start-pocket">6. Start Pocket</a></li>
+      </ul>
+    </li>
+    <li><a href="#earn-trophies-join-the-dao">Earn Trophies, Join the DAO</a></li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+    
+          <article class="default">
+<h1>Node Setup</h1>
+
+<h2 id="deploy-your-validator--full-nodes">Deploy Your Validator &amp; Full Nodes</h2>
+<h3 id="create-an-account">Create an account</h3>
+<p>An account is needed to participate at any level of the network.</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Response"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Response')"
+      ><span>Response</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket accounts create
+</code></pre>
+    </div>
+    <div data-tab-item="Response" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>&gt; Enter Passphrase
+&gt; Account generated successfully:
+&gt; Address: &lt;address&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Alternatively, you can create your account using the <a href="https://wallet.pokt.network">Wallet app</a>, then use the encrypted import command to import the account into your node environment:</p>
+    </div>
+</div>
+<pre tabindex="0"><code>pocket accounts import-armored &lt;/path/to/ppk.json&gt;
+</code></pre><h3 id="backup-the-account">Backup the account</h3>
+<p>Backup your private key to an encrypted and ASCII armored json file, to the specified <code>--path</code> , using the secure export command. After you hit enter, you will be prompted for the decrypt passphrase and an encryption passphrase for the exported account. You will also have the option to add a hint to help remember your passphrase.</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Example"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Example')"
+      ><span>Example</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket accounts export &lt;address&gt; --path &lt;path&gt;
+</code></pre>
+    </div>
+    <div data-tab-item="Example" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>pocket accounts export 59f08710afbad0e20352340780fdbf4e47622a7c --path /$HOME/super-secret-dir
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Do not use your node&rsquo;s account as your personal account address. Since the node&rsquo;s private key is stored in plaintext on the server, the key is as secure as your server is. Regularly sweep your node&rsquo;s rewards and transfer them to a more secure account stored offline.</p>
+    </div>
+</div>
+<p>For more details on securely managing your POKT accounts, see here:</p>
+<p>{% content-ref url=&quot;../buy-store-and-stake-pokt/&quot; %}
+<a href="/node/setup/../buy-store-and-stake-pokt/">buy-store-and-stake-pokt</a>
+{% endcontent-ref %}</p>
+<h3 id="fund-the-account">Fund the account</h3>
+<p>To stake a Validator in Pocket Network, the account must have a balance above the <strong>minimum stake</strong>:</p>
+<p><code>15,000 POKT</code> or <code>15,000,000,000 uPOKT</code></p>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p>The absolute minimum node stake (15,000 POKT) is not <em>practical</em> for real-world usage. 15,100 is a reasonable buffer against operational slashes which can occur on <em>seemingly properly</em> configured nodes as well as misconfigured and misbehaving ones.</p>
+    </div>
+</div>
+<p>Send POKT with the following command:</p>
+<pre tabindex="0"><code>pocket accounts send-tx &lt;fromAddr&gt; &lt;toAddr&gt; &lt;uPOKT amount&gt; mainnet 10000 &#34;&#34;
+</code></pre><p>You won&rsquo;t be able to send POKT using your CLI until you have a Validator set up. Until then, you can use the <a href="https://wallet.pokt.network">Wallet app</a>.</p>
+<p>If you&rsquo;re using the testnet, you can fund your account using the <a href="https://faucet.pokt.network">Testnet Faucet</a>.</p>
+<h3 id="set-the-account-as-validator">Set the account as Validator</h3>
+<pre tabindex="0"><code>pocket accounts set-validator &lt;address&gt;
+</code></pre>
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Check that it worked with <code>pocket accounts get-validator</code></p>
+    </div>
+</div>
+<h3 id="set-relay-chains">Set Relay Chains</h3>
+<p>A Relay Chain is the blockchain that Validators are running full nodes for in service of Applications. Apps access Relay Chains through the <code>serviceURI</code>, the endpoint where Validators publicly expose the Pocket API.</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Response"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Response')"
+      ><span>Response</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket util generate-chains
+</code></pre>
+    </div>
+    <div data-tab-item="Response" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>&gt; Enter the chain of the network identifier:
+&lt;Relay Chain ID&gt; (Example: 0001)
+&gt; Enter the URL of the network identifier:
+&lt;Secure URL to Relay Chain&gt;
+Would you like to enter another network identifier? (y/n)
+n
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>RelayChainIDs can be found <a href="/node/setup/../supported-blockchains">here</a>.</p>
+    </div>
+</div>
+<h3 id="setup-the-genesis-configuration-file">Setup the Genesis Configuration File</h3>
+<p>Genesis files can be found here:</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/mainnet/genesis.json">Mainnet Genesis File</a></li>
+<li><a href="https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/testnet/genesis.json">Testnet Genesis File</a></li>
+</ul>
+<p>The appropriate genesis file should be placed at <code>$HOME/.pocket/config/genesis.json</code></p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Mainnet Setup"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Mainnet Setup')"
+      ><span>Mainnet Setup</span></button>
+    <button
+      data-tab-item="Testnet Setup"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Testnet Setup')"
+      ><span>Testnet Setup</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Mainnet Setup" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>mkdir -p &#34;$HOME&#34;/.pocket/config
+curl -o &#34;$HOME&#34;/.pocket/config/genesis.json https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/mainnet/genesis.json
+</code></pre>
+    </div>
+    <div data-tab-item="Testnet Setup" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>mkdir -p &#34;$HOME&#34;/.pocket/config
+curl -o &#34;$HOME&#34;/.pocket/config/genesis.json https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/testnet/genesis.json
+</code></pre>
+    </div>
+  </div>
+</div>
+<h3 id="test-your-node">Test your node</h3>
+<p>Test that your node is configured correctly by simulating a relay.</p>
+<pre tabindex="0"><code>pocket start --simulateRelay
+</code></pre><p>Then send a curl request to your validator URL <code>http://&lt;your node&gt;:&lt;your pocket rpc port&gt;/v1/client/sim</code> to test if your node responds.</p>
+<pre tabindex="0"><code>curl -X POST --data &#39;{&#34;relay_network_id&#34;:&#34;&lt;relay chain ID from chains.json&gt;&#34;,&#34;payload&#34;:{&#34;data&#34;:&#34;{\&#34;jsonrpc\&#34;:\&#34;2.0\&#34;,\&#34;method\&#34;:\&#34;eth_getBalance\&#34;,\&#34;params\&#34;:[\&#34;0xe7a24E61b2ec77d3663ec785d1110688d2A32ecc\&#34;, \&#34;latest\&#34;],\&#34;id\&#34;:1}&#34;,&#34;method&#34;:&#34;POST&#34;,&#34;path&#34;:&#34;&#34;,&#34;headers&#34;:{}}}&#39; &lt;your node URL&gt;:8081/v1/client/sim
+</code></pre>
+<div class="box notices cstyle success">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p><code>200 OK</code> – your transaction has gone through</p>
+    </div>
+</div>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p><code>400 Bad Request</code> – you either have incorrect/missing parameters in the request or bad formatting in the data field</p>
+    </div>
+</div>
+<p>Finally, stop your node. If you don&rsquo;t, you&rsquo;ll be leaving &ndash;simulateRelay running, which means anyone will have unfiltered access to your node.</p>
+<h3 id="download-the-latest-snapshot">Download the Latest Snapshot</h3>
+<p>Downloading from the latest snapshot will drastically shorten the time it takes to sync the blockchain. The easiest way is by downloading with <code>wget</code> and extracting the archive as it downloads.</p>
+<pre tabindex="0"><code>mkdir -p &#34;$HOME&#34;/.pocket/data
+wget -qO- https://snapshot.nodes.pokt.network/latest.tar.gz | tar -xz -C &#34;$HOME&#34;/.pocket/data
+</code></pre><p>Other options for downloading the latest snapshot can be found in the <a href="https://github.com/pokt-foundation/pocket-snapshotter">pocket-snapshotter repo</a>.</p>
+<h3 id="sync-the-blockchain">Sync the blockchain</h3>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Example"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Example')"
+      ><span>Example</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket start --seeds=&lt;seeds&gt; --mainnet
+</code></pre>
+    </div>
+    <div data-tab-item="Example" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>pocket start --seeds=&#34;64c91701ea98440bc3674fdb9a99311461cdfd6f@node1.mainnet.pokt.network:21656&#34; --mainnet
+</code></pre>
+    </div>
+  </div>
+</div>
+<p>See the section on <a href="/node/setup/seeds.md">seeds</a> for more details.</p>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Ensure the node is all the way synced before proceeding to the next step.</p>
+    </div>
+</div>
+<h3 id="stake-the-validator">Stake the Validator</h3>
+<p>Stake the account to participate in the Network as a Validator. Staking a Validator locks up POKT tokens that can be burned as a security mechanism for bad acting.</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Example"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Example')"
+      ><span>Example</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket nodes stake custodial &lt;address&gt; &lt;amount&gt; &lt;relay_chains&gt; &lt;serviceURI&gt; mainnet 10000 false
+</code></pre>
+    </div>
+    <div data-tab-item="Example" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>pocket nodes stake custodial 3ee61299d5bbbd2974cddcc194d9b547c7629546 20000000000 0001,0002 https://pokt.rocks:443 mainnet 10000 true
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Read more about <a href="/node/setup/staking.md">custodial versus non-custodial staking</a>.</p>
+    </div>
+</div>
+<p><strong>You should leave 1 POKT liquid (unstaked) to pay the transaction fees for your node&rsquo;s claim and proof transactions.</strong></p>
+<p>All node runners must always maintain a liquid (unstaked) balance of at least 0.02 POKT in order to submit the claim and proof transactions (which each have a transaction fee of 0.01 POKT) that generate their rewards. If a node successfully submits both the claim and proof, they will earn enough POKT to submit the next claims and proofs, and so on. However, if a node falls below a liquid balance of 0.02 POKT, their revenue will be halted.</p>
+<p>Claim transactions have 3 sessions, the <code>ClaimSubmissionWindow</code>, to be successfully submitted after the conclusion of the session in which the work was done, otherwise they are lost. If a claim transaction fails, Pocket Core will auto-repeat the transaction once in each new session, until the claim is lost. This means your node will automatically take 3 attempts to submit the claim. There is a claim submission window because the global secret key that determines the required proof leaf is revealed once that window closes. Extending the claim submission window would delay the time at which the corresponding proof can be sent and rewards earned.</p>
+<p>If you manage to successfully submit the claim transaction, you then have 120 blocks, the <code>ClaimExpiration</code> period, to submit the corresponding proof transaction, otherwise the pending claim expires. There is a claim expiration date because otherwise the claims would remain in the state and bloat the blockchain.</p>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p><strong>Bad Behavior Warning: Pre-staking</strong></p>
+<p>Pre-staking is the act of a node runner staking on a RelayChainID prior to spinning up the RelayChain node. This behavior has an extremely negative impact on the quality of service for new chains due to apps being matched in sessions with Pocket nodes that don&rsquo;t actually have RelayChain nodes connected to them. If you do this, your node will be challenged and slashed. You should always deploy your RelayChain node and simulate relays before staking your Pocket node for the RelayChainID.</p>
+    </div>
+</div>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p>If your stake falls below <code>15,000 POKT</code> your node will be force-unstake burned. We recommend having a buffer above the 15,000 minimum (e.g. 15,100-16,000) so that minor slashing doesn&rsquo;t result in loss of the entire stake.</p>
+    </div>
+</div>
+
+<div class="box notices cstyle success">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p><strong>🏆 Achievement Unlocked</strong></p>
+<p>If you staked your node successfully, you just earned your first trophy. See <a href="https://docs.pokt.network/home/paths/node-runner#earn-trophies-join-the-dao">here</a> to find out how earning more trophies will ultimately earn you a vote in our DAO.</p>
+    </div>
+</div>
+<h2 id="upgrade-your-node">Upgrade Your Node</h2>
+<h3 id="release-specific-changes">Release-specific Changes</h3>
+<p>Each release may have specific modifications you need to make. This is just a general guideline for the steps you&rsquo;ll typically take to upgrade your node. Check the <a href="https://github.com/pokt-network/pocket-core/releases">release notes</a> for release-specific details.</p>
+<h3 id="1-shutdown-pocket-core">1. Shutdown Pocket Core</h3>
+<p>Stop your Pocket Core instance running by submitting the shutdown command.</p>
+<pre tabindex="0"><code>pocket stop
+</code></pre>
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Once you shutdown Pocket Core, you will have 4 blocks (60 minutes) to complete the upgrade and start Pocket Core again before your node gets jailed for downtime.</p>
+    </div>
+</div>
+<h3 id="2-backup-your-blockchain-data">2. Backup Your Blockchain Data</h3>
+<p>Backing up your blockchain data will ensure a faster resync when you restart your node.</p>
+<p>Navigate inside your <code>$HOME/.pocket/</code> dir and save <code>data/</code> (the entire directory):</p>
+<pre tabindex="0"><code>cp -r ~/.pocket/data ~/backup/data
+</code></pre><p>In the event of a corrupted database you can delete the bad data <code>rm -r ~/.pocket/data</code> and replace it with your backup <code>cp -r ~/backup/data ~/.pocket/data</code>.</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>If you don&rsquo;t have a backup, a temporary backup datadir may be provided alongside a release.</p>
+    </div>
+</div>
+<h3 id="3-ensure-the-latest-golang-version">3. Ensure the Latest Golang Version</h3>
+<p>Check your golang version. The release notes will specify which version it should be.</p>
+<pre tabindex="0"><code>go version
+</code></pre><p>If you need to upgrade, use <a href="https://gist.github.com/nikhita/432436d570b89cab172dcf2894465753">this guide</a>.</p>
+<p>Alternatively, if you use <code>g</code>, you can just run</p>
+<pre tabindex="0"><code>sudo apt-get update
+g install &lt;version number&gt;
+</code></pre><h3 id="4-rebuild-or-upgrade-your-binary">4. Rebuild or Upgrade Your Binary</h3>
+<h4 id="source">Source</h4>
+<p>Navigate into <code>pocket-core</code> directory</p>
+<pre tabindex="0"><code>cd ~/go/src/github.com/pokt-network/pocket-core
+</code></pre><p>Checkout the <a href="https://github.com/pokt-network/pocket-core/releases">latest release</a></p>
+<pre tabindex="0"><code>git pull
+git checkout tags/&lt;release tag&gt;
+</code></pre><p>Rebuild the binary</p>
+<pre tabindex="0"><code>go build -o $GOPATH/bin/pocket ./app/cmd/pocket_core/main.go
+</code></pre><h4 id="homebrew">Homebrew</h4>
+<p>Pull the latest tap</p>
+<pre tabindex="0"><code>brew upgrade pokt-network/pocket-core/pocket
+</code></pre><h4 id="docker">Docker</h4>
+<p>Pull the latest container image</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Option 1"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Option 1')"
+      ><span>Option 1</span></button>
+    <button
+      data-tab-item="Option 2"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Option 2')"
+      ><span>Option 2</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Option 1" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>docker pull poktnetwork/pocket-core:RC-0.8.2
+</code></pre>
+    </div>
+    <div data-tab-item="Option 2" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>docker pull poktnetwork/pocket:RC-0.8.2
+</code></pre>
+    </div>
+  </div>
+</div>
+<h3 id="5-upgrade-your-configjson">5. Upgrade Your config.json</h3>
+<p>Run the update-configs command, which creates a new config file (<code>DATADIR/config/config.json</code>) and backs up the old config file (<code>DATADIR/config/config.json.bk</code>).</p>
+<pre tabindex="0"><code>pocket util update-configs
+</code></pre><p>You&rsquo;ll need to manually compare your backup file with the new file to copy over your personal config details.</p>
+<h3 id="6-start-pocket">6. Start Pocket</h3>
+<p>Start <code>pocket</code> running again.</p>
+<pre tabindex="0"><code>pocket start
+</code></pre><h2 id="earn-trophies-join-the-dao">Earn Trophies, Join the DAO</h2>
+<p>You can earn a vote in the DAO and help shape the future of Pocket Network, including deciding which ecosystem tooling our treasury supports and how we configure important on-chain parameters such as node revenue.</p>
+<p>Once you&rsquo;ve staked your node successfully, join our <a href="https://discord.gg/uCZZkHTQjV">Discord</a> and report this in the <a href="https://discord.com/channels/553741558869131266/763504639299289138">🏆trophies</a> channel.</p>
+<p>This is your first trophy on the path to <a href="/node/setup/../community/trophies/README.md">earning a vote in the DAO</a>. Learn more on the <a href="/node/setup/../community/trophies/node-runners.md">Node Runners</a> page.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img alt="POKT Logo" src="/images/logo-white.svg" />
+
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1658922678" defer></script>
+        <script src="/js/lunr.min.js?1658922678" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1658922678" defer></script>
+        <script src="/js/lunr.multi.min.js?1658922678" defer></script>
+        <script src="/js/lunr.en.min.js?1658922678" defer></script>
+        <script src="/js/search.js?1658922678" defer></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/">👋 Welcome</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics collapsible-menu">
+          <li data-nav-id="/supported-blockchains/" title="✅ Supported Blockchains" class="dd-item"><a href="/supported-blockchains/">Supported Blockchains</a></li>
+          <li data-nav-id="/pokt/" title="💰 Get POKT" class="dd-item"><input type="checkbox" id="section-988f0a59c06aa1ec7897abdaf06824dd" class="toggle"/><label for="section-988f0a59c06aa1ec7897abdaf06824dd" ></label><a href="/pokt/">Own POKT</a><ul>
+          <li data-nav-id="/pokt/wallets/" title="Manage POKT" class="dd-item"><a href="/pokt/wallets/">Manage POKT</a></li>
+          <li data-nav-id="/pokt/buy/" title="Buy POKT" class="dd-item"><a href="/pokt/buy/">Buy POKT</a></li>
+          <li data-nav-id="/pokt/stake/" title="Stake POKT" class="dd-item"><a href="/pokt/stake/">Stake POKT</a></li>
+          <li data-nav-id="/pokt/wpokt/" title="🎁 Wrapped POKT (wPOKT)" class="dd-item"><a href="/pokt/wpokt/">Wrapped POKT (wPOKT)</a></li></ul></li>
+          <li data-nav-id="/learn/" title="Learn Pocket" class="dd-item"><input type="checkbox" id="section-b30da781944ae4db0143d27203425a9c" class="toggle"/><label for="section-b30da781944ae4db0143d27203425a9c" ></label><a href="/learn/">Learn Pocket</a><ul>
+          <li data-nav-id="/learn/vision/" title="Vision" class="dd-item"><a href="/learn/vision/">Vision</a></li>
+          <li data-nav-id="/learn/protocol/" title="⛓ Protocol" class="dd-item"><input type="checkbox" id="section-7b0ba589eab3b7bc81771ad16ca9eaa3" class="toggle"/><label for="section-7b0ba589eab3b7bc81771ad16ca9eaa3" ></label><a href="/learn/protocol/">Protocol</a><ul>
+          <li data-nav-id="/learn/protocol/servicing/" title="🤝 Servicing" class="dd-item"><a href="/learn/protocol/servicing/">Servicing</a></li>
+          <li data-nav-id="/learn/protocol/security/" title="🛡 Security" class="dd-item"><a href="/learn/protocol/security/">Security</a></li></ul></li>
+          <li data-nav-id="/learn/economics/" title="🪙 Economics" class="dd-item"><input type="checkbox" id="section-8041da21916b100a66d56b9fffe9d2a7" class="toggle"/><label for="section-8041da21916b100a66d56b9fffe9d2a7" ></label><a href="/learn/economics/">Economics</a><ul>
+          <li data-nav-id="/learn/economics/token/" title="🪙 Token Economics" class="dd-item"><a href="/learn/economics/token/">Token Economics</a></li>
+          <li data-nav-id="/learn/economics/apps/" title="💻 App Economics" class="dd-item"><a href="/learn/economics/apps/">App Economics</a></li>
+          <li data-nav-id="/learn/economics/nodes/" title="🤖 Node Economics" class="dd-item"><a href="/learn/economics/nodes/">Node Economics</a></li>
+          <li data-nav-id="/learn/economics/monetary-policy/" title="🏦 Monetary Policy" class="dd-item"><a href="/learn/economics/monetary-policy/">Monetary Policy</a></li>
+          <li data-nav-id="/learn/economics/faq/" title="💰 Pricing &amp; Economics FAQ" class="dd-item"><a href="/learn/economics/faq/">FAQ</a></li></ul></li>
+          <li data-nav-id="/learn/future/" title="👀 Future (v1)" class="dd-item"><input type="checkbox" id="section-9461954986787100253a049ef82f97d4" class="toggle"/><label for="section-9461954986787100253a049ef82f97d4" ></label><a href="/learn/future/">Future</a><ul>
+          <li data-nav-id="/learn/future/utility/" title="🪙 Utility" class="dd-item"><a href="/learn/future/utility/">Utility</a></li>
+          <li data-nav-id="/learn/future/consensus/" title="🤝 Consensus" class="dd-item"><a href="/learn/future/consensus/">Consensus</a></li>
+          <li data-nav-id="/learn/future/peer-to-peer/" title="💬 Peer to Peer" class="dd-item"><a href="/learn/future/peer-to-peer/">Peer To Peer</a></li>
+          <li data-nav-id="/learn/future/persistence/" title="🗄 Persistence" class="dd-item"><a href="/learn/future/persistence/">Persistence</a></li></ul></li>
+          <li data-nav-id="/learn/protocol-parameters/" title="🎚 Protocol Parameters" class="dd-item"><a href="/learn/protocol-parameters/">Parameters</a></li>
+          <li data-nav-id="/learn/glossary/" title="Glossary" class="dd-item"><a href="/learn/glossary/">Glossary</a></li></ul></li>
+          <li data-nav-id="/use/" title="Use Pocket" class="dd-item"><input type="checkbox" id="section-9c8f252997a5013ebfdc92ac7869fc4d" class="toggle"/><label for="section-9c8f252997a5013ebfdc92ac7869fc4d" ></label><a href="/use/">Use Pocket</a><ul>
+          <li data-nav-id="/use/get-endpoint/" title="Get An Endpoint" class="dd-item"><a href="/use/get-endpoint/">Get an Endpoint</a></li>
+          <li data-nav-id="/use/public-rpc/" title="Public RPC Endpoints" class="dd-item"><input type="checkbox" id="section-5d1bd50b2ec2e182f37a6e240ac8eab5" class="toggle"/><label for="section-5d1bd50b2ec2e182f37a6e240ac8eab5" ></label><a href="/use/public-rpc/">Public RPC Endpoints</a><ul>
+          <li data-nav-id="/use/public-rpc/avax/" title="Avalanche \(AVAX\)" class="dd-item"><a href="/use/public-rpc/avax/">Avalanche</a></li>
+          <li data-nav-id="/use/public-rpc/bsc/" title="Binance Smart Chain \(BSC\)" class="dd-item"><a href="/use/public-rpc/bsc/">Binance Smart Chain</a></li>
+          <li data-nav-id="/use/public-rpc/dfk-chain/" title="Connecting MetaMask to DFK Chain" class="dd-item"><a href="/use/public-rpc/dfk-chain/">DFK Chain</a></li>
+          <li data-nav-id="/use/public-rpc/ethereum/" title="Ethereum \(ETH\)" class="dd-item"><a href="/use/public-rpc/ethereum/">Ethereum</a></li>
+          <li data-nav-id="/use/public-rpc/evmos/" title="Evmos" class="dd-item"><a href="/use/public-rpc/evmos/">Evmos</a></li>
+          <li data-nav-id="/use/public-rpc/fuse/" title="Fuse" class="dd-item"><a href="/use/public-rpc/fuse/">Fuse</a></li>
+          <li data-nav-id="/use/public-rpc/gnosis-chain/" title="Gnosis Chain (xDAI)" class="dd-item"><a href="/use/public-rpc/gnosis-chain/">Gnosis Chain (fka xDAI)</a></li>
+          <li data-nav-id="/use/public-rpc/harmony/" title="Harmony" class="dd-item"><a href="/use/public-rpc/harmony/">Harmony</a></li>
+          <li data-nav-id="/use/public-rpc/iotex/" title="IoTeX" class="dd-item"><a href="/use/public-rpc/iotex/">IoTeX</a></li>
+          <li data-nav-id="/use/public-rpc/polygon/" title="Polygon" class="dd-item"><a href="/use/public-rpc/polygon/">Polygon</a></li></ul></li>
+          <li data-nav-id="/use/dapps/" title="Pocket-Powered dApps" class="dd-item"><input type="checkbox" id="section-7c46178e6f5bbc55407fafefbfe1baa3" class="toggle"/><label for="section-7c46178e6f5bbc55407fafefbfe1baa3" ></label><a href="/use/dapps/">Pocket-Powered dApps</a><ul>
+          <li data-nav-id="/use/dapps/conquest-eth/" title="Conquest.eth" class="dd-item"><a href="/use/dapps/conquest-eth/">Conquest.eth</a></li>
+          <li data-nav-id="/use/dapps/dark-forest/" title="Dark Forest" class="dd-item"><a href="/use/dapps/dark-forest/">Dark Forest</a></li>
+          <li data-nav-id="/use/dapps/mycrypto/" title="MyCrypto" class="dd-item"><a href="/use/dapps/mycrypto/">MyCrypto</a></li>
+          <li data-nav-id="/use/dapps/rotki/" title="Rotki" class="dd-item"><a href="/use/dapps/rotki/">Rotki</a></li></ul></li></ul></li>
+          <li data-nav-id="/node/" title="Run Nodes" class="dd-item parent"><input type="checkbox" id="section-1cd363a44403268e4bd7ae15574da217" class="toggle" checked/><label for="section-1cd363a44403268e4bd7ae15574da217" ></label><a href="/node/">Run Nodes</a><ul>
+          <li data-nav-id="/node/environment/" title="Environment Setup" class="dd-item"><a href="/node/environment/">Environment Setup</a></li>
+          <li data-nav-id="/node/setup/" title="Node Setup" class="dd-item active"><a href="/node/setup/">Pocket Node Setup</a></li>
+          <li data-nav-id="/node/staking/" title="Custodial and non-custodial staking" class="dd-item"><a href="/node/staking/">Custodial and Non-Custodial Staking</a></li>
+          <li data-nav-id="/node/seeds/" title="🌱 Seeds" class="dd-item"><a href="/node/seeds/">Seeds</a></li>
+          <li data-nav-id="/node/tutorials/" title="Node Tutorials" class="dd-item"><input type="checkbox" id="section-250316b1db19d7bf2e89212214811654" class="toggle"/><label for="section-250316b1db19d7bf2e89212214811654" ></label><a href="/node/tutorials/">Tutorials</a><ul>
+          <li data-nav-id="/node/tutorials/zero-to-node/" title="Introduction" class="dd-item"><input type="checkbox" id="section-6ab9d8d230d608550786165898c7a0ca" class="toggle"/><label for="section-6ab9d8d230d608550786165898c7a0ca" ></label><a href="/node/tutorials/zero-to-node/">Zero To Node</a><ul>
+          <li data-nav-id="/node/tutorials/zero-to-node/server-setup/" title="Part 1 –  Server setup" class="dd-item"><a href="/node/tutorials/zero-to-node/server-setup/">Server setup</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/software-install/" title="Part 2 –  Software installation" class="dd-item"><a href="/node/tutorials/zero-to-node/software-install/">Software installation</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/pocket-config/" title="Part 3 –  Pocket configuration" class="dd-item"><a href="/node/tutorials/zero-to-node/pocket-config/">Pocket configuration</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/proxy-config/" title="Part 4 –  Proxy configuration" class="dd-item"><a href="/node/tutorials/zero-to-node/proxy-config/">Proxy configuration</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/going-live/" title="Part 5 –  Going live" class="dd-item"><a href="/node/tutorials/zero-to-node/going-live/">Going live</a></li></ul></li></ul></li>
+          <li data-nav-id="/node/automated-deployments/" title="Automated Deployments" class="dd-item"><a href="/node/automated-deployments/">Automated Deployments</a></li>
+          <li data-nav-id="/node/hosting-services/" title="Node-Hosting Services" class="dd-item"><a href="/node/hosting-services/">Node-Hosting Services</a></li>
+          <li data-nav-id="/node/faq/" title="Node FAQ" class="dd-item"><a href="/node/faq/">Node FAQ</a></li></ul></li>
+          <li data-nav-id="/integrate/" title="Integrate" class="dd-item"><input type="checkbox" id="section-d4bb38a7d13f002c4014ff23289c50e8" class="toggle"/><label for="section-d4bb38a7d13f002c4014ff23289c50e8" ></label><a href="/integrate/">Integrate</a><ul>
+          <li data-nav-id="/integrate/sdk/" title="SDKs" class="dd-item"><a href="/integrate/sdk/">SDKs</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/" title="Accounts and Transactions" class="dd-item"><input type="checkbox" id="section-1f772117c78cb1420090c8202df835ca" class="toggle"/><label for="section-1f772117c78cb1420090c8202df835ca" ></label><a href="/integrate/accounts-transactions/">Accounts and Transactions</a><ul>
+          <li data-nav-id="/integrate/accounts-transactions/account-generation-validation/" title="Account Generation and Validation" class="dd-item"><a href="/integrate/accounts-transactions/account-generation-validation/">Account Generation and Validation</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/transaction-construction/" title="Transaction Construction" class="dd-item"><a href="/integrate/accounts-transactions/transaction-construction/">Transaction Construction</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/transaction-verification/" title="Transaction Verification" class="dd-item"><a href="/integrate/accounts-transactions/transaction-verification/">Transaction Verification</a></li></ul></li></ul></li>
+          <li data-nav-id="/community/" title="Community" class="dd-item"><input type="checkbox" id="section-5222f03197abba24f0c665fe1d22532c" class="toggle"/><label for="section-5222f03197abba24f0c665fe1d22532c" ></label><a href="/community/">Join Us</a><ul>
+          <li data-nav-id="/community/governance/" title="👑 Governance" class="dd-item"><input type="checkbox" id="section-58d7c2e4187c5d62f879f3f81802f3c9" class="toggle"/><label for="section-58d7c2e4187c5d62f879f3f81802f3c9" ></label><a href="/community/governance/">Governance</a><ul>
+          <li data-nav-id="/community/governance/proposals/" title="Proposals" class="dd-item"><a href="/community/governance/proposals/">Proposals</a></li></ul></li>
+          <li data-nav-id="/community/contribute/" title="🦸 Contribute" class="dd-item"><input type="checkbox" id="section-1455a3dbf4677a4000103a13e3e0af39" class="toggle"/><label for="section-1455a3dbf4677a4000103a13e3e0af39" ></label><a href="/community/contribute/">Contribute</a><ul>
+          <li data-nav-id="/community/contribute/scholarships/" title="Scholarships" class="dd-item"><a href="/community/contribute/scholarships/">Scholarships</a></li></ul></li>
+          <li data-nav-id="/community/trophies/" title="🗳 Trophies" class="dd-item"><input type="checkbox" id="section-203bb11e8b6be933d85a663ca65b1a91" class="toggle"/><label for="section-203bb11e8b6be933d85a663ca65b1a91" ></label><a href="/community/trophies/">Trophies</a><ul>
+          <li data-nav-id="/community/trophies/app-developers/" title="🏆 App Developers" class="dd-item"><a href="/community/trophies/app-developers/">App Developers</a></li>
+          <li data-nav-id="/community/trophies/node-runners/" title="🏆 Node Runners" class="dd-item"><a href="/community/trophies/node-runners/">Node Runners</a></li>
+          <li data-nav-id="/community/trophies/community-shepherds/" title="🏆 Community Shepherds" class="dd-item"><a href="/community/trophies/community-shepherds/">Community Shepherds</a></li>
+          <li data-nav-id="/community/trophies/contributors/" title="🏆 Governor/Contributors" class="dd-item"><a href="/community/trophies/contributors/">Contributors</a></li></ul></li></ul></li>
+          <li data-nav-id="/more-info/" title="💬 More Information" class="dd-item"><a href="/more-info/">More Info</a></li>
+        </ul>
+        <div id="shortcuts">
+          <div class="nav-title">More</div>
+          <ul>
+            <li><a class="padding" href="https://forum.pokt.network">Forum</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pocket-js">PocketJS</a></li>
+            <li><a class="padding" href="https://discord.gg/pokt">Discord</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pypocket">pypocket</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pocket-go">pocket-go</a></li>
+            <li><a class="padding" href="https://angel.co/company/pocket-network">Jobs</a></li>
+          </ul>
+        </div>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="blue" value="blue" selected>Blue</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" onclick="clearHistory();"><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter">
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1658922678" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1658922678" defer></script>
+    <script src="/js/featherlight.min.js?1658922678" defer></script>
+    <script src="/js/jquery.svg.pan.zoom.js?1658922678" defer></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js" defer></script>
+    <script>
+      function useMermaid( config ){
+        if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+          mermaid.initialize( Object.assign( { "securityLevel": "antiscript", "startOnLoad": false  }, config ) );
+          if( config.theme ){
+            var write_style = variants.findLoadedStylesheet( 'variant-style' );
+            write_style.setProperty( '--CONFIG-MERMAID-theme', config.theme );
+          }
+        }
+      }
+      useMermaid( JSON.parse("{ \"theme\": \"default\" }") );
+    </script>
+    <script src="/js/theme.js?1658922678" defer></script>
+  </body>
+</html>

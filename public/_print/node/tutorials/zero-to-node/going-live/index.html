@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.101.0">
+    <meta name="generator" content="Relearn 5.0.3+tip">
+    <meta name="description" content="Final steps for going live with your node. Part 5 of 5 in the Zero to Node tutorial.">
+    <title>Part 5 –  Going live - Pocket Network</title>
+    <link href="/node/tutorials/zero-to-node/going-live/" rel="canonical" type="text/html" title="Pocket Network">
+    <link href="/node/tutorials/zero-to-node/going-live/index.xml" rel="alternate" type="application/rss+xml" title="Pocket Network">
+    <link href="/images/favicon.svg?1658922678" rel="icon" type="image/svg+xml">
+    
+    <link href="/css/fontawesome-all.min.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/featherlight.min.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/auto-complete.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <noscript>
+      <link href="/css/fontawesome-all.min.css?1658922678" rel="stylesheet">
+      <link href="/css/featherlight.min.css?1658922678" rel="stylesheet">
+      <link href="/css/auto-complete.css?1658922678" rel="stylesheet">
+    </noscript>
+    <link href="/css/perfect-scrollbar.min.css?1658922678" rel="stylesheet">
+    <link href="/css/nucleus.css?1658922678" rel="stylesheet">
+    <link href="/css/fonts.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/theme.css?1658922678" rel="stylesheet">
+    <link href="/css/theme-blue.css?1658922678" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1658922678" rel="stylesheet">
+    <link href="/css/variant.css?1658922678" rel="stylesheet">
+    <link href="/css/print.css?1658922678" rel="stylesheet">
+    <script src="/js/variant.js?1658922678"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/docs.pokt.network/';
+      variants.init( [ 'blue' ] );
+    </script>
+    <script src="/js/jquery.min.js?1658922678" defer></script>
+  </head>
+  <body class="mobile-support print" data-url="/node/tutorials/zero-to-node/going-live/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/node/automated-deployments/" title="Automated Deployments (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/node/tutorials/zero-to-node/proxy-config/" title="Part 4 –  Proxy configuration (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="top-print-link">
+            <a class="print-link" title='Print whole chapter (CTRL+ALT+p)' href="/_print/node/tutorials/zero-to-node/going-live/">
+              <i class="fas fa-print fa-fw"></i>
+            </a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+m)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
+            <span class="links">
+              Part 5 –  Going live
+            </span>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#test-everything">Test everything</a>
+      <ul>
+        <li><a href="#make-sure-the-pocket-process-is-running">Make sure the Pocket process is running</a></li>
+        <li><a href="#block-height">Block height</a></li>
+        <li><a href="#network-status">Network status</a></li>
+        <li><a href="#make-sure-your-node-is-visible-to-other-nodes">Make sure your node is visible to other nodes</a></li>
+      </ul>
+    </li>
+    <li><a href="#staking-your-node">Staking your node</a>
+      <ul>
+        <li><a href="#confirm-your-node-is-live">Confirm your node is live</a></li>
+      </ul>
+    </li>
+    <li><a href="#tutorial-complete">Tutorial complete</a></li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+    
+          <article class="default">
+<h1>Part 5 –  Going live</h1>
+
+<p>This section will details the final steps in going live with your node.</p>
+<h2 id="test-everything">Test everything</h2>
+<p>At this point your Pocket node should be up and running!</p>
+<p>But you&rsquo;ll want to test it to confirm. The following are some of the things you can do to test your Pocket Node.</p>
+<h3 id="make-sure-the-pocket-process-is-running">Make sure the Pocket process is running</h3>
+<p>The first thing to check is that the pocket service is running. You can do that by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>top -b -n <span style="color:#ae81ff">1</span> | grep pocket
+</span></span></code></pre></div><p>You should see output similar to the following:</p>
+<pre tabindex="0"><code>  44871 root      20   0 1018268  33948  21448 S   0.0   0.4   0:00.17 pocket
+</code></pre><h3 id="block-height">Block height</h3>
+<p>You&rsquo;ll want to check that the node is fully synced with the Pocket blockchain. The easiest way is to run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket query height
+</span></span></code></pre></div><p>The result should look something like the following.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;height&#34;</span>: <span style="color:#ae81ff">48161</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="network-status">Network status</h3>
+<p>Another way to see if your node is fully synced is to check the status with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://127.0.0.1:26657/status
+</span></span></code></pre></div><p>The result should look something like the following. Note the highlighted property <code>catching_up</code> which indicates if the node is catching up with the blockchain or fully synced. In the example below, the node is fully synced.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;jsonrpc&#34;</span>: <span style="color:#e6db74">&#34;2.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">-1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;result&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;node_info&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;protocol_version&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;p2p&#34;</span>: <span style="color:#e6db74">&#34;7&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;block&#34;</span>: <span style="color:#e6db74">&#34;10&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;app&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;80b80c106115259349df8ef06267cff7bbabd194&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;listen_addr&#34;</span>: <span style="color:#e6db74">&#34;tcp://0.0.0.0:26656&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;network&#34;</span>: <span style="color:#e6db74">&#34;mainnet&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.33.7&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;channels&#34;</span>: <span style="color:#e6db74">&#34;4020212223303800&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;moniker&#34;</span>: <span style="color:#e6db74">&#34;localhost&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;other&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;tx_index&#34;</span>: <span style="color:#e6db74">&#34;on&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;rpc_address&#34;</span>: <span style="color:#e6db74">&#34;tcp://127.0.0.1:26657&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sync_info&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;latest_block_hash&#34;</span>: <span style="color:#e6db74">&#34;F39BBF5C64D9E02E28DDBB8640F84A22CFAE1727CFBC72537982EF5914E4BB25&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;latest_app_hash&#34;</span>: <span style="color:#e6db74">&#34;6198835747411135C1F812CB45FA5621D5ADB63342EC0678C20879D7D39F03B5&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;latest_block_height&#34;</span>: <span style="color:#e6db74">&#34;50021&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;latest_block_time&#34;</span>: <span style="color:#e6db74">&#34;2022-02-04T12:16:10.77575197Z&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;earliest_block_hash&#34;</span>: <span style="color:#e6db74">&#34;7D551967CB8BBC9F8C0EAE78797D0576951DDA25CE63DF1801C020478C0B02F8&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;earliest_app_hash&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;earliest_block_height&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;earliest_block_time&#34;</span>: <span style="color:#e6db74">&#34;2020-07-28T15:00:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;catching_up&#34;</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;validator_info&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;80B80C106115259349DF8EF06267CFF7BBABD194&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;pub_key&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;tendermint/PubKeyEd25519&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;ee+o9bKqCbAO13FgWTLmJdi9hhfYg8AHsif5430uz8A=&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;voting_power&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="make-sure-your-node-is-visible-to-other-nodes">Make sure your node is visible to other nodes</h3>
+<p>You&rsquo;ll also want to make sure your node is accessible to other nodes.</p>
+<p>To test and confirm your node is visible to other nodes on the public network, you&rsquo;ll make an HTTP request using the public DNS name for the node. You can use the following command to make that request:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://pokt001.pokt.run:8081/v1
+</span></span></code></pre></div>
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>As always, don&rsquo;t forget to change <code>pokt001.pokt.run</code> to the DNS name for your node.</p>
+    </div>
+</div>
+<p>This should return something like the following. This is the version of pocket-core that is running.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;RC-0.8.2&#34;</span>
+</span></span></code></pre></div><h2 id="staking-your-node">Staking your node</h2>
+<p>To earn POKT rewards, you&rsquo;ll need to stake at least 15,000 POKT. That said, you should stake at least 15,100 POKT or more to be safe. This provides a little extra room in case your node gets slashed (penalized) for some reason.</p>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Please make sure that you understand the risks associated with staking POKT and running a Pocket node.</p>
+    </div>
+</div>
+<p>If you&rsquo;re using the Pocket CLI to fund an account, keep in mind that the CLI uses uPOKT (the smallest unit of POKT) for its calculations. The formula for converting POKT to uPOKT is: <code>uPOKT = POKT * 10^6</code>. So, multiplying 15050 POKT by 10^6 (one million) will result in 15050000000 uPOKT.</p>
+<p>Also keep in mind that there is a cost for every transaction you send. At the moment, that cost is a flat fee of 0.01 POKT, or 10000 uPOKT, but this may be subject to change.</p>
+<ol>
+<li>List your accounts:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket accounts list
+</span></span></code></pre></div></li>
+<li>Confirm the validator account is set:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket accounts get-validator
+</span></span></code></pre></div></li>
+<li>Confirm the validator account has enough POKT. This should be at least 15,101 POKT. You&rsquo;ll want 15,100 to stake and a bit more for network fees:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket query balance <span style="color:#f92672">{</span>YourValidatorAddress<span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>Stake your node, making sure to enter the correct details for your setup:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket nodes stake custodial <span style="color:#f92672">{</span>YourValidatorAddress<span style="color:#f92672">}</span> <span style="color:#ae81ff">15100000000</span> <span style="color:#f92672">{</span>ChainIDs<span style="color:#f92672">}</span> https://<span style="color:#f92672">{</span>hostname<span style="color:#f92672">}</span>:443 mainnet <span style="color:#ae81ff">10000</span> true
+</span></span></code></pre></div></li>
+</ol>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>The <code>{ChainIDs}</code> placeholder should be a list of relay chain IDs that are defined in your <code>~/.pocket/config/chains.json</code> file. In this guide we only set up <code>0001</code>, but if you were relaying to multiple chains, each id would be separated by a comma. For example, <code>0001,0022,0040</code>.</p>
+    </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>As of <code>RC-0.8.2</code> there are two staking methods: <code>custodial</code> and <code>non-custodial</code>. The custodial method is used in the example above.</p>
+    </div>
+</div>
+<p>After you send the stake command, you&rsquo;ll be prompted for your <code>passphrase</code>, then you should see something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost:8082/v1/client/rawtx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;logs&#34;</span>: null,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;txhash&#34;</span>: <span style="color:#e6db74">&#34;155D46196C69F75F85791C4190D384B8BAFFBBEFCC5D1311130C54A1C54435A7&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The actual time it takes to stake will vary depending on when the last block was processed, but generally, it should take less than 15 minutes.</p>
+<h3 id="confirm-your-node-is-live">Confirm your node is live</h3>
+<p>After you&rsquo;ve staked your node, you can confirm it&rsquo;s live by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket query node <span style="color:#f92672">{</span>YourValidatorAddress<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>If you see something like the following, it just means your node is not live yet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost:8082/v1/query/node
+</span></span><span style="display:flex;"><span>the http status code was not okay: 400, and the status was: <span style="color:#ae81ff">400</span> Bad Request, with a response of <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;code&#34;</span>:400,<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;validator not found for 07f5084ab5f5246d747fd1154d5d4387ee5a7111&#34;</span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>If this happens, please wait a few minutes and try again.</p>
+<h2 id="tutorial-complete">Tutorial complete</h2>
+<p>Congratulations! You&rsquo;ve successfully set up a Pocket node.</p>
+<p>There&rsquo;s more to running a Pocket node than this, such as maintenance, upgrades, and other administrative tasks, but hopefully this has gotten you started and on the right path. Thank you for doing your part to help decentralize Web3!</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img alt="POKT Logo" src="/images/logo-white.svg" />
+
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1658922678" defer></script>
+        <script src="/js/lunr.min.js?1658922678" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1658922678" defer></script>
+        <script src="/js/lunr.multi.min.js?1658922678" defer></script>
+        <script src="/js/lunr.en.min.js?1658922678" defer></script>
+        <script src="/js/search.js?1658922678" defer></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/">👋 Welcome</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics collapsible-menu">
+          <li data-nav-id="/supported-blockchains/" title="✅ Supported Blockchains" class="dd-item"><a href="/supported-blockchains/">Supported Blockchains</a></li>
+          <li data-nav-id="/pokt/" title="💰 Get POKT" class="dd-item"><input type="checkbox" id="section-988f0a59c06aa1ec7897abdaf06824dd" class="toggle"/><label for="section-988f0a59c06aa1ec7897abdaf06824dd" ></label><a href="/pokt/">Own POKT</a><ul>
+          <li data-nav-id="/pokt/wallets/" title="Manage POKT" class="dd-item"><a href="/pokt/wallets/">Manage POKT</a></li>
+          <li data-nav-id="/pokt/buy/" title="Buy POKT" class="dd-item"><a href="/pokt/buy/">Buy POKT</a></li>
+          <li data-nav-id="/pokt/stake/" title="Stake POKT" class="dd-item"><a href="/pokt/stake/">Stake POKT</a></li>
+          <li data-nav-id="/pokt/wpokt/" title="🎁 Wrapped POKT (wPOKT)" class="dd-item"><a href="/pokt/wpokt/">Wrapped POKT (wPOKT)</a></li></ul></li>
+          <li data-nav-id="/learn/" title="Learn Pocket" class="dd-item"><input type="checkbox" id="section-b30da781944ae4db0143d27203425a9c" class="toggle"/><label for="section-b30da781944ae4db0143d27203425a9c" ></label><a href="/learn/">Learn Pocket</a><ul>
+          <li data-nav-id="/learn/vision/" title="Vision" class="dd-item"><a href="/learn/vision/">Vision</a></li>
+          <li data-nav-id="/learn/protocol/" title="⛓ Protocol" class="dd-item"><input type="checkbox" id="section-7b0ba589eab3b7bc81771ad16ca9eaa3" class="toggle"/><label for="section-7b0ba589eab3b7bc81771ad16ca9eaa3" ></label><a href="/learn/protocol/">Protocol</a><ul>
+          <li data-nav-id="/learn/protocol/servicing/" title="🤝 Servicing" class="dd-item"><a href="/learn/protocol/servicing/">Servicing</a></li>
+          <li data-nav-id="/learn/protocol/security/" title="🛡 Security" class="dd-item"><a href="/learn/protocol/security/">Security</a></li></ul></li>
+          <li data-nav-id="/learn/economics/" title="🪙 Economics" class="dd-item"><input type="checkbox" id="section-8041da21916b100a66d56b9fffe9d2a7" class="toggle"/><label for="section-8041da21916b100a66d56b9fffe9d2a7" ></label><a href="/learn/economics/">Economics</a><ul>
+          <li data-nav-id="/learn/economics/token/" title="🪙 Token Economics" class="dd-item"><a href="/learn/economics/token/">Token Economics</a></li>
+          <li data-nav-id="/learn/economics/apps/" title="💻 App Economics" class="dd-item"><a href="/learn/economics/apps/">App Economics</a></li>
+          <li data-nav-id="/learn/economics/nodes/" title="🤖 Node Economics" class="dd-item"><a href="/learn/economics/nodes/">Node Economics</a></li>
+          <li data-nav-id="/learn/economics/monetary-policy/" title="🏦 Monetary Policy" class="dd-item"><a href="/learn/economics/monetary-policy/">Monetary Policy</a></li>
+          <li data-nav-id="/learn/economics/faq/" title="💰 Pricing &amp; Economics FAQ" class="dd-item"><a href="/learn/economics/faq/">FAQ</a></li></ul></li>
+          <li data-nav-id="/learn/future/" title="👀 Future (v1)" class="dd-item"><input type="checkbox" id="section-9461954986787100253a049ef82f97d4" class="toggle"/><label for="section-9461954986787100253a049ef82f97d4" ></label><a href="/learn/future/">Future</a><ul>
+          <li data-nav-id="/learn/future/utility/" title="🪙 Utility" class="dd-item"><a href="/learn/future/utility/">Utility</a></li>
+          <li data-nav-id="/learn/future/consensus/" title="🤝 Consensus" class="dd-item"><a href="/learn/future/consensus/">Consensus</a></li>
+          <li data-nav-id="/learn/future/peer-to-peer/" title="💬 Peer to Peer" class="dd-item"><a href="/learn/future/peer-to-peer/">Peer To Peer</a></li>
+          <li data-nav-id="/learn/future/persistence/" title="🗄 Persistence" class="dd-item"><a href="/learn/future/persistence/">Persistence</a></li></ul></li>
+          <li data-nav-id="/learn/protocol-parameters/" title="🎚 Protocol Parameters" class="dd-item"><a href="/learn/protocol-parameters/">Parameters</a></li>
+          <li data-nav-id="/learn/glossary/" title="Glossary" class="dd-item"><a href="/learn/glossary/">Glossary</a></li></ul></li>
+          <li data-nav-id="/use/" title="Use Pocket" class="dd-item"><input type="checkbox" id="section-9c8f252997a5013ebfdc92ac7869fc4d" class="toggle"/><label for="section-9c8f252997a5013ebfdc92ac7869fc4d" ></label><a href="/use/">Use Pocket</a><ul>
+          <li data-nav-id="/use/get-endpoint/" title="Get An Endpoint" class="dd-item"><a href="/use/get-endpoint/">Get an Endpoint</a></li>
+          <li data-nav-id="/use/public-rpc/" title="Public RPC Endpoints" class="dd-item"><input type="checkbox" id="section-5d1bd50b2ec2e182f37a6e240ac8eab5" class="toggle"/><label for="section-5d1bd50b2ec2e182f37a6e240ac8eab5" ></label><a href="/use/public-rpc/">Public RPC Endpoints</a><ul>
+          <li data-nav-id="/use/public-rpc/avax/" title="Avalanche \(AVAX\)" class="dd-item"><a href="/use/public-rpc/avax/">Avalanche</a></li>
+          <li data-nav-id="/use/public-rpc/bsc/" title="Binance Smart Chain \(BSC\)" class="dd-item"><a href="/use/public-rpc/bsc/">Binance Smart Chain</a></li>
+          <li data-nav-id="/use/public-rpc/dfk-chain/" title="Connecting MetaMask to DFK Chain" class="dd-item"><a href="/use/public-rpc/dfk-chain/">DFK Chain</a></li>
+          <li data-nav-id="/use/public-rpc/ethereum/" title="Ethereum \(ETH\)" class="dd-item"><a href="/use/public-rpc/ethereum/">Ethereum</a></li>
+          <li data-nav-id="/use/public-rpc/evmos/" title="Evmos" class="dd-item"><a href="/use/public-rpc/evmos/">Evmos</a></li>
+          <li data-nav-id="/use/public-rpc/fuse/" title="Fuse" class="dd-item"><a href="/use/public-rpc/fuse/">Fuse</a></li>
+          <li data-nav-id="/use/public-rpc/gnosis-chain/" title="Gnosis Chain (xDAI)" class="dd-item"><a href="/use/public-rpc/gnosis-chain/">Gnosis Chain (fka xDAI)</a></li>
+          <li data-nav-id="/use/public-rpc/harmony/" title="Harmony" class="dd-item"><a href="/use/public-rpc/harmony/">Harmony</a></li>
+          <li data-nav-id="/use/public-rpc/iotex/" title="IoTeX" class="dd-item"><a href="/use/public-rpc/iotex/">IoTeX</a></li>
+          <li data-nav-id="/use/public-rpc/polygon/" title="Polygon" class="dd-item"><a href="/use/public-rpc/polygon/">Polygon</a></li></ul></li>
+          <li data-nav-id="/use/dapps/" title="Pocket-Powered dApps" class="dd-item"><input type="checkbox" id="section-7c46178e6f5bbc55407fafefbfe1baa3" class="toggle"/><label for="section-7c46178e6f5bbc55407fafefbfe1baa3" ></label><a href="/use/dapps/">Pocket-Powered dApps</a><ul>
+          <li data-nav-id="/use/dapps/conquest-eth/" title="Conquest.eth" class="dd-item"><a href="/use/dapps/conquest-eth/">Conquest.eth</a></li>
+          <li data-nav-id="/use/dapps/dark-forest/" title="Dark Forest" class="dd-item"><a href="/use/dapps/dark-forest/">Dark Forest</a></li>
+          <li data-nav-id="/use/dapps/mycrypto/" title="MyCrypto" class="dd-item"><a href="/use/dapps/mycrypto/">MyCrypto</a></li>
+          <li data-nav-id="/use/dapps/rotki/" title="Rotki" class="dd-item"><a href="/use/dapps/rotki/">Rotki</a></li></ul></li></ul></li>
+          <li data-nav-id="/node/" title="Run Nodes" class="dd-item parent"><input type="checkbox" id="section-1cd363a44403268e4bd7ae15574da217" class="toggle" checked/><label for="section-1cd363a44403268e4bd7ae15574da217" ></label><a href="/node/">Run Nodes</a><ul>
+          <li data-nav-id="/node/environment/" title="Environment Setup" class="dd-item"><a href="/node/environment/">Environment Setup</a></li>
+          <li data-nav-id="/node/setup/" title="Node Setup" class="dd-item"><a href="/node/setup/">Pocket Node Setup</a></li>
+          <li data-nav-id="/node/staking/" title="Custodial and non-custodial staking" class="dd-item"><a href="/node/staking/">Custodial and Non-Custodial Staking</a></li>
+          <li data-nav-id="/node/seeds/" title="🌱 Seeds" class="dd-item"><a href="/node/seeds/">Seeds</a></li>
+          <li data-nav-id="/node/tutorials/" title="Node Tutorials" class="dd-item parent"><input type="checkbox" id="section-250316b1db19d7bf2e89212214811654" class="toggle" checked/><label for="section-250316b1db19d7bf2e89212214811654" ></label><a href="/node/tutorials/">Tutorials</a><ul>
+          <li data-nav-id="/node/tutorials/zero-to-node/" title="Introduction" class="dd-item parent"><input type="checkbox" id="section-6ab9d8d230d608550786165898c7a0ca" class="toggle" checked/><label for="section-6ab9d8d230d608550786165898c7a0ca" ></label><a href="/node/tutorials/zero-to-node/">Zero To Node</a><ul>
+          <li data-nav-id="/node/tutorials/zero-to-node/server-setup/" title="Part 1 –  Server setup" class="dd-item"><a href="/node/tutorials/zero-to-node/server-setup/">Server setup</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/software-install/" title="Part 2 –  Software installation" class="dd-item"><a href="/node/tutorials/zero-to-node/software-install/">Software installation</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/pocket-config/" title="Part 3 –  Pocket configuration" class="dd-item"><a href="/node/tutorials/zero-to-node/pocket-config/">Pocket configuration</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/proxy-config/" title="Part 4 –  Proxy configuration" class="dd-item"><a href="/node/tutorials/zero-to-node/proxy-config/">Proxy configuration</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/going-live/" title="Part 5 –  Going live" class="dd-item active"><a href="/node/tutorials/zero-to-node/going-live/">Going live</a></li></ul></li></ul></li>
+          <li data-nav-id="/node/automated-deployments/" title="Automated Deployments" class="dd-item"><a href="/node/automated-deployments/">Automated Deployments</a></li>
+          <li data-nav-id="/node/hosting-services/" title="Node-Hosting Services" class="dd-item"><a href="/node/hosting-services/">Node-Hosting Services</a></li>
+          <li data-nav-id="/node/faq/" title="Node FAQ" class="dd-item"><a href="/node/faq/">Node FAQ</a></li></ul></li>
+          <li data-nav-id="/integrate/" title="Integrate" class="dd-item"><input type="checkbox" id="section-d4bb38a7d13f002c4014ff23289c50e8" class="toggle"/><label for="section-d4bb38a7d13f002c4014ff23289c50e8" ></label><a href="/integrate/">Integrate</a><ul>
+          <li data-nav-id="/integrate/sdk/" title="SDKs" class="dd-item"><a href="/integrate/sdk/">SDKs</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/" title="Accounts and Transactions" class="dd-item"><input type="checkbox" id="section-1f772117c78cb1420090c8202df835ca" class="toggle"/><label for="section-1f772117c78cb1420090c8202df835ca" ></label><a href="/integrate/accounts-transactions/">Accounts and Transactions</a><ul>
+          <li data-nav-id="/integrate/accounts-transactions/account-generation-validation/" title="Account Generation and Validation" class="dd-item"><a href="/integrate/accounts-transactions/account-generation-validation/">Account Generation and Validation</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/transaction-construction/" title="Transaction Construction" class="dd-item"><a href="/integrate/accounts-transactions/transaction-construction/">Transaction Construction</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/transaction-verification/" title="Transaction Verification" class="dd-item"><a href="/integrate/accounts-transactions/transaction-verification/">Transaction Verification</a></li></ul></li></ul></li>
+          <li data-nav-id="/community/" title="Community" class="dd-item"><input type="checkbox" id="section-5222f03197abba24f0c665fe1d22532c" class="toggle"/><label for="section-5222f03197abba24f0c665fe1d22532c" ></label><a href="/community/">Join Us</a><ul>
+          <li data-nav-id="/community/governance/" title="👑 Governance" class="dd-item"><input type="checkbox" id="section-58d7c2e4187c5d62f879f3f81802f3c9" class="toggle"/><label for="section-58d7c2e4187c5d62f879f3f81802f3c9" ></label><a href="/community/governance/">Governance</a><ul>
+          <li data-nav-id="/community/governance/proposals/" title="Proposals" class="dd-item"><a href="/community/governance/proposals/">Proposals</a></li></ul></li>
+          <li data-nav-id="/community/contribute/" title="🦸 Contribute" class="dd-item"><input type="checkbox" id="section-1455a3dbf4677a4000103a13e3e0af39" class="toggle"/><label for="section-1455a3dbf4677a4000103a13e3e0af39" ></label><a href="/community/contribute/">Contribute</a><ul>
+          <li data-nav-id="/community/contribute/scholarships/" title="Scholarships" class="dd-item"><a href="/community/contribute/scholarships/">Scholarships</a></li></ul></li>
+          <li data-nav-id="/community/trophies/" title="🗳 Trophies" class="dd-item"><input type="checkbox" id="section-203bb11e8b6be933d85a663ca65b1a91" class="toggle"/><label for="section-203bb11e8b6be933d85a663ca65b1a91" ></label><a href="/community/trophies/">Trophies</a><ul>
+          <li data-nav-id="/community/trophies/app-developers/" title="🏆 App Developers" class="dd-item"><a href="/community/trophies/app-developers/">App Developers</a></li>
+          <li data-nav-id="/community/trophies/node-runners/" title="🏆 Node Runners" class="dd-item"><a href="/community/trophies/node-runners/">Node Runners</a></li>
+          <li data-nav-id="/community/trophies/community-shepherds/" title="🏆 Community Shepherds" class="dd-item"><a href="/community/trophies/community-shepherds/">Community Shepherds</a></li>
+          <li data-nav-id="/community/trophies/contributors/" title="🏆 Governor/Contributors" class="dd-item"><a href="/community/trophies/contributors/">Contributors</a></li></ul></li></ul></li>
+          <li data-nav-id="/more-info/" title="💬 More Information" class="dd-item"><a href="/more-info/">More Info</a></li>
+        </ul>
+        <div id="shortcuts">
+          <div class="nav-title">More</div>
+          <ul>
+            <li><a class="padding" href="https://forum.pokt.network">Forum</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pocket-js">PocketJS</a></li>
+            <li><a class="padding" href="https://discord.gg/pokt">Discord</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pypocket">pypocket</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pocket-go">pocket-go</a></li>
+            <li><a class="padding" href="https://angel.co/company/pocket-network">Jobs</a></li>
+          </ul>
+        </div>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="blue" value="blue" selected>Blue</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" onclick="clearHistory();"><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter">
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1658922678" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1658922678" defer></script>
+    <script src="/js/featherlight.min.js?1658922678" defer></script>
+    <script src="/js/jquery.svg.pan.zoom.js?1658922678" defer></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js" defer></script>
+    <script>
+      function useMermaid( config ){
+        if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+          mermaid.initialize( Object.assign( { "securityLevel": "antiscript", "startOnLoad": false  }, config ) );
+          if( config.theme ){
+            var write_style = variants.findLoadedStylesheet( 'variant-style' );
+            write_style.setProperty( '--CONFIG-MERMAID-theme', config.theme );
+          }
+        }
+      }
+      useMermaid( JSON.parse("{ \"theme\": \"default\" }") );
+    </script>
+    <script src="/js/theme.js?1658922678" defer></script>
+  </body>
+</html>

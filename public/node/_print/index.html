@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.101.0">
+    <meta name="generator" content="Relearn 5.0.3+tip">
+    <meta name="description" content="">
+    <title>Run Nodes - Pocket Network</title>
+    <link href="/node/" rel="canonical" type="text/html" title="Pocket Network">
+    <link href="/node/index.xml" rel="alternate" type="application/rss+xml" title="Pocket Network">
+    <link href="/images/favicon.svg?1658922678" rel="icon" type="image/svg+xml">
+    
+    <link href="/css/fontawesome-all.min.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/featherlight.min.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/auto-complete.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <noscript>
+      <link href="/css/fontawesome-all.min.css?1658922678" rel="stylesheet">
+      <link href="/css/featherlight.min.css?1658922678" rel="stylesheet">
+      <link href="/css/auto-complete.css?1658922678" rel="stylesheet">
+    </noscript>
+    <link href="/css/perfect-scrollbar.min.css?1658922678" rel="stylesheet">
+    <link href="/css/nucleus.css?1658922678" rel="stylesheet">
+    <link href="/css/fonts.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/theme.css?1658922678" rel="stylesheet">
+    <link href="/css/theme-blue.css?1658922678" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1658922678" rel="stylesheet">
+    <link href="/css/variant.css?1658922678" rel="stylesheet">
+    <link href="/css/print.css?1658922678" rel="stylesheet">
+    <script src="/js/variant.js?1658922678"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/docs.pokt.network/';
+      variants.init( [ 'blue' ] );
+    </script>
+    <script src="/js/jquery.min.js?1658922678" defer></script>
+  </head>
+  <body class="mobile-support print" data-url="/node/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/node/environment/" title="Environment Setup (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/use/dapps/rotki/" title="Rotki (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="top-print-link">
+            <a class="print-link" title='Print whole chapter (CTRL+ALT+p)' href="/node/_print/">
+              <i class="fas fa-print fa-fw"></i>
+            </a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+m)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span class="links">
+              Run Nodes
+            </span>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable chapter narrow" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+    
+          <article class="chapter">
+<div class="article-subheading">Chapter 6</div>
+<h1>Run Nodes</h1>
+
+<p>In this section, you&rsquo;ll get information on running a Pocket node.</p>
+<p>These details are mostly for &ldquo;intermediate&rdquo; node runners, who are familiar with running full nodes and have the knowledge required to avoid getting lost. If you would like a more beginner&rsquo;s tutorial, visit <a href="/node/tutorials/zero-to-node/README.md">Zero To Node</a>. You may also want to explore <a href="/node/hosting-services.md">node-hosting services</a>.</p>
+<p>Want to understand the economics of running a node before you dive in? Read about <a href="/node/../learn/economics/nodes.md">Node Economics</a>.</p>
+<p>Read our guide to decide whether you want your nodes to be operated with <a href="/node/staking.md">custodial staking or non-custodial staking</a>.</p>
+<p>For a no-frills guide to commands, you should head over to the <a href="https://docs.pokt.network/core/">Pocket Core docs</a>.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+    
+          <article class="default">
+<h1>Environment Setup</h1>
+
+<p>This section will detail the hardware and software needed to run a Pocket node.</p>
+<h2 id="hardware">Hardware</h2>
+<p><strong>Hardware Requirements:</strong> 4 CPU’s (or vCPU’s) | 16 GB RAM | 200GB Disk</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>These are just the hardware requirements for your Pocket node. You&rsquo;ll also need to run the full nodes of other blockchains, which may have their own hardware requirements that surpass Pocket&rsquo;s.</p>
+    </div>
+</div>
+<h2 id="software">Software</h2>
+<p>There are three ways to install the software you need to run Pocket Network.</p>
+<h2 id="source">Source</h2>
+<p>Install your dependencies</p>
+<ul>
+<li><a href="https://golang.org/doc/install">go</a></li>
+<li><a href="https://golang.org/doc/gopath_code.html#Workspaces">go environment</a> GOPATH &amp; GOBIN</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a></li>
+</ul>
+<p>Create source code directory</p>
+<pre tabindex="0"><code>mkdir -p $GOPATH/src/github.com/pokt-network &amp;&amp; cd $GOPATH/src/github.com/pokt-network
+</code></pre><p>Download the source code</p>
+<pre tabindex="0"><code>git clone https://github.com/pokt-network/pocket-core.git &amp;&amp; cd pocket-core
+</code></pre><p>Checkout the <a href="https://github.com/pokt-network/pocket-core/releases">latest release</a></p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Example"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Example')"
+      ><span>Example</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>git checkout tags/&lt;release tag&gt;
+</code></pre>
+    </div>
+    <div data-tab-item="Example" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>git checkout tags/RC-0.8.2
+</code></pre>
+    </div>
+  </div>
+</div>
+<p>Make sure you have $GOPATH setup</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Response (Mac)"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Response (Mac)')"
+      ><span>Response (Mac)</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>echo $GOPATH
+</code></pre>
+    </div>
+    <div data-tab-item="Response (Mac)" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>/Users/&lt;your username&gt;/go
+</code></pre>
+    </div>
+  </div>
+</div>
+<p>Build your binary and put it in the $GOPATH/bin directory</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Example"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Example')"
+      ><span>Example</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>go build -o &lt;$GOPATH/bin directory&gt; &lt;source code directory&gt;/...
+</code></pre>
+    </div>
+    <div data-tab-item="Example" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>go build -o $GOPATH/bin/pocket $GOPATH/src/github.com/pokt-network/pocket-core/app/cmd/pocket_core/main.go
+</code></pre>
+    </div>
+  </div>
+</div>
+<p>Test your installation</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Response"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Response')"
+      ><span>Response</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket version
+</code></pre>
+    </div>
+    <div data-tab-item="Response" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>&gt; RC-0.8.2
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Check your version number against the latest release <a href="https://github.com/pokt-network/pocket-core/releases">here</a>.</p>
+    </div>
+</div>
+<h3 id="homebrew">Homebrew</h3>
+<p>Install your dependencies</p>
+<ul>
+<li><a href="https://golang.org/doc/install">go</a></li>
+<li><a href="https://golang.org/doc/gopath_code.html#Workspaces">go environment</a> GOPATH &amp; GOBIN</li>
+<li>Homebrew (<a href="https://brew.sh">Mac</a> or <a href="https://docs.brew.sh/Homebrew-on-Linux">Linux</a>)</li>
+</ul>
+<p>Install using Homebrew</p>
+<pre tabindex="0"><code>brew tap pokt-network/pocket-core &amp;&amp; brew install pokt-network/pocket-core/pocket
+</code></pre><p>Test your installation</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Response"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Response')"
+      ><span>Response</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket version
+</code></pre>
+    </div>
+    <div data-tab-item="Response" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>&gt; RC-0.8.2
+</code></pre>
+    </div>
+  </div>
+</div>
+<h3 id="docker">Docker</h3>
+<p>See <a href="https://github.com/pokt-network/pocket-core-deployments">pokt-network/pocket-core-deployments</a></p>
+<h2 id="environment">Environment</h2>
+<ul>
+<li><strong>Reverse Proxy:</strong> For SSL termination and request management</li>
+<li><strong>Ports:</strong> Expose Pocket RPC (Default :8081) and P2P port (Default: 26656)</li>
+<li><strong>SSL Cert:</strong> Required for <strong>Validator&rsquo;s serviceURI</strong></li>
+</ul>
+<h3 id="set-your-open-files-limit">Set your Open Files Limit</h3>
+<pre tabindex="0"><code>ulimit -Sn 16384
+</code></pre>
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>This Open Files Limit is set based on the standard config provided with Pocket Core in <code>&lt;datadir&gt;/config/config.json</code>. If you modify your config, you will need to ensure that you modify your Open Files Limit too, according to the formula below.</p>
+    </div>
+</div>
+<p>The required <code>ulimit</code> can be calculated using this formula:</p>
+<p><code>({ulimit -Sn} &gt;= {MaxNumInboundPeers} + {MaxNumOutboundPeers} + {GRPCMaxOpenConnections} + {MaxOpenConnections} + {Desired Concurrent Pocket RPC connections} + {100 (Constant number of wal, db and other open files)}</code></p>
+<h3 id="secure-your-server">Secure your Server</h3>
+<p>Make sure the server that hosts your node is protected by up-to-date anti-virus and anti-malware software. Protect your node with a firewall but make sure to maintain login access for yourself and keep the above ports open.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>Node Setup</h1>
+
+<h2 id="deploy-your-validator--full-nodes">Deploy Your Validator &amp; Full Nodes</h2>
+<h3 id="create-an-account">Create an account</h3>
+<p>An account is needed to participate at any level of the network.</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Response"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Response')"
+      ><span>Response</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket accounts create
+</code></pre>
+    </div>
+    <div data-tab-item="Response" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>&gt; Enter Passphrase
+&gt; Account generated successfully:
+&gt; Address: &lt;address&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Alternatively, you can create your account using the <a href="https://wallet.pokt.network">Wallet app</a>, then use the encrypted import command to import the account into your node environment:</p>
+    </div>
+</div>
+<pre tabindex="0"><code>pocket accounts import-armored &lt;/path/to/ppk.json&gt;
+</code></pre><h3 id="backup-the-account">Backup the account</h3>
+<p>Backup your private key to an encrypted and ASCII armored json file, to the specified <code>--path</code> , using the secure export command. After you hit enter, you will be prompted for the decrypt passphrase and an encryption passphrase for the exported account. You will also have the option to add a hint to help remember your passphrase.</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Example"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Example')"
+      ><span>Example</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket accounts export &lt;address&gt; --path &lt;path&gt;
+</code></pre>
+    </div>
+    <div data-tab-item="Example" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>pocket accounts export 59f08710afbad0e20352340780fdbf4e47622a7c --path /$HOME/super-secret-dir
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Do not use your node&rsquo;s account as your personal account address. Since the node&rsquo;s private key is stored in plaintext on the server, the key is as secure as your server is. Regularly sweep your node&rsquo;s rewards and transfer them to a more secure account stored offline.</p>
+    </div>
+</div>
+<p>For more details on securely managing your POKT accounts, see here:</p>
+<p>{% content-ref url=&quot;../buy-store-and-stake-pokt/&quot; %}
+<a href="/node/setup/../buy-store-and-stake-pokt/">buy-store-and-stake-pokt</a>
+{% endcontent-ref %}</p>
+<h3 id="fund-the-account">Fund the account</h3>
+<p>To stake a Validator in Pocket Network, the account must have a balance above the <strong>minimum stake</strong>:</p>
+<p><code>15,000 POKT</code> or <code>15,000,000,000 uPOKT</code></p>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p>The absolute minimum node stake (15,000 POKT) is not <em>practical</em> for real-world usage. 15,100 is a reasonable buffer against operational slashes which can occur on <em>seemingly properly</em> configured nodes as well as misconfigured and misbehaving ones.</p>
+    </div>
+</div>
+<p>Send POKT with the following command:</p>
+<pre tabindex="0"><code>pocket accounts send-tx &lt;fromAddr&gt; &lt;toAddr&gt; &lt;uPOKT amount&gt; mainnet 10000 &#34;&#34;
+</code></pre><p>You won&rsquo;t be able to send POKT using your CLI until you have a Validator set up. Until then, you can use the <a href="https://wallet.pokt.network">Wallet app</a>.</p>
+<p>If you&rsquo;re using the testnet, you can fund your account using the <a href="https://faucet.pokt.network">Testnet Faucet</a>.</p>
+<h3 id="set-the-account-as-validator">Set the account as Validator</h3>
+<pre tabindex="0"><code>pocket accounts set-validator &lt;address&gt;
+</code></pre>
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Check that it worked with <code>pocket accounts get-validator</code></p>
+    </div>
+</div>
+<h3 id="set-relay-chains">Set Relay Chains</h3>
+<p>A Relay Chain is the blockchain that Validators are running full nodes for in service of Applications. Apps access Relay Chains through the <code>serviceURI</code>, the endpoint where Validators publicly expose the Pocket API.</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Response"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Response')"
+      ><span>Response</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket util generate-chains
+</code></pre>
+    </div>
+    <div data-tab-item="Response" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>&gt; Enter the chain of the network identifier:
+&lt;Relay Chain ID&gt; (Example: 0001)
+&gt; Enter the URL of the network identifier:
+&lt;Secure URL to Relay Chain&gt;
+Would you like to enter another network identifier? (y/n)
+n
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>RelayChainIDs can be found <a href="/node/setup/../supported-blockchains">here</a>.</p>
+    </div>
+</div>
+<h3 id="setup-the-genesis-configuration-file">Setup the Genesis Configuration File</h3>
+<p>Genesis files can be found here:</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/mainnet/genesis.json">Mainnet Genesis File</a></li>
+<li><a href="https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/testnet/genesis.json">Testnet Genesis File</a></li>
+</ul>
+<p>The appropriate genesis file should be placed at <code>$HOME/.pocket/config/genesis.json</code></p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Mainnet Setup"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Mainnet Setup')"
+      ><span>Mainnet Setup</span></button>
+    <button
+      data-tab-item="Testnet Setup"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Testnet Setup')"
+      ><span>Testnet Setup</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Mainnet Setup" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>mkdir -p &#34;$HOME&#34;/.pocket/config
+curl -o &#34;$HOME&#34;/.pocket/config/genesis.json https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/mainnet/genesis.json
+</code></pre>
+    </div>
+    <div data-tab-item="Testnet Setup" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>mkdir -p &#34;$HOME&#34;/.pocket/config
+curl -o &#34;$HOME&#34;/.pocket/config/genesis.json https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/testnet/genesis.json
+</code></pre>
+    </div>
+  </div>
+</div>
+<h3 id="test-your-node">Test your node</h3>
+<p>Test that your node is configured correctly by simulating a relay.</p>
+<pre tabindex="0"><code>pocket start --simulateRelay
+</code></pre><p>Then send a curl request to your validator URL <code>http://&lt;your node&gt;:&lt;your pocket rpc port&gt;/v1/client/sim</code> to test if your node responds.</p>
+<pre tabindex="0"><code>curl -X POST --data &#39;{&#34;relay_network_id&#34;:&#34;&lt;relay chain ID from chains.json&gt;&#34;,&#34;payload&#34;:{&#34;data&#34;:&#34;{\&#34;jsonrpc\&#34;:\&#34;2.0\&#34;,\&#34;method\&#34;:\&#34;eth_getBalance\&#34;,\&#34;params\&#34;:[\&#34;0xe7a24E61b2ec77d3663ec785d1110688d2A32ecc\&#34;, \&#34;latest\&#34;],\&#34;id\&#34;:1}&#34;,&#34;method&#34;:&#34;POST&#34;,&#34;path&#34;:&#34;&#34;,&#34;headers&#34;:{}}}&#39; &lt;your node URL&gt;:8081/v1/client/sim
+</code></pre>
+<div class="box notices cstyle success">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p><code>200 OK</code> – your transaction has gone through</p>
+    </div>
+</div>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p><code>400 Bad Request</code> – you either have incorrect/missing parameters in the request or bad formatting in the data field</p>
+    </div>
+</div>
+<p>Finally, stop your node. If you don&rsquo;t, you&rsquo;ll be leaving &ndash;simulateRelay running, which means anyone will have unfiltered access to your node.</p>
+<h3 id="download-the-latest-snapshot">Download the Latest Snapshot</h3>
+<p>Downloading from the latest snapshot will drastically shorten the time it takes to sync the blockchain. The easiest way is by downloading with <code>wget</code> and extracting the archive as it downloads.</p>
+<pre tabindex="0"><code>mkdir -p &#34;$HOME&#34;/.pocket/data
+wget -qO- https://snapshot.nodes.pokt.network/latest.tar.gz | tar -xz -C &#34;$HOME&#34;/.pocket/data
+</code></pre><p>Other options for downloading the latest snapshot can be found in the <a href="https://github.com/pokt-foundation/pocket-snapshotter">pocket-snapshotter repo</a>.</p>
+<h3 id="sync-the-blockchain">Sync the blockchain</h3>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Example"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Example')"
+      ><span>Example</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket start --seeds=&lt;seeds&gt; --mainnet
+</code></pre>
+    </div>
+    <div data-tab-item="Example" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>pocket start --seeds=&#34;64c91701ea98440bc3674fdb9a99311461cdfd6f@node1.mainnet.pokt.network:21656&#34; --mainnet
+</code></pre>
+    </div>
+  </div>
+</div>
+<p>See the section on <a href="/node/setup/seeds.md">seeds</a> for more details.</p>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Ensure the node is all the way synced before proceeding to the next step.</p>
+    </div>
+</div>
+<h3 id="stake-the-validator">Stake the Validator</h3>
+<p>Stake the account to participate in the Network as a Validator. Staking a Validator locks up POKT tokens that can be burned as a security mechanism for bad acting.</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Command"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Command')"
+      ><span>Command</span></button>
+    <button
+      data-tab-item="Example"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Example')"
+      ><span>Example</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Command" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>pocket nodes stake custodial &lt;address&gt; &lt;amount&gt; &lt;relay_chains&gt; &lt;serviceURI&gt; mainnet 10000 false
+</code></pre>
+    </div>
+    <div data-tab-item="Example" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>pocket nodes stake custodial 3ee61299d5bbbd2974cddcc194d9b547c7629546 20000000000 0001,0002 https://pokt.rocks:443 mainnet 10000 true
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Read more about <a href="/node/setup/staking.md">custodial versus non-custodial staking</a>.</p>
+    </div>
+</div>
+<p><strong>You should leave 1 POKT liquid (unstaked) to pay the transaction fees for your node&rsquo;s claim and proof transactions.</strong></p>
+<p>All node runners must always maintain a liquid (unstaked) balance of at least 0.02 POKT in order to submit the claim and proof transactions (which each have a transaction fee of 0.01 POKT) that generate their rewards. If a node successfully submits both the claim and proof, they will earn enough POKT to submit the next claims and proofs, and so on. However, if a node falls below a liquid balance of 0.02 POKT, their revenue will be halted.</p>
+<p>Claim transactions have 3 sessions, the <code>ClaimSubmissionWindow</code>, to be successfully submitted after the conclusion of the session in which the work was done, otherwise they are lost. If a claim transaction fails, Pocket Core will auto-repeat the transaction once in each new session, until the claim is lost. This means your node will automatically take 3 attempts to submit the claim. There is a claim submission window because the global secret key that determines the required proof leaf is revealed once that window closes. Extending the claim submission window would delay the time at which the corresponding proof can be sent and rewards earned.</p>
+<p>If you manage to successfully submit the claim transaction, you then have 120 blocks, the <code>ClaimExpiration</code> period, to submit the corresponding proof transaction, otherwise the pending claim expires. There is a claim expiration date because otherwise the claims would remain in the state and bloat the blockchain.</p>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p><strong>Bad Behavior Warning: Pre-staking</strong></p>
+<p>Pre-staking is the act of a node runner staking on a RelayChainID prior to spinning up the RelayChain node. This behavior has an extremely negative impact on the quality of service for new chains due to apps being matched in sessions with Pocket nodes that don&rsquo;t actually have RelayChain nodes connected to them. If you do this, your node will be challenged and slashed. You should always deploy your RelayChain node and simulate relays before staking your Pocket node for the RelayChainID.</p>
+    </div>
+</div>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p>If your stake falls below <code>15,000 POKT</code> your node will be force-unstake burned. We recommend having a buffer above the 15,000 minimum (e.g. 15,100-16,000) so that minor slashing doesn&rsquo;t result in loss of the entire stake.</p>
+    </div>
+</div>
+
+<div class="box notices cstyle success">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p><strong>🏆 Achievement Unlocked</strong></p>
+<p>If you staked your node successfully, you just earned your first trophy. See <a href="https://docs.pokt.network/home/paths/node-runner#earn-trophies-join-the-dao">here</a> to find out how earning more trophies will ultimately earn you a vote in our DAO.</p>
+    </div>
+</div>
+<h2 id="upgrade-your-node">Upgrade Your Node</h2>
+<h3 id="release-specific-changes">Release-specific Changes</h3>
+<p>Each release may have specific modifications you need to make. This is just a general guideline for the steps you&rsquo;ll typically take to upgrade your node. Check the <a href="https://github.com/pokt-network/pocket-core/releases">release notes</a> for release-specific details.</p>
+<h3 id="1-shutdown-pocket-core">1. Shutdown Pocket Core</h3>
+<p>Stop your Pocket Core instance running by submitting the shutdown command.</p>
+<pre tabindex="0"><code>pocket stop
+</code></pre>
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Once you shutdown Pocket Core, you will have 4 blocks (60 minutes) to complete the upgrade and start Pocket Core again before your node gets jailed for downtime.</p>
+    </div>
+</div>
+<h3 id="2-backup-your-blockchain-data">2. Backup Your Blockchain Data</h3>
+<p>Backing up your blockchain data will ensure a faster resync when you restart your node.</p>
+<p>Navigate inside your <code>$HOME/.pocket/</code> dir and save <code>data/</code> (the entire directory):</p>
+<pre tabindex="0"><code>cp -r ~/.pocket/data ~/backup/data
+</code></pre><p>In the event of a corrupted database you can delete the bad data <code>rm -r ~/.pocket/data</code> and replace it with your backup <code>cp -r ~/backup/data ~/.pocket/data</code>.</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>If you don&rsquo;t have a backup, a temporary backup datadir may be provided alongside a release.</p>
+    </div>
+</div>
+<h3 id="3-ensure-the-latest-golang-version">3. Ensure the Latest Golang Version</h3>
+<p>Check your golang version. The release notes will specify which version it should be.</p>
+<pre tabindex="0"><code>go version
+</code></pre><p>If you need to upgrade, use <a href="https://gist.github.com/nikhita/432436d570b89cab172dcf2894465753">this guide</a>.</p>
+<p>Alternatively, if you use <code>g</code>, you can just run</p>
+<pre tabindex="0"><code>sudo apt-get update
+g install &lt;version number&gt;
+</code></pre><h3 id="4-rebuild-or-upgrade-your-binary">4. Rebuild or Upgrade Your Binary</h3>
+<h4 id="source">Source</h4>
+<p>Navigate into <code>pocket-core</code> directory</p>
+<pre tabindex="0"><code>cd ~/go/src/github.com/pokt-network/pocket-core
+</code></pre><p>Checkout the <a href="https://github.com/pokt-network/pocket-core/releases">latest release</a></p>
+<pre tabindex="0"><code>git pull
+git checkout tags/&lt;release tag&gt;
+</code></pre><p>Rebuild the binary</p>
+<pre tabindex="0"><code>go build -o $GOPATH/bin/pocket ./app/cmd/pocket_core/main.go
+</code></pre><h4 id="homebrew">Homebrew</h4>
+<p>Pull the latest tap</p>
+<pre tabindex="0"><code>brew upgrade pokt-network/pocket-core/pocket
+</code></pre><h4 id="docker">Docker</h4>
+<p>Pull the latest container image</p>
+
+<div class="tab-panel">
+  <div class="tab-nav">
+    <button
+      data-tab-item="Option 1"
+      data-tab-group="default"
+      class="tab-nav-button active"
+      onclick="switchTab('default','Option 1')"
+      ><span>Option 1</span></button>
+    <button
+      data-tab-item="Option 2"
+      data-tab-group="default"
+      class="tab-nav-button "
+      onclick="switchTab('default','Option 2')"
+      ><span>Option 2</span></button>
+  </div>
+  <div class="tab-content">
+    <div data-tab-item="Option 1" data-tab-group="default" class="tab-item active">
+<pre tabindex="0"><code>docker pull poktnetwork/pocket-core:RC-0.8.2
+</code></pre>
+    </div>
+    <div data-tab-item="Option 2" data-tab-group="default" class="tab-item ">
+<pre tabindex="0"><code>docker pull poktnetwork/pocket:RC-0.8.2
+</code></pre>
+    </div>
+  </div>
+</div>
+<h3 id="5-upgrade-your-configjson">5. Upgrade Your config.json</h3>
+<p>Run the update-configs command, which creates a new config file (<code>DATADIR/config/config.json</code>) and backs up the old config file (<code>DATADIR/config/config.json.bk</code>).</p>
+<pre tabindex="0"><code>pocket util update-configs
+</code></pre><p>You&rsquo;ll need to manually compare your backup file with the new file to copy over your personal config details.</p>
+<h3 id="6-start-pocket">6. Start Pocket</h3>
+<p>Start <code>pocket</code> running again.</p>
+<pre tabindex="0"><code>pocket start
+</code></pre><h2 id="earn-trophies-join-the-dao">Earn Trophies, Join the DAO</h2>
+<p>You can earn a vote in the DAO and help shape the future of Pocket Network, including deciding which ecosystem tooling our treasury supports and how we configure important on-chain parameters such as node revenue.</p>
+<p>Once you&rsquo;ve staked your node successfully, join our <a href="https://discord.gg/uCZZkHTQjV">Discord</a> and report this in the <a href="https://discord.com/channels/553741558869131266/763504639299289138">🏆trophies</a> channel.</p>
+<p>This is your first trophy on the path to <a href="/node/setup/../community/trophies/README.md">earning a vote in the DAO</a>. Learn more on the <a href="/node/setup/../community/trophies/node-runners.md">Node Runners</a> page.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>Custodial and non-custodial staking</h1>
+
+<p><em>New in version 0.8.0</em></p>
+<p>Pocket has added the ability for node runners to set up their nodes to run with &ldquo;non-custodial&rdquo; staking. This means that the Pocket address that is associated with staking and running the node is not the recipient of the funds once the node is unstaked.</p>
+<p>This feature is currently inactive, and will be set to be active at a later date.</p>
+<p>Node runners who staked their nodes prior to this activation date will have one opportunity to decide if they want their nodes to have custodial staking or non-custodial staking. After this point, if they wish to switch between the two options, they will need to unstake/restake their node.</p>
+<h2 id="custodial-staking">Custodial staking</h2>
+<p>Custodial staking is the process of having the operator of the node be the recipient of the rewards of that node. This is true regardless of whether the node is a servicer or a validator.</p>
+<p>In this scenario, only one Pocket account is needed to run a node. This account handles all aspects of node maintenance such as staking, editing the stake, unjailing, and unstaking.</p>
+<p>Prior to version 0.8.0, this was the only option that node runners had.</p>
+<h2 id="non-custodial-staking">Non-custodial staking</h2>
+<p>Non-custodial staking is the process of having the operator of the node be a different account from the account that receives the rewards.</p>
+<p>In this scenario, there are two Pocket accounts necessary to the staking of a node. One account, the operator account, performs the staking, and can perform any and all node maintenance. The other account, known as the &ldquo;output&rdquo; account, is designated to receive the rewards that are unlocked when a node is unstaked. The output account can also initiate the staking.</p>
+<p>In addition, this output account has much the same authority over the node as the operator account. The output account can also run node transactions (stake, unstake, unjail, etc.).</p>
+<p><img src="/images/non-custodial-staking.png" alt=""></p>
+<h2 id="benefits-of-non-custodial-staking">Benefits of non-custodial staking</h2>
+<p>An operator address must reside in a &ldquo;hot&rdquo; wallet on the node. This could potentially represent a security risk when the server is operated by a third-party. As <a href="/node/staking/hosting-services.md">third-party node hosting is common</a>, there has arisen a need to have the recipient wallet for rewards not be on the same server as the node.</p>
+<p>Non-custodial staking allows for this. All you need to specify is the wallet (&ldquo;output&rdquo;) address, which is denoted when staking the node. The wallet can reside off the server.</p>
+<p>Another benefit to non-custodial staking is the ability to pool rewards into a single account. Since each node has to have a distinct operator account, this would previously have resulted in rewards being split across multiple wallets, which is inconvenient for a node runner with many nodes.</p>
+<h2 id="commands">Commands</h2>
+<p>The command for staking a node was updated for version 0.8.0 and includes extra parameters. Note that before non-custodial staking becomes active, the custodial command is the only one that will be successful.</p>
+<p><strong>Custodial staking:</strong></p>
+<pre tabindex="0"><code>pocket nodes stake custodial &lt;fromAddr&gt; &lt;amount&gt; &lt;relayChainIDs&gt; &lt;serviceURI&gt; &lt;networkID&gt; &lt;fee&gt; &lt;isBefore8.0&gt;
+</code></pre><p><strong>Non-custodial staking:</strong></p>
+<pre tabindex="0"><code>pocket nodes stake non-custodial &lt;operatorPublicKey&gt; &lt;outputAddress&gt; &lt;amount&gt; &lt;RelayChainIDs&gt; &lt;serviceURI&gt; &lt;networkID&gt; &lt;fee&gt; &lt;isBefore8.0&gt;
+</code></pre><p>Some notes on these commands:</p>
+<ul>
+<li>
+<p>The parameter <code>custodial</code> or <code>non-custodial</code> sets this permanently on your node. You can&rsquo;t change this later unless you unstake.</p>
+</li>
+<li>
+<p>The flag <code>&lt;isBefore8.0&gt;</code> is boolean. It exists as a transitional variable to denote whether or not the non-custodial activation has occurred. Before activation, you need to set this to <code>true</code>. After activation, you will need to set this to <code>false</code>. Failure to set this correctly will result in the transaction being rejected, with a delay of upwards of one block time to see this rejection.</p>
+</li>
+<li>
+<p>Be aware that the non-custodial command takes the <code>&lt;operatorPublicKey&gt;</code> as the argument, not the operator address (<code>&lt;fromAddr&gt;</code>) like in the custodial command. The reason why the public key is used and not the address is for the situation where the owner of the output address is doing the staking, but does not also have ownership of the operator account. In this case, they may only have the public key for that account.</p>
+</li>
+<li>
+<p>The non-custodial command adds <code>&lt;outputAddress&gt;</code> as the recipient of the staking rewards.</p>
+</li>
+</ul>
+<p>For more information on the full usage of these commands, please see the <a href="https://github.com/pokt-network/pocket-core/blob/staging/doc/specs/cli/node.md">Pocket Core docs</a>.</p>
+<h2 id="important-for-existing-nodes">Important for existing nodes</h2>
+<p><strong>If you have a node that was staked prior to the activation of non-custodial staking, you have only one opportunity to switch to non-custodial staking.</strong></p>
+<p>Any pocket node command successfully issued (for example, to adjust the stake) will &ldquo;lock&rdquo; the node into custodial, unless a non-custodial command is issued with a valid output address. Following this, the only way to switch between custodial and non-custodial is to unstake/restake the node (and recall that there is a 21 day unstake period).</p>
+<h2 id="important-for-all-nodes">Important for all nodes</h2>
+<p><strong>Be very careful entering the output address. You cannot change the output address after it is set. If you accidentally mistype the output address, your funds and your stake will be sent to that address and will be lost forever.</strong></p>
+<p>If you wish to change your output address, you can first unstake the node, and the rewards will be sent to that address. Then you can restake the node with a new output address.</p>
+<h2 id="more-information">More information</h2>
+<ul>
+<li><a href="https://forum.pokt.network/t/pip-9-consensus-rule-change-rc-0-8-0/1351">PIP-9 Consensus Rule Change</a></li>
+<li><a href="https://github.com/pokt-network/pocket-core/blob/staging/doc/specs/cli/node.md">Pocket Core docs</a></li>
+<li><a href="https://github.com/pokt-network/pocket-core/releases">Pocket Core releases</a></li>
+</ul>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>🌱 Seeds</h1>
+
+<p>Seed nodes enable newly configured nodes to find peers on the network and store them in their local address book.</p>
+<h2 id="mainnet">Mainnet</h2>
+<ol>
+<li><a href="mailto:03b74fa3c68356bb40d58ecc10129479b159a145@seed1.mainnet.pokt.network">03b74fa3c68356bb40d58ecc10129479b159a145@seed1.mainnet.pokt.network</a>:20656</li>
+<li><a href="mailto:64c91701ea98440bc3674fdb9a99311461cdfd6f@seed2.mainnet.pokt.network">64c91701ea98440bc3674fdb9a99311461cdfd6f@seed2.mainnet.pokt.network</a>:21656</li>
+<li><a href="mailto:0057ee693f3ce332c4ffcb499ede024c586ae37b@seed3.mainnet.pokt.network">0057ee693f3ce332c4ffcb499ede024c586ae37b@seed3.mainnet.pokt.network</a>:22856</li>
+<li><a href="mailto:9fd99b89947c6af57cd0269ad01ecb99960177cd@seed4.mainnet.pokt.network">9fd99b89947c6af57cd0269ad01ecb99960177cd@seed4.mainnet.pokt.network</a>:23856</li>
+<li><a href="mailto:f2a4d0ec9d50ea61db18452d191687c899c3ca42@seed5.mainnet.pokt.network">f2a4d0ec9d50ea61db18452d191687c899c3ca42@seed5.mainnet.pokt.network</a>:24856</li>
+<li><a href="mailto:f2a9705924e8d0e11fed60484da2c3d22f7daba8@seed6.mainnet.pokt.network">f2a9705924e8d0e11fed60484da2c3d22f7daba8@seed6.mainnet.pokt.network</a>:25856</li>
+<li><a href="mailto:582177fd65dd03806eeaa2e21c9049e653672c7e@seed7.mainnet.pokt.network">582177fd65dd03806eeaa2e21c9049e653672c7e@seed7.mainnet.pokt.network</a>:26856</li>
+<li><a href="mailto:2ea0b13ab823986cfb44292add51ce8677b899ad@seed8.mainnet.pokt.network">2ea0b13ab823986cfb44292add51ce8677b899ad@seed8.mainnet.pokt.network</a>:27856</li>
+<li><a href="mailto:a5f4a4cd88db9fd5def1574a0bffef3c6f354a76@seed9.mainnet.pokt.network">a5f4a4cd88db9fd5def1574a0bffef3c6f354a76@seed9.mainnet.pokt.network</a>:28856</li>
+<li><a href="mailto:d4039bd71d48def9f9f61f670c098b8956e52a08@seed10.mainnet.pokt.network">d4039bd71d48def9f9f61f670c098b8956e52a08@seed10.mainnet.pokt.network</a>:29856</li>
+<li><a href="mailto:5c133f07ed296bb9e21e3e42d5f26e0f7d2b2832@poktseed100.chainflow.io">5c133f07ed296bb9e21e3e42d5f26e0f7d2b2832@poktseed100.chainflow.io</a>:26656</li>
+<li><a href="mailto:361b1936d3fbe516628ebd6a503920fc4fc0f6a7@seed.pokt.rivet.cloud">361b1936d3fbe516628ebd6a503920fc4fc0f6a7@seed.pokt.rivet.cloud</a>:26656</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>pocket start --seeds=&#34;03b74fa3c68356bb40d58ecc10129479b159a145@seed1.mainnet.pokt.network:20656,64c91701ea98440bc3674fdb9a99311461cdfd6f@seed2.mainnet.pokt.network:21656,0057ee693f3ce332c4ffcb499ede024c586ae37b@seed3.mainnet.pokt.network:22856,9fd99b89947c6af57cd0269ad01ecb99960177cd@seed4.mainnet.pokt.network:23856,f2a4d0ec9d50ea61db18452d191687c899c3ca42@seed5.mainnet.pokt.network:24856,f2a9705924e8d0e11fed60484da2c3d22f7daba8@seed6.mainnet.pokt.network:25856,582177fd65dd03806eeaa2e21c9049e653672c7e@seed7.mainnet.pokt.network:26856,2ea0b13ab823986cfb44292add51ce8677b899ad@seed8.mainnet.pokt.network:27856,a5f4a4cd88db9fd5def1574a0bffef3c6f354a76@seed9.mainnet.pokt.network:28856,d4039bd71d48def9f9f61f670c098b8956e52a08@seed10.mainnet.pokt.network:29856,5c133f07ed296bb9e21e3e42d5f26e0f7d2b2832@poktseed100.chainflow.io:26656,361b1936d3fbe516628ebd6a503920fc4fc0f6a7@seed.pokt.rivet.cloud:26656&#34; --mainnet
+</span></span></code></pre></div><h2 id="testnet">Testnet</h2>
+<ol>
+<li><a href="mailto:3487f08b9e915f347eb4372b406326ffbf13d82c@testnet-seed-1.nodes.pokt.network">3487f08b9e915f347eb4372b406326ffbf13d82c@testnet-seed-1.nodes.pokt.network</a>:4301</li>
+<li><a href="mailto:27f4295d1407d9512a25d7f2ea91d1a415660c16@testnet-seed-2.nodes.pokt.network">27f4295d1407d9512a25d7f2ea91d1a415660c16@testnet-seed-2.nodes.pokt.network</a>:4302</li>
+<li><a href="mailto:0beb1a93fe9ce2a3b058b98614f1ed0f5ad664d5@testnet-seed-3.nodes.pokt.network">0beb1a93fe9ce2a3b058b98614f1ed0f5ad664d5@testnet-seed-3.nodes.pokt.network</a>:4303</li>
+<li><a href="mailto:8fd656162dbbe0402f3cef111d3ad8d2723eef8e@testnet-seed-4.nodes.pokt.network">8fd656162dbbe0402f3cef111d3ad8d2723eef8e@testnet-seed-4.nodes.pokt.network</a>:4304</li>
+<li><a href="mailto:80100476b67fea2e94c6b2f72e40cf8f6062ed21@testnet-seed-5.nodes.pokt.network">80100476b67fea2e94c6b2f72e40cf8f6062ed21@testnet-seed-5.nodes.pokt.network</a>:4305</li>
+<li><a href="mailto:370edf0882e094e83d4087d5f8801bbf24f5d931@testnet-seed-6.nodes.pokt.network">370edf0882e094e83d4087d5f8801bbf24f5d931@testnet-seed-6.nodes.pokt.network</a>:4306</li>
+<li><a href="mailto:57aff5a049846d14e2dcc06fdcc241d7ebe6a3eb@testnet-seed-7.nodes.pokt.network">57aff5a049846d14e2dcc06fdcc241d7ebe6a3eb@testnet-seed-7.nodes.pokt.network</a>:4307</li>
+<li><a href="mailto:545fb484643cf2efbcf01ee2b7bc793ef275cd84@testnet-seed-8.nodes.pokt.network">545fb484643cf2efbcf01ee2b7bc793ef275cd84@testnet-seed-8.nodes.pokt.network</a>:4308</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>pocket start --seeds=&#34;3487f08b9e915f347eb4372b406326ffbf13d82c@testnet-seed-1.nodes.pokt.network:4301,27f4295d1407d9512a25d7f2ea91d1a415660c16@testnet-seed-2.nodes.pokt.network:4302,0beb1a93fe9ce2a3b058b98614f1ed0f5ad664d5@testnet-seed-3.nodes.pokt.network:4303,8fd656162dbbe0402f3cef111d3ad8d2723eef8e@testnet-seed-4.nodes.pokt.network:4304,80100476b67fea2e94c6b2f72e40cf8f6062ed21@testnet-seed-5.nodes.pokt.network:4305,370edf0882e094e83d4087d5f8801bbf24f5d931@testnet-seed-6.nodes.pokt.network:4306,57aff5a049846d14e2dcc06fdcc241d7ebe6a3eb@testnet-seed-7.nodes.pokt.network:4307,545fb484643cf2efbcf01ee2b7bc793ef275cd84@testnet-seed-8.nodes.pokt.network:4308&#34; --testnet
+</span></span></code></pre></div>
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="chapter">
+<div class="article-subheading">Chapter 18</div>
+<h1>Node Tutorials</h1>
+
+<p>This section contain tutorials for various actions a typical user may wish to undertake.</p>
+<p>The following tutorial, <a href="/node/tutorials/zero-to-node/README.md">Zero To Node</a>, wlil show you a step-by-step way to set up a Pocket Node on hosted hardware.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+    
+          <article class="chapter">
+<div class="article-subheading">Chapter 26</div>
+<h1>Introduction</h1>
+
+<p>Welcome to Zero To Node! This is a step-by-step guide for setting up a Pocket validator node. While there are many different ways to set up a node, the focus of this tutorial is on keeping things simple and with the minimum of steps, while still focusing on security and stability.</p>
+<p>This guide is broken down into five parts:</p>
+<ul>
+<li><strong><a href="/node/tutorials/zero-to-node/server-setup.md">Part 1: Server setup</a></strong></li>
+<li><strong><a href="/node/tutorials/zero-to-node/software-install.md">Part 2: Software installation</a></strong></li>
+<li><strong><a href="/node/tutorials/zero-to-node/pocket-config.md">Part 3: Pocket configuration</a></strong></li>
+<li><strong><a href="/node/tutorials/zero-to-node/proxy-config.md">Part 4: Proxy configuration</a></strong></li>
+<li><strong><a href="/node/tutorials/zero-to-node/going-live.md">Part 5: Going live</a></strong></li>
+</ul>
+<h2 id="background">Background</h2>
+<p>The main utility of a Pocket node is to relay transactions to other blockchains. So, Pocket nodes need access to other nodes for the blockchains they&rsquo;ll be relaying to. However, the focus of this guide is just on setting up a Pocket node that will relay to the Pocket network, essentially, through itself. <strong>Setting up nodes for other blockchains such as Harmony, Ethereum, or any of the other <a href="/node/tutorials/zero-to-node/../../../supported-blockchains.md">supported blockchains</a> is beyond the scope of this guide.</strong></p>
+<p>After completing the steps outlined here, you&rsquo;ll have a fully functional Pocket node up and running. If you choose, you can also opt to stake your node and earn rewards. We&rsquo;ll cover that here, but staking is not required unless you want to earn rewards.</p>
+<h2 id="who-is-this-guide-for">Who is this guide for?</h2>
+<p>This guide is for anyone interested in running Pocket nodes. While the goal is to keep things simple, the assumption is that you have some general blockchain and computer networking knowledge, and some Linux terminal experience.</p>
+<h2 id="what-youll-need">What you&rsquo;ll need</h2>
+<p>In order to complete this guide, you&rsquo;ll need:</p>
+<ol>
+<li>A server connected to the internet</li>
+<li>A domain name</li>
+<li>The ability to add DNS records for your domain</li>
+<li>15,100 POKT (if you want to stake your node)</li>
+<li>About 2-4 hours to complete and test everything</li>
+</ol>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+    
+          <article class="default">
+<h1>Part 1 –  Server setup</h1>
+
+<p>This section will help you set up and configure a server to prepare it for being a Pocket node.</p>
+<h2 id="setup-a-server">Setup a server</h2>
+<p>The first thing you&rsquo;ll need to run a Pocket node is a server. For this guide, we&rsquo;ll be using a virtual machine on the <a href="https://www.linode.com/">Linode</a> cloud service. But, you could use any cloud service you like.</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Pocket has no affiliation with Linode and does not recommend any one provider over another. The general steps outlined here should work for most cloud providers.</p>
+    </div>
+</div>
+<p>Let&rsquo;s start by creating a Linode instance (a virtual machine).</p>
+<h3 id="creating-a-linode-instance">Creating a Linode instance</h3>
+<p>To create a Linode instance, do the following:</p>
+<ol>
+<li>Get a <a href="https://www.linode.com/">Linode</a> account and login.</li>
+<li>Create a new Linode with the following specifications:
+<ul>
+<li><strong>Image / Distribution</strong>: <code>Ubuntu 20.04 LTS</code></li>
+<li><strong>Region</strong>: <code>Atlanta, GA</code></li>
+<li><strong>Linode Plan</strong>: <code>Dedicated 16 GB - 8 CPU, 320 GB Storage, 16 GB RAM</code></li>
+<li><strong>Linode Label</strong>: <code>pokt001</code></li>
+</ul>
+</li>
+<li>Wait for the Linode to be created and show up as running in the web interface.</li>
+</ol>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>For a more detailed guide on setting up a Linode instance, see the <a href="https://www.linode.com/docs/guides/getting-started/">Linode docs</a>. Also, note that the <code>Atlanta, GA</code> region was selected for this guide because it supports <a href="https://www.linode.com/products/block-storage/#nvme-block-storage">NVMe storage</a> which is preferable for running nodes. <a href="https://www.linode.com/blog/cloud-storage/nvme-block-storage-global-rollout/">Check to see which other regions support NVMe storage</a>.</p>
+    </div>
+</div>
+<h2 id="configure-dns">Configure DNS</h2>
+<p>Now that the Linode instance is created and running, you&rsquo;ll need to set up a DNS record that points to the IP address of the Linode instance.</p>
+<p>Pocket nodes require a DNS name. DNS (<a href="https://www.cloudflare.com/learning/dns/what-is-dns/">Domain Name Service</a>) names are used to map an IP address to more human-friendly names. So rather than referencing a server with an address like <code>134.23.153.21</code> we can use a name like <code>pokt001.pokt.run</code>.</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Most domain registrars allow you to add DNS records. Please refer to the DNS setup documentation for your provider.</p>
+    </div>
+</div>
+<p>Specifically, you&rsquo;ll need to add an <code>A</code> record for the domain name. For the exact steps, consult the DNS documentation for your provider. Then create a record with the following information:</p>
+<ul>
+<li><strong>Name</strong>: <code>pokt001</code></li>
+<li><strong>Type</strong>: <code>A</code></li>
+<li><strong>Value</strong>: <code>{Linode_IP_Address}</code></li>
+<li><strong>TTL</strong>: <code>300</code></li>
+</ul>
+<p>After setting up your DNS record, wait a few minutes for the DNS to propagate. Then use the following command to check that the DNS record is working:</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>The examples in this tutorial will use <code>pokt001</code> as the server on the <code>pokt.run</code> domain, so <code>pokt001.pokt.run</code> will be used as the DNS name. <strong>Please replace this throughout with your own server and domain name.</strong></p>
+    </div>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ping -c <span style="color:#ae81ff">3</span> pokt001.pokt.run
+</span></span></code></pre></div><p>You should see a response that looks something like this:</p>
+<pre tabindex="0"><code>64 bytes from 134.23.153.21: icmp_seq=0 ttl=47 time=92.403 ms
+64 bytes from 134.23.153.21: icmp_seq=1 ttl=47 time=142.828 ms
+64 bytes from 134.23.153.21: icmp_seq=2 ttl=47 time=182.456 ms
+</code></pre><p>If the IP address matches the IP address of your Linode instance, you&rsquo;re all set!</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>It can sometimes take longer than a minute for the DNS to propagate. So, be patient if things don&rsquo;t seem to work right away.</p>
+    </div>
+</div>
+<h2 id="login-with-ssh">Login with SSH</h2>
+<p>Now that we have a DNS record setup, we will look at using SSH to log in and continue the setup process.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Secure_Shell">Secure Shell Protocol</a> (SSH) is a secure way to connect to your Linode instance from a remote machine, like your local computer. We&rsquo;ll be using SSH to complete the remainder of the setup process.</p>
+<h3 id="ssh-from-mac-or-linux">SSH from Mac or Linux</h3>
+<p>If you&rsquo;re using a Mac, or Linux, on your local computer, you can SSH into your node by doing the following:</p>
+<ul>
+<li>
+<p>Open a terminal</p>
+</li>
+<li>
+<p>SSH into your node using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh root@pokt001.pokt.run
+</span></span></code></pre></div></li>
+</ul>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Don&rsquo;t forget to replace <code>pokt001.pokt.run</code> with your DNS name.</p>
+    </div>
+</div>
+<p>You&rsquo;ll be prompted for your password. This is the root password that you set when you created your Linode.</p>
+<h3 id="ssh-from-windows">SSH from Windows</h3>
+<p>Windows 10 and later have a built-in SSH client. You can use SSH on Windows by doing the following:</p>
+<ul>
+<li>
+<p>Open the Windows terminal</p>
+</li>
+<li>
+<p>SSH into your node using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh root@pokt001.pokt.run
+</span></span></code></pre></div></li>
+</ul>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Don&rsquo;t forget to replace <code>pokt001.pokt.run</code> with your DNS name.</p>
+    </div>
+</div>
+<p>If you&rsquo;re using an older version of Windows, you might need to install <a href="https://www.putty.org/">PuTTY</a> or some other SSH client.</p>
+<h2 id="set-the-hostname">Set the hostname</h2>
+<p>At this point you should be logged into your node as the <code>root</code> user.</p>
+<p>In a previous step, we set the DNS name for the node. Now we&rsquo;ll use the same name for the hostname on the server.</p>
+<p>To set the server hostname use the following steps:</p>
+<ol>
+<li>
+<p>Open the <code>/etc/hostname</code> file with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano /etc/hostname
+</span></span></code></pre></div></li>
+<li>
+<p>Change the <code>localhost</code> value to the fully qualified hostname of your node (for example, <code>pokt001.pokt.run</code>).</p>
+</li>
+<li>
+<p>Save the file with <code>Ctrl+O</code> and then <code>Enter</code>.</p>
+</li>
+<li>
+<p>Exit nano with <code>Ctrl+X</code>.</p>
+</li>
+<li>
+<p>Reboot the server with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>reboot
+</span></span></code></pre></div></li>
+<li>
+<p>Wait for the server to reboot then ssh back in as the <code>root</code> user before continuing on.</p>
+</li>
+</ol>
+<h2 id="create-a-user">Create a user</h2>
+<p>For security reasons it&rsquo;s best not to use the <code>root</code> user. Instead, it&rsquo;s better to create a new user and add the user to the <code>sudo</code> group.</p>
+<p>Also, by default, the Pocket CLI will place the data directory for the node in the user&rsquo;s home directory. So, when you create a new user, you&rsquo;ll want to make sure the home directory is on a volume that has plenty of room for the data directory.</p>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>At the time of writing, Pocket requires ~200GB for its blockchain data. The following user setup steps assumes that the location of your user&rsquo;s home directory is on a volume with enough room for the pocket data.</p>
+    </div>
+</div>
+<h3 id="creating-a-new-user">Creating a new user</h3>
+<p>To create a new user and home directory, enter the following commands:</p>
+<ol>
+<li>
+<p>Create a new user named <code>pocket</code>, add it to the <code>sudo</code> group, and set the default shell to <code>bash</code>. If you want to specify the location of the home directory, you can use the <code>-d</code> option followed by the path to the home directory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>useradd -m -g sudo -s /bin/bash pocket <span style="color:#f92672">&amp;&amp;</span> passwd pocket
+</span></span></code></pre></div></li>
+<li>
+<p>For the rest of this guide, we&rsquo;ll be using the <code>pocket</code> user. So now that the <code>pocket</code> user is created, you can switch from using <code>root</code> to the <code>pocket</code> user with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>su - pocket
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="configure-ssh-key-login-optional">Configure SSH Key Login (Optional):</h3>
+<p>While not required, using an SSH key provides a more secure means of accessing your server.</p>
+<p>Using an SSH key removes the ability for credentials to be sniffed in the login process, and removes the pitfalls that can often come with user generated passwords since the key will truly be random.</p>
+<p>One important thing to understand, is that without access to the ssh key, you won&rsquo;t be able to log into your node. If you intend on accessing your node from multiple computers, it&rsquo;s recommended that you repeat the Generate Key and Upload Key steps from each computer that you intend to access your node from before moving on to the Disable Root Login and Password Authentication step.</p>
+<ol>
+<li>
+<p>Log Out</p>
+<p>At the terminal you&rsquo;ll need to enter the <code>logout</code> command twice. The first logout logs you out of the pocket user, back to the root user, and the second logout logs you out of the server and back to your terminal.</p>
+</li>
+<li>
+<p>Generate Key</p>
+<p>Next, we&rsquo;ll generate an ssh key. To do that you&rsquo;ll run the ssh-keygen command. You&rsquo;ll be prompted to specify the file you want to save the key to, and for a password. Specifying a password means that if someone has access to your key, they&rsquo;d still need to know the password to be able to use it to login. To create the key, do the following:</p>
+<ul>
+<li>
+<p>Run the ssh-keygen command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Enter file in which to save the key (~/.ssh/id_rsa)</p>
+</li>
+<li>
+<p>Enter a passphrase (empty for no passphrase)</p>
+</li>
+<li>
+<p>Enter same passphrase again</p>
+</li>
+</ul>
+<p>The results should looking something like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>The key fingerprint is:
+</span></span><span style="display:flex;"><span>SHA256:jr2MLXIha188wYsp/bNflN9BuqQ3LWCAXJNTtHO7sWk
+</span></span><span style="display:flex;"><span>The key<span style="color:#960050;background-color:#1e0010">&#39;</span>s randomart image is:
+</span></span><span style="display:flex;"><span>+---<span style="color:#f92672">[</span>RSA 4096<span style="color:#f92672">]</span>----+
+</span></span><span style="display:flex;"><span>|         o+o     |
+</span></span><span style="display:flex;"><span>|      . oo. .    |
+</span></span><span style="display:flex;"><span>|       o ..o . . |
+</span></span><span style="display:flex;"><span>|       .  . o.+  |
+</span></span><span style="display:flex;"><span>|        S  oo<span style="color:#f92672">=</span> . |
+</span></span><span style="display:flex;"><span>|    ...B o..+.B..|
+</span></span><span style="display:flex;"><span>|    .o<span style="color:#f92672">=</span>.B  ..E...|
+</span></span><span style="display:flex;"><span>|    +.o*.o .o o  |
+</span></span><span style="display:flex;"><span>|   . +o.*+.      |
+</span></span><span style="display:flex;"><span>+----<span style="color:#f92672">[</span>SHA256<span style="color:#f92672">]</span>-----+
+</span></span></code></pre></div></li>
+<li>
+<p>Upload Key</p>
+<p>Now we&rsquo;re going to upload the key so that we can use it to log into the pocket user. If you choose a different path for the ssh key, it&rsquo;s important to replace the ~/.ssh/id_rsa with the key you used.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-copy-id -i ~/.ssh/id_rsa pocket@pokt001.pokt.run
+</span></span></code></pre></div></li>
+<li>
+<p>Disable Root Login and Password Authentication</p>
+<p>Now we&rsquo;re now going to configure ssh to no longer allow root logins, and to not allow any password based login attempts. Meaning without access to the ssh key for the pocket user, no one will be able to log into the server.</p>
+<p>First we&rsquo;ll need to log back into the server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh pocket@pokt001.pokt.run
+</span></span></code></pre></div><p>From there, we&rsquo;ll want to open the /etc/ssh/sshd_config file to make some changes to the default configuration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/ssh/sshd_config
+</span></span></code></pre></div><p>Once there, we&rsquo;ll need to find and change the following lines:</p>
+<ul>
+<li><code>#PermitRootLogin prohibit-password</code> -&gt; <code>PermitRootLogin no</code></li>
+<li><code>#PubkeyAuthentication yes</code> -&gt; <code>PubkeyAuthentication yes</code></li>
+<li><code>#PasswordAuthentication yes</code> -&gt; <code>PasswordAuthentication no</code></li>
+</ul>
+<p>Once changed, Ctrl-O followed by Enter will save the changes, and Ctrl-X will exit nano back to the terminal.</p>
+<p>Then we&rsquo;ll need to restart the ssh server for these changes to take effect:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart sshd.service
+</span></span></code></pre></div></li>
+<li>
+<p>Verify Everything Works</p>
+<p>The last step is to log out of the server, and try logging back in. If you&rsquo;re no longer prompted for a password, then everything is working as expected.</p>
+</li>
+</ol>
+<p>That&rsquo;s it for the server setup! Continue on to install the necessary software.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>Part 2 –  Software installation</h1>
+
+<p>This section will help you install all the necessary software for your node.</p>
+<h2 id="install-dependencies">Install dependencies</h2>
+<p>Now let&rsquo;s move on to the Pocket CLI installation.</p>
+<p>At this point you should be logged in via SSH as the <code>pocket</code> user that we set up in a previous step. Before we install the Pocket software, we need to update the existing system packages and add a few dependencies.</p>
+<h3 id="updating-system-packages">Updating system packages</h3>
+<ol>
+<li>Update the repository index with the following command:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span></code></pre></div></li>
+<li>Update the distribution with the following command:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt dist-upgrade -y
+</span></span></code></pre></div></li>
+</ol>
+<p>After the update completes, we&rsquo;re ready to install the dependencies.</p>
+<h3 id="installing-dependencies">Installing dependencies</h3>
+<p>There are a handful of dependencies but installing them won&rsquo;t take long. Also, some might already be installed. So if one of the dependencies exists, you can just move on to the next one.</p>
+<h4 id="git">git</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install git -y
+</span></span></code></pre></div><h4 id="build-tools">build tools</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install build-essential -y
+</span></span></code></pre></div><h4 id="curl">curl</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install curl -y
+</span></span></code></pre></div><h4 id="file">file</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install file -y
+</span></span></code></pre></div><h4 id="nginx">nginx</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install nginx -y
+</span></span></code></pre></div><h4 id="certbot">certbot</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install certbot -y
+</span></span></code></pre></div><h4 id="python3-certbot-nginx">python3-certbot-nginx</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install python3-certbot-nginx -y
+</span></span></code></pre></div><h4 id="jq">jq</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install jq -y
+</span></span></code></pre></div><h2 id="install-go">Install Go</h2>
+<p>After installing the dependencies, there is one more dependency we&rsquo;ll need to add, and that&rsquo;s Go. Go (sometimes known as &ldquo;Golang&rdquo;) is the programming language that the Pocket software was written in.</p>
+<p>We could install Go using <code>apt</code>, but we want to get the latest stable version which probably isn&rsquo;t available by default in the <code>apt</code> repository. So, we&rsquo;ll use the steps below to install Go.</p>
+<ol>
+<li>Make sure you&rsquo;re in the pocket home directory.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~
+</span></span></code></pre></div></li>
+<li>Find the latest version of Go from <a href="https://golang.org/dl/">https://golang.org/dl/</a> then download it with the following command. (Make sure to change the link below to point to the correct version of Go.)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://dl.google.com/go/go1.17.7.linux-amd64.tar.gz
+</span></span></code></pre></div></li>
+<li>Extract the archive:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tar -xvf go1.17.7.linux-amd64.tar.gz
+</span></span></code></pre></div></li>
+<li>Set permissions on the extracted files:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown -R pocket ./go
+</span></span></code></pre></div></li>
+<li>Add Go to the <code>PATH</code>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=$PATH:$HOME/go/bin&#39;</span> &gt;&gt; ~/.profile
+</span></span></code></pre></div></li>
+<li>Set the <code>GOPATH</code> and <code>GOBIN</code> environment variables:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export GOPATH=$HOME/go&#39;</span> &gt;&gt; ~/.profile
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export GOBIN=$HOME/go/bin&#39;</span> &gt;&gt; ~/.profile
+</span></span></code></pre></div></li>
+<li>Reload your <code>.profile</code>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.profile
+</span></span></code></pre></div></li>
+<li>Verify the installation:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go version
+</span></span></code></pre></div>You should see something like this:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go version go1.17.7 linux/amd64
+</span></span></code></pre></div>Make sure the version number matches the version you downloaded. If the <code>go version</code> command doesn&rsquo;t work, try logging out and logging back in.</li>
+<li>Verify the <code>GOPATH</code> and <code>GOBIN</code> variables are set correctly:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go env
+</span></span></code></pre></div>You should see the <code>GOPATH</code> and <code>GOBIN</code> variables set correctly.</li>
+</ol>
+<h2 id="install-pocket">Install Pocket</h2>
+<p>After you can verify that you have the latest stable version of Go, we&rsquo;re ready to install the Pocket software.</p>
+<p>We&rsquo;ll be downloading <a href="https://docs.pokt.network/core/">Pocket Core</a> from GitHub and then compiling it with Go to get it fully installed.</p>
+<p>To download and install Pocket Core, do the following:</p>
+<ol>
+<li>Create a project directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p $GOPATH/src/github.com/pokt-network
+</span></span></code></pre></div></li>
+<li>Change to the project directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd $GOPATH/src/github.com/pokt-network
+</span></span></code></pre></div></li>
+<li>Clone the Pocket Core repository:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo git clone https://github.com/pokt-network/pocket-core.git
+</span></span></code></pre></div></li>
+<li>Change to the code directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd pocket-core
+</span></span></code></pre></div></li>
+<li>Checkout the latest version. You can find the latest tag by going to <a href="https://github.com/pokt-network/pocket-core/tags">https://github.com/pokt-network/pocket-core/tags</a>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo git checkout tags/RC-0.8.2
+</span></span></code></pre></div></li>
+<li>Build project code:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go build -o $GOPATH/bin/pocket $GOPATH/src/github.com/pokt-network/pocket-core/app/cmd/pocket_core/main.go
+</span></span></code></pre></div></li>
+<li>Test that the build succeeded:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket version
+</span></span></code></pre></div></li>
+</ol>
+<p>That&rsquo;s it for the software installation. Now let&rsquo;s move on to the Pocket core configuration.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>Part 3 –  Pocket configuration</h1>
+
+<p>This section will help you configure your instance of Pocket.</p>
+<h2 id="create-a-pocket-wallet-account">Create a Pocket wallet account</h2>
+<p>Pocket nodes are associated with a Pocket wallet account. This is the account that will be used to send and receive transactions from the node. You can either create a new account using the Pocket CLI we just installed, or you can use an existing account. For this guide, we&rsquo;ll be creating a new account.</p>
+<h3 id="creating-an-account">Creating an account</h3>
+<p>To create an account, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket accounts create
+</span></span></code></pre></div><p>You&rsquo;ll be prompted to set a passphrase for the account. You can use any passphrase you like but for security reasons, it&rsquo;s best to use a passphrase that is at least 12 characters long, preferably longer.</p>
+<h3 id="listing-accounts">Listing accounts</h3>
+<p>After you&rsquo;ve created the account you can use the <code>pocket accounts list</code> command to confirm that the account was added successfully.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket accounts list
+</span></span></code></pre></div><h3 id="setting-the-validator-address">Setting the validator address</h3>
+<p>Next, to set the account as the one the node will use, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket accounts set-validator <span style="color:#f92672">{</span>YourAccountAddress<span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="confirm-the-validator-address">Confirm the validator address</h3>
+<p>Finally, you can confirm that the validator address was set correctly by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> pocket accounts get-validator
+</span></span></code></pre></div><h2 id="create-configjson">Create <code>config.json</code></h2>
+<p>The Pocket core software uses a config file to store configuration details. By default the config file is located at <code>~/.pocket/config/config.json</code>. In this step we&rsquo;ll look at how to create a new config file.</p>
+<p>To create a new config file:</p>
+<ol>
+<li>
+<p>Run the following command, which will create the default <code>config.json</code> file, add the seeds, set port 8081 to 8082, and increase the RPC timeout value:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#66d9ef">$(</span>pocket util print-configs<span style="color:#66d9ef">)</span> | jq <span style="color:#e6db74">&#39;.tendermint_config.P2P.Seeds = &#34;03b74fa3c68356bb40d58ecc10129479b159a145@seed1.mainnet.pokt.network:20656,64c91701ea98440bc3674fdb9a99311461cdfd6f@seed2.mainnet.pokt.network:21656,0057ee693f3ce332c4ffcb499ede024c586ae37b@seed3.mainnet.pokt.network:22856,9fd99b89947c6af57cd0269ad01ecb99960177cd@seed4.mainnet.pokt.network:23856,1243026603e9073507a3157bc4de99da74a078fc@seed5.mainnet.pokt.network:24856,6282b55feaff460bb35820363f1eb26237cf5ac3@seed6.mainnet.pokt.network:25856,3640ee055889befbc912dd7d3ed27d6791139395@seed7.mainnet.pokt.network:26856,1951cded4489bf51af56f3dbdd6df55c1a952b1a@seed8.mainnet.pokt.network:27856,a5f4a4cd88db9fd5def1574a0bffef3c6f354a76@seed9.mainnet.pokt.network:28856,d4039bd71d48def9f9f61f670c098b8956e52a08@seed10.mainnet.pokt.network:29856,5c133f07ed296bb9e21e3e42d5f26e0f7d2b2832@poktseed100.chainflow.io:26656&#34;&#39;</span> | jq <span style="color:#e6db74">&#39;.pocket_config.rpc_timeout = 15000&#39;</span> | jq <span style="color:#e6db74">&#39;.pocket_config.rpc_port = &#34;8082&#34;&#39;</span> | jq <span style="color:#e6db74">&#39;.pocket_config.remote_cli_url = &#34;http://localhost:8082&#34;&#39;</span> | jq . &gt; ~/.pocket/config/config.json
+</span></span></code></pre></div>
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<pre><code>This is a long command! Make sure you've copied it completely.
+</code></pre>
+    </div>
+</div>
+</li>
+<li>
+<p>Verify the <code>config.json</code> file setting by viewing the contents of the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat ~/.pocket/config/config.json
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="create-chainsjson">Create <code>chains.json</code></h2>
+<p>Pocket nodes relay transactions to other blockchains. So, you&rsquo;ll need to configure the chains your node can relay to. For this guide, we&rsquo;ll just be setting up our node to relay to the Pocket mainnet blockchain, essentially through itself.</p>
+<p>To maximize your rewards, you&rsquo;ll want to relay to other chains. We&rsquo;ll cover that in more detail later but here is a list of <a href="/node/tutorials/zero-to-node/pocket-config/../../../supported-blockchains.md">other blockchains you could relay to</a>.</p>
+<h3 id="generating-a-chainsjson-file-with-the-cli">Generating a <code>chains.json</code> file with the CLI</h3>
+<p>You can use the Pocket CLI to generate a <code>chains.json</code> file for your node by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket util generate-chains
+</span></span></code></pre></div><p>This will prompt you for the following information:</p>
+<ul>
+<li>Enter the ID of the Pocket network identifier:
+<pre tabindex="0"><code>0001
+</code></pre></li>
+<li>Enter the URL of the network identifier. Use <code>http://127.0.0.1:8081/</code> if you&rsquo;re not running a validator node:
+<pre tabindex="0"><code>http://127.0.0.1:8082/
+</code></pre></li>
+</ul>
+<p>When you&rsquo;re prompted to add another chain, enter <code>n</code> for now.</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>By default the <code>chains.json</code> file will be created in <code>~/.pocket/config</code>. You can use the <code>--datadir</code> flag to create the chains.json file in an alternate location. For example: <code>pocket util generate-chains --datadir &quot;/mnt/data/.pocket&quot;</code>.</p>
+    </div>
+</div>
+<h2 id="create-genesisjson">Create <code>genesis.json</code></h2>
+<p>Now that we have a <code>chains.json</code> file set up, so we can move on to test our node.</p>
+<p>When you start a Pocket node for the first time, it will need to find other nodes (peers) to connect with. To do that we use a file named <code>genesis.json</code> with details about peers the node should connect to get on the network.</p>
+<p>To create a JSON file with the genesis information:</p>
+<ol>
+<li>Change to the <code>.pocket/config</code> directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/.pocket/config
+</span></span></code></pre></div></li>
+<li>Use the following command to get the <code>genesis.json</code> file from GitHub:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://raw.githubusercontent.com/pokt-network/pocket-network-genesis/master/mainnet/genesis.json genesis.json
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="set-open-file-limits">Set open file limits</h2>
+<p>Ubuntu and other UNIX-like systems have a <code>ulimit</code> shell command that&rsquo;s used to set resource limits for users. One of the limits that can be set is the number of open files a user is allowed to have. Pocket nodes will have a lot of files open at times, so we&rsquo;ll want to increase the default ulimit for the <code>pocket</code> user account.</p>
+<h3 id="increasing-the-ulimit">Increasing the ulimit</h3>
+<ol>
+<li>Before increasing the ulimit, you can check the current ulimit with the following command:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ulimit -n
+</span></span></code></pre></div></li>
+<li>Increase the ulimit to 16384. The <code>-Sn</code> option is for setting the soft limit on the number of open files:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ulimit -Sn <span style="color:#ae81ff">16384</span>
+</span></span></code></pre></div></li>
+<li>Check the new ulimit to confirm that it was set correctly. The <code>-n</code> option is for getting the limit for just the number of open files:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ulimit -n
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="permanent-settings">Permanent settings</h3>
+<p>Using the above method for setting the <code>ulimit</code> only keeps the change in effect for the current session. To permanently set the ulimit, you can do the following:</p>
+<ol>
+<li>Open the <code>/etc/security/limits.conf</code> file.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/security/limits.conf
+</span></span></code></pre></div></li>
+<li>Add the following line to the bottom of the file:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket           soft    nofile          <span style="color:#ae81ff">16384</span>
+</span></span></code></pre></div></li>
+<li>Save the file with <code>Ctrl+O</code> and then <code>Enter</code>.</li>
+<li>Exit nano with <code>Ctrl+X</code>.</li>
+</ol>
+<p>After permanently setting the ulimit, the next thing we&rsquo;ll do is download a snapshot of the Pocket blockchain.</p>
+<h2 id="download-snapshot">Download snapshot</h2>
+<p>Rather than synchronizing your Pocket node from block zero (which could take weeks), you can use a snapshot. A snapshot of the Pocket blockchain is taken every 12 hours and can be downloaded using the instructions on the <a href="https://github.com/pokt-network/pocket-snapshots">Pocket Snapshots Repository</a> README page.</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>As of this writing, the snapshots are refreshed every 12 hours. In the GitHub repo you can look at when the <code>README.md</code> file was last updated to determine when the last snapshot was taken. It&rsquo;s best to download the snapshot that is less than a few hours old.</p>
+    </div>
+</div>
+<p>Here are the steps for download the snapshot using the <code>wget</code> command:</p>
+<ol>
+<li>Change into the <code>.pocket</code> directory.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/.pocket
+</span></span></code></pre></div></li>
+<li>Make a directory named <code>data</code> and change into it.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir data <span style="color:#f92672">&amp;&amp;</span> cd data
+</span></span></code></pre></div></li>
+<li>Download the latest snapshot using the following command:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -qO- https://snapshot.nodes.pokt.network/latest.tar.gz | tar xvfz -
+</span></span></code></pre></div></li>
+<li>Make the <code>pocket</code> user the owner of the <code>data</code> directory.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown -R pocket ~/.pocket/data
+</span></span></code></pre></div></li>
+</ol>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>This process can take a few hours depending on your internet connection.</p>
+    </div>
+</div>
+<h2 id="configure-systemd">Configure systemd</h2>
+<p>Next, we&rsquo;ll configure the Pocket service using <a href="https://en.wikipedia.org/wiki/Systemd">systemd</a>, a Linux service manager. This will enable the Pocket node to run and restart even when we&rsquo;re not logged in.</p>
+<h3 id="creating-a-systemd-service-in-linux">Creating a systemd service in Linux</h3>
+<p>To setup a systemd service for Pocket, do the following:</p>
+<ol>
+<li>
+<p>Open nano and create a new file called <code>pocket.service</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/systemd/system/pocket.service
+</span></span></code></pre></div></li>
+<li>
+<p>Add the following lines to the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Pocket service</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network.target</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Wants</span><span style="color:#f92672">=</span><span style="color:#e6db74">network-online.target systemd-networkd-wait-online.service</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">User</span><span style="color:#f92672">=</span><span style="color:#e6db74">pocket</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Group</span><span style="color:#f92672">=</span><span style="color:#e6db74">sudo</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/home/pocket/go/bin/pocket start</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStop</span><span style="color:#f92672">=</span><span style="color:#e6db74">/home/pocket/go/bin/pocket stop</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">default.target</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Make sure the <code>User</code> is set to the user that will run the Pocket service.</p>
+</li>
+<li>
+<p>Make sure the <code>ExecStart</code> and <code>ExecStop</code> paths are set to the path for the Pocket binary.</p>
+</li>
+<li>
+<p>Save the file with <code>Ctrl+O</code> and then <code>return</code>.</p>
+</li>
+<li>
+<p>Exit nano with <code>Ctrl+X</code>.</p>
+</li>
+<li>
+<p>Reload the service files to include the pocket service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span></code></pre></div></li>
+<li>
+<p>Start the pocket service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start pocket.service
+</span></span></code></pre></div></li>
+<li>
+<p>Verify the service is running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status pocket.service
+</span></span></code></pre></div></li>
+<li>
+<p>Stop the pocket service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl stop pocket.service
+</span></span></code></pre></div></li>
+<li>
+<p>Verify the service is stopped:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status pocket.service
+</span></span></code></pre></div></li>
+<li>
+<p>Set the service to start on boot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable pocket.service
+</span></span></code></pre></div></li>
+<li>
+<p>Verify the service is set to start on boot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl list-unit-files --type<span style="color:#f92672">=</span>service
+</span></span></code></pre></div></li>
+<li>
+<p>Start the pocket service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start pocket.service
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="other-systemctl-commands">Other systemctl commands</h3>
+<ul>
+<li>
+<p>To restart the service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart pocket.service
+</span></span></code></pre></div></li>
+<li>
+<p>To prevent the service from starting on boot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl disable pocket.service
+</span></span></code></pre></div></li>
+<li>
+<p>To see mounted volumes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl list-units --type<span style="color:#f92672">=</span>mount
+</span></span></code></pre></div>
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<pre><code>If your pocket data is on a separate partition, you can use the following command in the `pocket.service` file to mount it before the pocket service starts.
+    ```
+    After=network.target mnt-data.mount
+    ```
+</code></pre>
+    </div>
+</div>
+<p>This ensures that the network is up and the volume is mounted before the pocket service starts.</p>
+</li>
+</ul>
+<h3 id="viewing-the-logs">Viewing the logs</h3>
+<p>To view the logs for the pocket service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo journalctl -u pocket.service
+</span></span></code></pre></div><p>To view just the last 100 lines of the logs (equivalent to the <code>tail -f</code> command):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo journalctl -u pocket.service -n <span style="color:#ae81ff">100</span> --no-pager
+</span></span></code></pre></div><h3 id="finding-errors">Finding Errors</h3>
+<p>You can use <code>grep</code> to find errors in the logs.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo journalctl -u pocket.service | grep -i error
+</span></span></code></pre></div><p>Alright, we&rsquo;re just about done. We just need to setup an HTTP proxy and we&rsquo;ll be ready to go live. We&rsquo;ll setup the proxy next.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>Part 4 –  Proxy configuration</h1>
+
+<p>This section will help you set up the proxy setting on your node.</p>
+<h2 id="setup-ssl">Setup SSL</h2>
+<p>Pocket requires that nodes have an SSL certificate for secure communications. SSL (<a href="https://www.cloudflare.com/learning/ssl/what-is-ssl/">Secure Sockets Layer</a>) is a layer of security that sits on top of TCP/IP. It&rsquo;s used to encrypt the data sent between a client and a server. To use SSL, you need to have a certificate and a key. Thankfully, getting an SSL certificate is straightforward and free.</p>
+<p>To get a certificate, we&rsquo;ll be using <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> which is a service that issues SSL certificates for free. We&rsquo;ll also be using software called <a href="https://certbot.eff.org/">certbot</a> to register, install, and renew the certificate.</p>
+<h3 id="registering-an-ssl-certificate">Registering an SSL certificate</h3>
+<p>We installed certbot in a previous step so we just need to use it to request a certificate.</p>
+<p>To get a certificate, we&rsquo;ll need to use the <code>certbot</code> command with the following options:</p>
+<ul>
+<li><code>--register-unsafely-without-email</code>: This option is required to get a certificate without an email address.</li>
+<li><code>--agree-tos</code>: This option is required to agree to the Let&rsquo;s Encrypt Terms of Service.</li>
+<li><code>--nginx</code>: This option is required to use the nginx plugin.</li>
+<li><code>--no-redirect</code>: This option is required to disable the redirect to the Let&rsquo;s Encrypt website.</li>
+<li><code>--domain</code>: This option is required to specify the domain name.</li>
+</ul>
+<p>Here&rsquo;s an example of how to request a certificate. Just replace <code>$HOSTNAME</code> with the DNS name of your node:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo certbot --nginx --domain $HOSTNAME --register-unsafely-without-email --no-redirect --agree-tos
+</span></span></code></pre></div><p>The output from this command should confirm that the certificate was successfully registered.</p>
+<h3 id="testing-your-certificate">Testing your certificate</h3>
+<p>To be sure, you&rsquo;ll also want to test that the certificate is working.</p>
+<p>There is a command that certbot provides to test your certificate. It&rsquo;s used for testing the auto-renewal of the certificate but it also confirms that the certificate is working. You can run it using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo certbot renew --dry-run
+</span></span></code></pre></div><p>The resulting output should confirm that the certificate is working.</p>
+<h2 id="configure-nginx">Configure Nginx</h2>
+<p>Nginx is a web server. We installed it in aprevious step but we need to do some additional configuration.</p>
+<p>Nginx uses config files to define servers and routes for incoming requests. For Pocket nodes, nginx needs to relay public requests to a local HTTP server that pocket core is running. This is referred to as the proxy. We&rsquo;ll also need to proxy requests made by the Pocket CLI. For example, when we run the command <code>pocket query height</code>, the CLI makes an http request to the node&rsquo;s local HTTP server.</p>
+<h3 id="config-files">Config files</h3>
+<p>The nginx configuration files we&rsquo;re interested in are located in the <code>/etc/nginx/sites-available/</code> directory. In that directory there is a default configuration file named <code>default</code>. This is the configuration that is created when you install nginx, but we&rsquo;ll be creating our own for our node.</p>
+<p>To configure nginx:</p>
+<ol>
+<li>Confirm the name of your SSL certificate:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ls /etc/letsencrypt/live/
+</span></span></code></pre></div></li>
+<li>Create a new config file with nano:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/nginx/sites-available/pocket
+</span></span></code></pre></div></li>
+<li>Add the following code but change the hostname values (<code>pokt001.pokt.run</code>) to your node&rsquo;s DNS hostname:
+<pre tabindex="0"><code>server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+server {
+    add_header Access-Control-Allow-Origin &#34;*&#34;;
+    listen 80 ;
+    listen [::]:80 ;
+    listen 8081 ssl;
+    listen [::]:8081 ssl;
+
+    root /var/www/html;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name pokt001.pokt.run;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    listen [::]:443 ssl ipv6only=on;
+    listen 443 ssl;
+
+    ssl_certificate /etc/letsencrypt/live/pokt001.pokt.run/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/pokt001.pokt.run/privkey.pem;
+
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    access_log /var/log/nginx/reverse-access.log;
+    error_log /var/log/nginx/reverse-error.log;
+
+    location ~* ^/v1/client/(dispatch|relay|challenge|sim) {
+        proxy_pass http://127.0.0.1:8082;
+        add_header Access-Control-Allow-Methods &#34;POST, OPTIONS&#34;;
+        allow all;
+    }
+
+    location = /v1 {
+        add_header Access-Control-Allow-Methods &#34;GET&#34;;
+        proxy_pass http://127.0.0.1:8082;
+        allow all;
+    }
+}
+</code></pre></li>
+<li>Save the change with <code>Ctrl+O</code>.</li>
+<li>Exit nano with <code>Ctrl+X</code>.</li>
+<li>Stop nginx with:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl stop nginx
+</span></span></code></pre></div></li>
+<li>Disable the default configuration:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo rm /etc/nginx/sites-enabled/default
+</span></span></code></pre></div></li>
+<li>Enable our new configuration:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ln -s /etc/nginx/sites-available/pocket /etc/nginx/sites-enabled/pocket
+</span></span></code></pre></div></li>
+<li>Start nginx:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start nginx
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="enable-ufw">Enable UFW</h2>
+<p>We&rsquo;re almost done, but before we finish we&rsquo;ll make our server more secure by setting firewall rules to limit network exposure. The <a href="https://wiki.ubuntu.com/UncomplicatedFirewall">Uncomplicated Firewall</a> (UFW) is a security tool that makes configuring the firewall reasonably simple. We&rsquo;ll use it to disable unnecessary ports.</p>
+<h3 id="ports-you-need-to-open">Ports you need to open</h3>
+<p>For running a Pocket node, you&rsquo;ll need to open the following ports:</p>
+<ul>
+<li><code>22</code>: SSH</li>
+<li><code>80</code>: HTTP</li>
+<li><code>443</code>: HTTPS</li>
+<li><code>8081</code>: For the Pocket HTTP API</li>
+<li><code>26656</code>: For the Pocket RPC API</li>
+</ul>
+<h3 id="use-ufw-to-disable-unnecessary-ports">Use UFW to disable unnecessary ports</h3>
+<p>To use UFW to configure the firewall:</p>
+<ol>
+<li>
+<p>Enable UFW. When prompted, press <code>y</code> to confirm:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw enable
+</span></span></code></pre></div></li>
+<li>
+<p>Set the default to deny all incoming connections:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw default deny
+</span></span></code></pre></div></li>
+<li>
+<p>Allow the SSH port:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw allow ssh
+</span></span></code></pre></div></li>
+<li>
+<p>Allow port 80:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw allow <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Allow port 443:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw allow <span style="color:#ae81ff">443</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Allow port 8081:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw allow <span style="color:#ae81ff">8081</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Allow port 26656:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw allow <span style="color:#ae81ff">26656</span>
+</span></span></code></pre></div></li>
+</ol>
+<p>That&rsquo;s it for the UFW setup. Let&rsquo;s just check the status to confirm the ports are open. To do that, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw status
+</span></span></code></pre></div><p>After confirming only the necessary ports are open, you can move on to the final steps.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>Part 5 –  Going live</h1>
+
+<p>This section will details the final steps in going live with your node.</p>
+<h2 id="test-everything">Test everything</h2>
+<p>At this point your Pocket node should be up and running!</p>
+<p>But you&rsquo;ll want to test it to confirm. The following are some of the things you can do to test your Pocket Node.</p>
+<h3 id="make-sure-the-pocket-process-is-running">Make sure the Pocket process is running</h3>
+<p>The first thing to check is that the pocket service is running. You can do that by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>top -b -n <span style="color:#ae81ff">1</span> | grep pocket
+</span></span></code></pre></div><p>You should see output similar to the following:</p>
+<pre tabindex="0"><code>  44871 root      20   0 1018268  33948  21448 S   0.0   0.4   0:00.17 pocket
+</code></pre><h3 id="block-height">Block height</h3>
+<p>You&rsquo;ll want to check that the node is fully synced with the Pocket blockchain. The easiest way is to run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket query height
+</span></span></code></pre></div><p>The result should look something like the following.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;height&#34;</span>: <span style="color:#ae81ff">48161</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="network-status">Network status</h3>
+<p>Another way to see if your node is fully synced is to check the status with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://127.0.0.1:26657/status
+</span></span></code></pre></div><p>The result should look something like the following. Note the highlighted property <code>catching_up</code> which indicates if the node is catching up with the blockchain or fully synced. In the example below, the node is fully synced.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;jsonrpc&#34;</span>: <span style="color:#e6db74">&#34;2.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">-1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;result&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;node_info&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;protocol_version&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;p2p&#34;</span>: <span style="color:#e6db74">&#34;7&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;block&#34;</span>: <span style="color:#e6db74">&#34;10&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;app&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;80b80c106115259349df8ef06267cff7bbabd194&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;listen_addr&#34;</span>: <span style="color:#e6db74">&#34;tcp://0.0.0.0:26656&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;network&#34;</span>: <span style="color:#e6db74">&#34;mainnet&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.33.7&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;channels&#34;</span>: <span style="color:#e6db74">&#34;4020212223303800&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;moniker&#34;</span>: <span style="color:#e6db74">&#34;localhost&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;other&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;tx_index&#34;</span>: <span style="color:#e6db74">&#34;on&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;rpc_address&#34;</span>: <span style="color:#e6db74">&#34;tcp://127.0.0.1:26657&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sync_info&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;latest_block_hash&#34;</span>: <span style="color:#e6db74">&#34;F39BBF5C64D9E02E28DDBB8640F84A22CFAE1727CFBC72537982EF5914E4BB25&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;latest_app_hash&#34;</span>: <span style="color:#e6db74">&#34;6198835747411135C1F812CB45FA5621D5ADB63342EC0678C20879D7D39F03B5&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;latest_block_height&#34;</span>: <span style="color:#e6db74">&#34;50021&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;latest_block_time&#34;</span>: <span style="color:#e6db74">&#34;2022-02-04T12:16:10.77575197Z&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;earliest_block_hash&#34;</span>: <span style="color:#e6db74">&#34;7D551967CB8BBC9F8C0EAE78797D0576951DDA25CE63DF1801C020478C0B02F8&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;earliest_app_hash&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;earliest_block_height&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;earliest_block_time&#34;</span>: <span style="color:#e6db74">&#34;2020-07-28T15:00:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;catching_up&#34;</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;validator_info&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;80B80C106115259349DF8EF06267CFF7BBABD194&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;pub_key&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;tendermint/PubKeyEd25519&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;ee+o9bKqCbAO13FgWTLmJdi9hhfYg8AHsif5430uz8A=&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;voting_power&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="make-sure-your-node-is-visible-to-other-nodes">Make sure your node is visible to other nodes</h3>
+<p>You&rsquo;ll also want to make sure your node is accessible to other nodes.</p>
+<p>To test and confirm your node is visible to other nodes on the public network, you&rsquo;ll make an HTTP request using the public DNS name for the node. You can use the following command to make that request:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://pokt001.pokt.run:8081/v1
+</span></span></code></pre></div>
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>As always, don&rsquo;t forget to change <code>pokt001.pokt.run</code> to the DNS name for your node.</p>
+    </div>
+</div>
+<p>This should return something like the following. This is the version of pocket-core that is running.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;RC-0.8.2&#34;</span>
+</span></span></code></pre></div><h2 id="staking-your-node">Staking your node</h2>
+<p>To earn POKT rewards, you&rsquo;ll need to stake at least 15,000 POKT. That said, you should stake at least 15,100 POKT or more to be safe. This provides a little extra room in case your node gets slashed (penalized) for some reason.</p>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Please make sure that you understand the risks associated with staking POKT and running a Pocket node.</p>
+    </div>
+</div>
+<p>If you&rsquo;re using the Pocket CLI to fund an account, keep in mind that the CLI uses uPOKT (the smallest unit of POKT) for its calculations. The formula for converting POKT to uPOKT is: <code>uPOKT = POKT * 10^6</code>. So, multiplying 15050 POKT by 10^6 (one million) will result in 15050000000 uPOKT.</p>
+<p>Also keep in mind that there is a cost for every transaction you send. At the moment, that cost is a flat fee of 0.01 POKT, or 10000 uPOKT, but this may be subject to change.</p>
+<ol>
+<li>List your accounts:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket accounts list
+</span></span></code></pre></div></li>
+<li>Confirm the validator account is set:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket accounts get-validator
+</span></span></code></pre></div></li>
+<li>Confirm the validator account has enough POKT. This should be at least 15,101 POKT. You&rsquo;ll want 15,100 to stake and a bit more for network fees:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket query balance <span style="color:#f92672">{</span>YourValidatorAddress<span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>Stake your node, making sure to enter the correct details for your setup:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket nodes stake custodial <span style="color:#f92672">{</span>YourValidatorAddress<span style="color:#f92672">}</span> <span style="color:#ae81ff">15100000000</span> <span style="color:#f92672">{</span>ChainIDs<span style="color:#f92672">}</span> https://<span style="color:#f92672">{</span>hostname<span style="color:#f92672">}</span>:443 mainnet <span style="color:#ae81ff">10000</span> true
+</span></span></code></pre></div></li>
+</ol>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>The <code>{ChainIDs}</code> placeholder should be a list of relay chain IDs that are defined in your <code>~/.pocket/config/chains.json</code> file. In this guide we only set up <code>0001</code>, but if you were relaying to multiple chains, each id would be separated by a comma. For example, <code>0001,0022,0040</code>.</p>
+    </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>As of <code>RC-0.8.2</code> there are two staking methods: <code>custodial</code> and <code>non-custodial</code>. The custodial method is used in the example above.</p>
+    </div>
+</div>
+<p>After you send the stake command, you&rsquo;ll be prompted for your <code>passphrase</code>, then you should see something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost:8082/v1/client/rawtx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;logs&#34;</span>: null,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;txhash&#34;</span>: <span style="color:#e6db74">&#34;155D46196C69F75F85791C4190D384B8BAFFBBEFCC5D1311130C54A1C54435A7&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The actual time it takes to stake will vary depending on when the last block was processed, but generally, it should take less than 15 minutes.</p>
+<h3 id="confirm-your-node-is-live">Confirm your node is live</h3>
+<p>After you&rsquo;ve staked your node, you can confirm it&rsquo;s live by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pocket query node <span style="color:#f92672">{</span>YourValidatorAddress<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>If you see something like the following, it just means your node is not live yet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost:8082/v1/query/node
+</span></span><span style="display:flex;"><span>the http status code was not okay: 400, and the status was: <span style="color:#ae81ff">400</span> Bad Request, with a response of <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;code&#34;</span>:400,<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;validator not found for 07f5084ab5f5246d747fd1154d5d4387ee5a7111&#34;</span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>If this happens, please wait a few minutes and try again.</p>
+<h2 id="tutorial-complete">Tutorial complete</h2>
+<p>Congratulations! You&rsquo;ve successfully set up a Pocket node.</p>
+<p>There&rsquo;s more to running a Pocket node than this, such as maintenance, upgrades, and other administrative tasks, but hopefully this has gotten you started and on the right path. Thank you for doing your part to help decentralize Web3!</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          </section>
+    
+          <article class="default">
+<h1>Automated Deployments</h1>
+
+<p>The following services can help automate your node deployments:</p>
+<ul>
+<li><a href="https://nodepilot.tech">Node Pilot</a></li>
+<li><a href="https://dappnode.io">DAppNode</a></li>
+<li><a href="https://github.com/BenVanGithub/POKT-ROKT">PoktRokt</a></li>
+</ul>
+<p><strong>Warning: Use at your own risk.</strong> These links are not directly associated with Pocket Network and do not constitute an endorsement, guarantee, warranty, or recommendation by Pocket Network, Inc., Pocket Network Foundation, or the Pocket DAO. Do conduct your own due diligence before deciding to use any third party services.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>Node-Hosting Services</h1>
+
+<p>If you are interested in staking your POKT in a node but don&rsquo;t have the time or technical know-how, below you will find a link to the available options to have your node operated by a third-party.</p>
+<ul>
+<li><a href="https://forum.pokt.network/t/overview-of-node-hosting-services/366"><strong>List of Node-Hosting Services</strong></a></li>
+</ul>
+<p>If you don&rsquo;t have enough POKT for the minimum node stake, you should consult this <a href="https://forum.pokt.network/t/overview-of-pooling-services/2437">Overview of Pooling Services</a>.</p>
+<p><strong>Warning: Use at your own risk.</strong> The appearance of third party descriptions and hyperlinks on the above linked sites does not constitute an endorsement, guarantee, warranty, or recommendation by Pocket Network, Inc., Pocket Network Foundation, or the Pocket DAO. Do conduct your own due diligence before deciding to use any third party services.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>Node FAQ</h1>
+
+<p>The following pages contains common questions regarding running nodes.</p>
+<h2 id="-node-configuration">⚙ Node Configuration</h2>
+<h3 id="does-my-blockchain-node-need-to-be-synced-before-i-start-my-pocket-node">Does my blockchain node need to be synced before I start my Pocket node?</h3>
+<p>Yes. Every node on the Pocket Network needs to have the most up to date information of the blockchain they are supporting. If you start joining sessions before your node has caught up to the current block height, you will be returning incorrect data, and if incorrect data is being returned, your node will be slashed.</p>
+<h3 id="how-many-blockchains-can-one-node-support">How many blockchains can one node support?</h3>
+<p>Your node can support up to the number of chains defined by the <a href="/node/faq/../learn/protocol-parameters.md#maximumchains-1"><code>MaximumChains</code></a> parameter. This limit is not definitive and can be changed by the DAO.</p>
+<h3 id="can-i-add-a-load-balancer-address-in-my-chainsjson-if-i-have-multiple-blockchains-under-one-domain">Can I add a load balancer address in my chains.json if I have multiple blockchains under one domain?</h3>
+<p>Yes you can! Just make sure you have the necessary ports open to be able to successfully send relays to the proper network.</p>
+<h3 id="how-can-i-add-more-blockchains-to-my-node">How can I add more blockchains to my node?</h3>
+<p>Unstake your node, add the new RelayChainIDs to your chains.json file, then restake your node.</p>
+<p><a href="/node/faq/../supported-blockchains.md">Find the RelayChainIDs here</a></p>
+<h3 id="can-i-continue-earning-pokt-while-im-unstaking">Can I continue earning POKT while I&rsquo;m unstaking?</h3>
+<p>No, for the duration of the unstaking process as determined by the <a href="/node/faq/../learn/protocol-parameters.md#unstakingtime"><code>UnstakingTime</code></a> parameter, your node will not be eligible for sessions.</p>
+<h3 id="do-each-of-my-nodes-need-a-unique-ip-address">Do each of my nodes need a unique IP address?</h3>
+<p>You need a dedicated domain for each node, but the nodes can be on the same machine, behind the same IP address. It would take properly configuring your Reverse Proxy and Firewall/Router, but it can be done.</p>
+<h3 id="how-do-i-set-my-ulimit">How do I set my ulimit?</h3>
+<h4 id="where-to-set-the-ulimit">Where to set the <code>ulimit</code></h4>
+<p>As a best practice, do not use <code>root</code> to run the pocket process. When you set the <code>ulimit</code> for your instance, it&rsquo;s important to set it in the user profile that is running the <code>pocket-core</code> instance.</p>
+
+<div class="box notices cstyle warning">
+    <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Warning</div>
+    <div class="box-content">
+<p>Make sure that you&rsquo;re setting the ulimit for the specific account that&rsquo;s running the <code>pocket</code> process.</p>
+<p>Configuring the ulimit system-wide might vary depending on your OS. Here&rsquo;s a basic tutorial on setting them for linux: <a href="https://rtcamp.com/tutorials/linux/increase-open-files-limit/">https://rtcamp.com/tutorials/linux/increase-open-files-limit/</a></p>
+    </div>
+</div>
+<h4 id="how-to-calculate-the-ulimit">How to calculate the <code>ulimit</code></h4>
+<p>To calculate the <code>ulimit</code>, you will have to define a few parameters as shown below:</p>
+<p><code>({ulimit -Sn} &gt;= {MaxNumInboundPeers} + {MaxNumOutboundPeers} + {GRPCMaxOpenConnections} + {MaxOpenConnections} + {Desired Concurrent Pocket RPC connections} + {100 (Constant number of wal, db and other open files)}</code></p>
+<p>Breakdown:</p>
+<ul>
+<li><strong>ulimit -Sn:</strong> = is a soft number of open files that need to be open</li>
+<li><strong>GRPCMaxOpenConnections</strong> = is the number of RPC connections connections your node can relay</li>
+<li><strong>MaxOpenConnections</strong> = max number of connections you want your node to service</li>
+</ul>
+<p>You will need to increase your ulimit to the calculated number. To do so, go into your .bashrc in your $HOME dir and enter:</p>
+<pre tabindex="0"><code>ulimit -Sn 16384
+</code></pre><p>Once you save your file, enter:</p>
+<p><code>source ~/.bashrc</code></p>
+<h3 id="what-do-i-do-if-my-node-needs-to-go-down-for-an-extended-period-such-as-during-a-machine-migration">What do I do if my node needs to go down for an extended period, such as during a machine migration?</h3>
+<p>To opt out of being selected for work, you should deliberately jail your node, which lets the network know you are not ready to receive any relays. Once the machine is back up and running, you can unjail your node again.</p>
+<h2 id="-node-troubleshooting">❌ Node Troubleshooting</h2>
+<h3 id="why-is-my-node-not-earning-pokt">Why is my node not earning POKT?</h3>
+<p>See the section below on Maximizing your POKT earnings.</p>
+<h3 id="how-do-i-check-my-pocket-node-status">How do I check my Pocket node status?</h3>
+<p>Make sure your node is connected to the network by executing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://&lt;your node ip&gt;:26657/status
+</span></span></code></pre></div><p>Lookout for <code>latest_block_height</code> and <code>latest_block_time</code> to make sure it&rsquo;s updated to the current time in UTC.</p>
+<p>Example Output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;jsonrpc&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;node_info&#34;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;protocol_version&#34;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;p2p&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;7&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;block&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;10&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;app&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;4930289621aefbf9252c91c4c729b7f685e44c4b&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;listen_addr&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tcp://0.0.0.0:26656&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;network&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pocket-testet-playground&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0.32.7&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;channels&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;4020212223303800&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;moniker&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pocket-core-testnet-55f59f6c8-5njbx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;other&#34;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;tx_index&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;on&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;rpc_address&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tcp://0.0.0.0:26657&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;sync_info&#34;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;latest_block_hash&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;090C3B9C3B9F1BB10C6825D5230A45759E19A9BCC1503B80314F93B69162C712&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;latest_app_hash&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;AB5838AA434FD36B48B759E62C596F4145F4C086B07FB45D2CCFCFFF21F5F937&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;latest_block_height&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;49&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;latest_block_time&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2020-02-10T23:17:59.161691821Z&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;catching_up&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;validator_info&#34;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;address&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;4930289621AEFBF9252C91C4C729B7F685E44C4B&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;pub_key&#34;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tendermint/PubKeyEd25519&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;9i9322nUSMG1bzVAxjPylNI8za8AK/azdtBYoAtRz6o=&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;voting_power&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1000&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="i-keep-getting-too-many-open-files-when-my-node-is-syncing-what-does-this-mean">I keep getting &ldquo;too many open files&rdquo; when my node is syncing? What does this mean?</h3>
+<p>This means that your <code>ulimit</code> is set too low on your node. Find instructions on how to set your <code>ulimit</code> above.</p>
+<h3 id="why-does-my-node-keep-crashing">Why does my node keep crashing?</h3>
+<p>Your node can crash due to the following reasons:</p>
+<ol>
+<li>Having too many open files</li>
+<li>Resource limitations</li>
+</ol>
+<h4 id="too-many-open-files">Too Many Open Files</h4>
+<p>Make sure your <code>ulimit</code> is set correctly on your user profile. Find instructions on how to set your <code>ulimit</code> above.</p>
+<h4 id="resource-limitations">Resource Limitations</h4>
+<p>Make sure your node meets the minimum hardware requirements for both a Pocket node and the blockchain nodes you&rsquo;re servicing. Details are above on this page.</p>
+<h3 id="will-my-node-be-slashed-for-downtime">Will my node be slashed for downtime?</h3>
+<p>There are negligible burns at this stage of the network, determined by the <a href="/node/faq/../learn/protocol-parameters.md#slashfractiondowntime"><code>SlashFractionDowntime</code></a> parameter. As the network matures, the rate will probably be increased to push for better service.</p>
+<h2 id="-maximizing-your-pocket-earnings">🤑 Maximizing your Pocket earnings</h2>
+<p>So you&rsquo;ve spun up your Pocket node but you&rsquo;re not earning as much as you thought you would. On this page, we debunk some common misconceptions and explain how to maximize your earnings.</p>
+<h3 id="my-node-is-functional-but-doesnt-seem-to-be-earning-pokt---is-it-configured-incorrectly">My node is functional but doesn&rsquo;t seem to be earning POKT - is it configured incorrectly?</h3>
+<p>There are a couple of reasons why your node may not be rewarding you with POKT. There are many great community members and Pocket teammates that are eager to help you triage this, but first, ask yourself, “is your node configured correctly?”. Don&rsquo;t assume it is. Use the troubleshooting steps listed above.</p>
+<p>The next thing to check is if your node is offline or <a href="/node/faq/../learn/glossary.md#jail">jailed</a>&hellip;or both. Reasons include:</p>
+<ul>
+<li>Returning incorrect data</li>
+<li>Missing blocks</li>
+<li>Being offline</li>
+<li><a href="/node/faq/../learn/glossary.md#serviceuri">serviceURI</a> is not publicly reachable</li>
+</ul>
+<p>If you suspect that this may be happening to your node, you can do a historical search on your nodes. We have a great community member who created <a href="https://forum.pokt.network/t/jailcounter-script/663">this</a> script to help you determine how long you were jailed for a specific period of time.</p>
+<p>Checking your node status is one of the first steps towards maximizing your POKT earnings.</p>
+<h3 id="conversely-how-will-i-know-if-my-node-is-working-correctly">Conversely, how will I know if my node is working correctly?</h3>
+<p>Checking the block height is the easiest way to know if you&rsquo;re synced up to the network. You can simply query your node to get this height and compare it to the latest block displayed on the <a href="https://explorer.pokt.network">Explorer</a>.</p>
+<pre tabindex="0"><code>pocket query height
+</code></pre><p>The above command tells you if your Pocket node is synced up, but you&rsquo;re probably running at least one other node for the <a href="/node/faq/../supported-blockchains.md">external blockchains</a> (referred to on this page as blockchain data nodes) that you&rsquo;re serving to apps. You should make sure these are also synced up to their respective networks.</p>
+<p>For example, you can check the block height of your Geth Ethereum node by submitting this query to your node, which returns the latest height of geth-mainnet known by the node.</p>
+<pre tabindex="0"><code>curl --request POST --header &#39;Content-Type: application/json&#39; --data-raw &#39;{&#34;jsonrpc&#34;:&#34;2.0&#34;,&#34;method&#34;:&#34;eth_blockNumber&#34;,&#34;params&#34;:[],&#34;id&#34;:83}&#39; --user [authentication] [GETH NODE URL]
+</code></pre><h3 id="when-will-i-find-out-if-i-have-made-pokt-rewards">When will I find out if I have made POKT rewards?</h3>
+<p>To check if you&rsquo;re earning rewards, you can simply monitor the balance of your node.</p>
+<pre tabindex="0"><code>pocket query balance &lt;address&gt;
+</code></pre><p>This way is very manual and you would need to track your balance over time to understand the change in the amounts.</p>
+<p>The good news is there are several options for tracking your node rewards such as <a href="https://github.com/BenVanGithub/POKT-ROKT">POKT ROKT</a>, which tracks the last 24 hours of earnings in its CLI dashboard, or <a href="https://sandwalker.sbrk.org/explorer">Sandwalker</a> which tracks historical rewards by day and month.</p>
+<h3 id="why-dont-i-just-connect-my-pocket-node-to-insert-third-party-provider-here">Why don&rsquo;t I just connect my Pocket node to [insert third-party provider here]?</h3>
+<p>On the surface, this seems like a great idea. Use a free tier of another service (e.g. Infura) and you don&rsquo;t have to pay for any blockchain data node costs.</p>
+<p><em>First off, free tiers by third-party providers are capped, which limits your upside. To make matters worse, if you use a third-party provider instead of running your own blockchain data node, you won&rsquo;t make enough POKT to cover the server costs of your Pocket node.</em></p>
+<p>Plus, that doesn&rsquo;t jive with our ethos now, does it?</p>
+<h3 id="why-wouldnt-i-make-enough-pokt-with-a-third-party">Why wouldn&rsquo;t I make enough POKT with a third-party?</h3>
+<p>Using third-party providers slows you down. Slower nodes make less revenue.</p>
+<p>Why does the third-party slow you down? Increasing the distance between your Pocket node and the third-party blockchain data node increases the number and length of hops that an end-user&rsquo;s request has to make.</p>
+<p>Here is an illustration:</p>
+<p><img src="/images/pokt-world-map.jpg" alt="">
+In this example, the Pocket nodes (pink) are on the other side of the US from the Blockchain data nodes (orange). The end-user is using the <a href="https://portal.pokt.network">Portal</a> to communicate with the network. The path the end-user&rsquo;s request must take is: <code>End-user → Portal → Pocket Node → Blockchain Data Node → Pocket Node → Portal → End-user</code></p>
+<p>The end-user&rsquo;s request must hop back and forth across the US 4 times and that&rsquo;s not including the hops between the user and the Portal. As a result, it may take up to 1 second for a user to receive something as simple as a balance query. That&rsquo;s not very good service.</p>
+<h3 id="arent-there-data-centers-around-the-world-for-this-exact-reason">Aren&rsquo;t there data centers around the world for this exact reason?</h3>
+<p>Correct. However, this works against you in this scenario.</p>
+<p>Most third-party providers will have their servers in standard cloud regions situated around the world labeled such as East, West, EU, and Singapore. Load balancers are standard. For example, if a user is in Australia, they will be redirected to the nearest server in Singapore.</p>
+<p>The challenge with using a third-party provider for your blockchain data node is that, by default, your Pocket Node will not always be in the same data center or machine as the third-party blockchain data node. If your Pocket Node is in US West, while you may have lesser latency from users who are hitting those servers, your node will *never* be as fast as it could be.</p>
+<p>Your node will likely be in a different datacenter, where even a couple of hops will add somewhere between 30ms - 50ms. This becomes exacerbated when a user is coming from US East or the EU. With a full node on US West, you&rsquo;re adding up to 200ms per request for these users.</p>
+<h3 id="why-does-the-latency-matter">Why does the latency matter?</h3>
+<p>While Pocket Network doesn&rsquo;t discriminate (yet) between the speed of requests, the <a href="https://portal.pokt.network">Portal</a> does. The Portal filters out slow nodes to ensure the protocol is providing the best service possible to apps.</p>
+<p>The vast majority of the requests on the network today come through the Portal. This means that faster nodes = more POKT.</p>
+<p>In the long run, your setup matters not only for your earnings but also for ensuring a quality service for end-users (which will ultimately be crucial for the growth of the network).</p>
+<h3 id="then-how-can-i-maximize-my-node-revenue">Then how can I maximize my node revenue?</h3>
+<p>The following are some best practices that will give you an edge over the majority of node runners.</p>
+<ul>
+<li>Know where the users are located… and locate your nodes accordingly. The Pocket Portal is currently in US-West-2, US-East-2, EU-West-1, AP-SE-1. The most underserved geographic area on Pocket is currently the Asia Pacific region.</li>
+<li>Minimize the distance between your Pocket Nodes and your blockchain data nodes. Having your blockchain data nodes next to your Pocket nodes in the same rack is ideal.</li>
+<li>Load-balance your blockchain data nodes.</li>
+<li>Use a Peering Tower to reduce P2P gossip on the network. Visit the 🤖node-runner channel on <a href="https://discord.gg/GSUDdhqtQ3">Discord</a> for more information.</li>
+<li>Use physical hardware at home or data centers; you will have faster nodes and lower costs over time by owning your hardware and co-locating it.</li>
+<li>Monitor your nodes for both health and sync &ndash; being online is only the first step, you must keep your blockchain data nodes in sync or they will not service relays.</li>
+<li>Use services like the <a href="https://c0d3r.org/PerfExplorer">Performance Explorer</a> to monitor your node&rsquo;s performance in comparison to other nodes.</li>
+</ul>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img alt="POKT Logo" src="/images/logo-white.svg" />
+
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1658922679" defer></script>
+        <script src="/js/lunr.min.js?1658922679" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1658922679" defer></script>
+        <script src="/js/lunr.multi.min.js?1658922679" defer></script>
+        <script src="/js/lunr.en.min.js?1658922679" defer></script>
+        <script src="/js/search.js?1658922679" defer></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/">👋 Welcome</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics collapsible-menu">
+          <li data-nav-id="/supported-blockchains/" title="✅ Supported Blockchains" class="dd-item"><a href="/supported-blockchains/">Supported Blockchains</a></li>
+          <li data-nav-id="/pokt/" title="💰 Get POKT" class="dd-item"><input type="checkbox" id="section-988f0a59c06aa1ec7897abdaf06824dd" class="toggle"/><label for="section-988f0a59c06aa1ec7897abdaf06824dd" ></label><a href="/pokt/">Own POKT</a><ul>
+          <li data-nav-id="/pokt/wallets/" title="Manage POKT" class="dd-item"><a href="/pokt/wallets/">Manage POKT</a></li>
+          <li data-nav-id="/pokt/buy/" title="Buy POKT" class="dd-item"><a href="/pokt/buy/">Buy POKT</a></li>
+          <li data-nav-id="/pokt/stake/" title="Stake POKT" class="dd-item"><a href="/pokt/stake/">Stake POKT</a></li>
+          <li data-nav-id="/pokt/wpokt/" title="🎁 Wrapped POKT (wPOKT)" class="dd-item"><a href="/pokt/wpokt/">Wrapped POKT (wPOKT)</a></li></ul></li>
+          <li data-nav-id="/learn/" title="Learn Pocket" class="dd-item"><input type="checkbox" id="section-b30da781944ae4db0143d27203425a9c" class="toggle"/><label for="section-b30da781944ae4db0143d27203425a9c" ></label><a href="/learn/">Learn Pocket</a><ul>
+          <li data-nav-id="/learn/vision/" title="Vision" class="dd-item"><a href="/learn/vision/">Vision</a></li>
+          <li data-nav-id="/learn/protocol/" title="⛓ Protocol" class="dd-item"><input type="checkbox" id="section-7b0ba589eab3b7bc81771ad16ca9eaa3" class="toggle"/><label for="section-7b0ba589eab3b7bc81771ad16ca9eaa3" ></label><a href="/learn/protocol/">Protocol</a><ul>
+          <li data-nav-id="/learn/protocol/servicing/" title="🤝 Servicing" class="dd-item"><a href="/learn/protocol/servicing/">Servicing</a></li>
+          <li data-nav-id="/learn/protocol/security/" title="🛡 Security" class="dd-item"><a href="/learn/protocol/security/">Security</a></li></ul></li>
+          <li data-nav-id="/learn/economics/" title="🪙 Economics" class="dd-item"><input type="checkbox" id="section-8041da21916b100a66d56b9fffe9d2a7" class="toggle"/><label for="section-8041da21916b100a66d56b9fffe9d2a7" ></label><a href="/learn/economics/">Economics</a><ul>
+          <li data-nav-id="/learn/economics/token/" title="🪙 Token Economics" class="dd-item"><a href="/learn/economics/token/">Token Economics</a></li>
+          <li data-nav-id="/learn/economics/apps/" title="💻 App Economics" class="dd-item"><a href="/learn/economics/apps/">App Economics</a></li>
+          <li data-nav-id="/learn/economics/nodes/" title="🤖 Node Economics" class="dd-item"><a href="/learn/economics/nodes/">Node Economics</a></li>
+          <li data-nav-id="/learn/economics/monetary-policy/" title="🏦 Monetary Policy" class="dd-item"><a href="/learn/economics/monetary-policy/">Monetary Policy</a></li>
+          <li data-nav-id="/learn/economics/faq/" title="💰 Pricing &amp; Economics FAQ" class="dd-item"><a href="/learn/economics/faq/">FAQ</a></li></ul></li>
+          <li data-nav-id="/learn/future/" title="👀 Future (v1)" class="dd-item"><input type="checkbox" id="section-9461954986787100253a049ef82f97d4" class="toggle"/><label for="section-9461954986787100253a049ef82f97d4" ></label><a href="/learn/future/">Future</a><ul>
+          <li data-nav-id="/learn/future/utility/" title="🪙 Utility" class="dd-item"><a href="/learn/future/utility/">Utility</a></li>
+          <li data-nav-id="/learn/future/consensus/" title="🤝 Consensus" class="dd-item"><a href="/learn/future/consensus/">Consensus</a></li>
+          <li data-nav-id="/learn/future/peer-to-peer/" title="💬 Peer to Peer" class="dd-item"><a href="/learn/future/peer-to-peer/">Peer To Peer</a></li>
+          <li data-nav-id="/learn/future/persistence/" title="🗄 Persistence" class="dd-item"><a href="/learn/future/persistence/">Persistence</a></li></ul></li>
+          <li data-nav-id="/learn/protocol-parameters/" title="🎚 Protocol Parameters" class="dd-item"><a href="/learn/protocol-parameters/">Parameters</a></li>
+          <li data-nav-id="/learn/glossary/" title="Glossary" class="dd-item"><a href="/learn/glossary/">Glossary</a></li></ul></li>
+          <li data-nav-id="/use/" title="Use Pocket" class="dd-item"><input type="checkbox" id="section-9c8f252997a5013ebfdc92ac7869fc4d" class="toggle"/><label for="section-9c8f252997a5013ebfdc92ac7869fc4d" ></label><a href="/use/">Use Pocket</a><ul>
+          <li data-nav-id="/use/get-endpoint/" title="Get An Endpoint" class="dd-item"><a href="/use/get-endpoint/">Get an Endpoint</a></li>
+          <li data-nav-id="/use/public-rpc/" title="Public RPC Endpoints" class="dd-item"><input type="checkbox" id="section-5d1bd50b2ec2e182f37a6e240ac8eab5" class="toggle"/><label for="section-5d1bd50b2ec2e182f37a6e240ac8eab5" ></label><a href="/use/public-rpc/">Public RPC Endpoints</a><ul>
+          <li data-nav-id="/use/public-rpc/avax/" title="Avalanche \(AVAX\)" class="dd-item"><a href="/use/public-rpc/avax/">Avalanche</a></li>
+          <li data-nav-id="/use/public-rpc/bsc/" title="Binance Smart Chain \(BSC\)" class="dd-item"><a href="/use/public-rpc/bsc/">Binance Smart Chain</a></li>
+          <li data-nav-id="/use/public-rpc/dfk-chain/" title="Connecting MetaMask to DFK Chain" class="dd-item"><a href="/use/public-rpc/dfk-chain/">DFK Chain</a></li>
+          <li data-nav-id="/use/public-rpc/ethereum/" title="Ethereum \(ETH\)" class="dd-item"><a href="/use/public-rpc/ethereum/">Ethereum</a></li>
+          <li data-nav-id="/use/public-rpc/evmos/" title="Evmos" class="dd-item"><a href="/use/public-rpc/evmos/">Evmos</a></li>
+          <li data-nav-id="/use/public-rpc/fuse/" title="Fuse" class="dd-item"><a href="/use/public-rpc/fuse/">Fuse</a></li>
+          <li data-nav-id="/use/public-rpc/gnosis-chain/" title="Gnosis Chain (xDAI)" class="dd-item"><a href="/use/public-rpc/gnosis-chain/">Gnosis Chain (fka xDAI)</a></li>
+          <li data-nav-id="/use/public-rpc/harmony/" title="Harmony" class="dd-item"><a href="/use/public-rpc/harmony/">Harmony</a></li>
+          <li data-nav-id="/use/public-rpc/iotex/" title="IoTeX" class="dd-item"><a href="/use/public-rpc/iotex/">IoTeX</a></li>
+          <li data-nav-id="/use/public-rpc/polygon/" title="Polygon" class="dd-item"><a href="/use/public-rpc/polygon/">Polygon</a></li></ul></li>
+          <li data-nav-id="/use/dapps/" title="Pocket-Powered dApps" class="dd-item"><input type="checkbox" id="section-7c46178e6f5bbc55407fafefbfe1baa3" class="toggle"/><label for="section-7c46178e6f5bbc55407fafefbfe1baa3" ></label><a href="/use/dapps/">Pocket-Powered dApps</a><ul>
+          <li data-nav-id="/use/dapps/conquest-eth/" title="Conquest.eth" class="dd-item"><a href="/use/dapps/conquest-eth/">Conquest.eth</a></li>
+          <li data-nav-id="/use/dapps/dark-forest/" title="Dark Forest" class="dd-item"><a href="/use/dapps/dark-forest/">Dark Forest</a></li>
+          <li data-nav-id="/use/dapps/mycrypto/" title="MyCrypto" class="dd-item"><a href="/use/dapps/mycrypto/">MyCrypto</a></li>
+          <li data-nav-id="/use/dapps/rotki/" title="Rotki" class="dd-item"><a href="/use/dapps/rotki/">Rotki</a></li></ul></li></ul></li>
+          <li data-nav-id="/node/" title="Run Nodes" class="dd-item active parent"><input type="checkbox" id="section-1cd363a44403268e4bd7ae15574da217" class="toggle" checked/><label for="section-1cd363a44403268e4bd7ae15574da217" ></label><a href="/node/">Run Nodes</a><ul>
+          <li data-nav-id="/node/environment/" title="Environment Setup" class="dd-item"><a href="/node/environment/">Environment Setup</a></li>
+          <li data-nav-id="/node/setup/" title="Node Setup" class="dd-item"><a href="/node/setup/">Pocket Node Setup</a></li>
+          <li data-nav-id="/node/staking/" title="Custodial and non-custodial staking" class="dd-item"><a href="/node/staking/">Custodial and Non-Custodial Staking</a></li>
+          <li data-nav-id="/node/seeds/" title="🌱 Seeds" class="dd-item"><a href="/node/seeds/">Seeds</a></li>
+          <li data-nav-id="/node/tutorials/" title="Node Tutorials" class="dd-item"><input type="checkbox" id="section-250316b1db19d7bf2e89212214811654" class="toggle"/><label for="section-250316b1db19d7bf2e89212214811654" ></label><a href="/node/tutorials/">Tutorials</a><ul>
+          <li data-nav-id="/node/tutorials/zero-to-node/" title="Introduction" class="dd-item"><input type="checkbox" id="section-6ab9d8d230d608550786165898c7a0ca" class="toggle"/><label for="section-6ab9d8d230d608550786165898c7a0ca" ></label><a href="/node/tutorials/zero-to-node/">Zero To Node</a><ul>
+          <li data-nav-id="/node/tutorials/zero-to-node/server-setup/" title="Part 1 –  Server setup" class="dd-item"><a href="/node/tutorials/zero-to-node/server-setup/">Server setup</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/software-install/" title="Part 2 –  Software installation" class="dd-item"><a href="/node/tutorials/zero-to-node/software-install/">Software installation</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/pocket-config/" title="Part 3 –  Pocket configuration" class="dd-item"><a href="/node/tutorials/zero-to-node/pocket-config/">Pocket configuration</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/proxy-config/" title="Part 4 –  Proxy configuration" class="dd-item"><a href="/node/tutorials/zero-to-node/proxy-config/">Proxy configuration</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/going-live/" title="Part 5 –  Going live" class="dd-item"><a href="/node/tutorials/zero-to-node/going-live/">Going live</a></li></ul></li></ul></li>
+          <li data-nav-id="/node/automated-deployments/" title="Automated Deployments" class="dd-item"><a href="/node/automated-deployments/">Automated Deployments</a></li>
+          <li data-nav-id="/node/hosting-services/" title="Node-Hosting Services" class="dd-item"><a href="/node/hosting-services/">Node-Hosting Services</a></li>
+          <li data-nav-id="/node/faq/" title="Node FAQ" class="dd-item"><a href="/node/faq/">Node FAQ</a></li></ul></li>
+          <li data-nav-id="/integrate/" title="Integrate" class="dd-item"><input type="checkbox" id="section-d4bb38a7d13f002c4014ff23289c50e8" class="toggle"/><label for="section-d4bb38a7d13f002c4014ff23289c50e8" ></label><a href="/integrate/">Integrate</a><ul>
+          <li data-nav-id="/integrate/sdk/" title="SDKs" class="dd-item"><a href="/integrate/sdk/">SDKs</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/" title="Accounts and Transactions" class="dd-item"><input type="checkbox" id="section-1f772117c78cb1420090c8202df835ca" class="toggle"/><label for="section-1f772117c78cb1420090c8202df835ca" ></label><a href="/integrate/accounts-transactions/">Accounts and Transactions</a><ul>
+          <li data-nav-id="/integrate/accounts-transactions/account-generation-validation/" title="Account Generation and Validation" class="dd-item"><a href="/integrate/accounts-transactions/account-generation-validation/">Account Generation and Validation</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/transaction-construction/" title="Transaction Construction" class="dd-item"><a href="/integrate/accounts-transactions/transaction-construction/">Transaction Construction</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/transaction-verification/" title="Transaction Verification" class="dd-item"><a href="/integrate/accounts-transactions/transaction-verification/">Transaction Verification</a></li></ul></li></ul></li>
+          <li data-nav-id="/community/" title="Community" class="dd-item"><input type="checkbox" id="section-5222f03197abba24f0c665fe1d22532c" class="toggle"/><label for="section-5222f03197abba24f0c665fe1d22532c" ></label><a href="/community/">Join Us</a><ul>
+          <li data-nav-id="/community/governance/" title="👑 Governance" class="dd-item"><input type="checkbox" id="section-58d7c2e4187c5d62f879f3f81802f3c9" class="toggle"/><label for="section-58d7c2e4187c5d62f879f3f81802f3c9" ></label><a href="/community/governance/">Governance</a><ul>
+          <li data-nav-id="/community/governance/proposals/" title="Proposals" class="dd-item"><a href="/community/governance/proposals/">Proposals</a></li></ul></li>
+          <li data-nav-id="/community/contribute/" title="🦸 Contribute" class="dd-item"><input type="checkbox" id="section-1455a3dbf4677a4000103a13e3e0af39" class="toggle"/><label for="section-1455a3dbf4677a4000103a13e3e0af39" ></label><a href="/community/contribute/">Contribute</a><ul>
+          <li data-nav-id="/community/contribute/scholarships/" title="Scholarships" class="dd-item"><a href="/community/contribute/scholarships/">Scholarships</a></li></ul></li>
+          <li data-nav-id="/community/trophies/" title="🗳 Trophies" class="dd-item"><input type="checkbox" id="section-203bb11e8b6be933d85a663ca65b1a91" class="toggle"/><label for="section-203bb11e8b6be933d85a663ca65b1a91" ></label><a href="/community/trophies/">Trophies</a><ul>
+          <li data-nav-id="/community/trophies/app-developers/" title="🏆 App Developers" class="dd-item"><a href="/community/trophies/app-developers/">App Developers</a></li>
+          <li data-nav-id="/community/trophies/node-runners/" title="🏆 Node Runners" class="dd-item"><a href="/community/trophies/node-runners/">Node Runners</a></li>
+          <li data-nav-id="/community/trophies/community-shepherds/" title="🏆 Community Shepherds" class="dd-item"><a href="/community/trophies/community-shepherds/">Community Shepherds</a></li>
+          <li data-nav-id="/community/trophies/contributors/" title="🏆 Governor/Contributors" class="dd-item"><a href="/community/trophies/contributors/">Contributors</a></li></ul></li></ul></li>
+          <li data-nav-id="/more-info/" title="💬 More Information" class="dd-item"><a href="/more-info/">More Info</a></li>
+        </ul>
+        <div id="shortcuts">
+          <div class="nav-title">More</div>
+          <ul>
+            <li><a class="padding" href="https://forum.pokt.network">Forum</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pocket-js">PocketJS</a></li>
+            <li><a class="padding" href="https://discord.gg/pokt">Discord</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pypocket">pypocket</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pocket-go">pocket-go</a></li>
+            <li><a class="padding" href="https://angel.co/company/pocket-network">Jobs</a></li>
+          </ul>
+        </div>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="blue" value="blue" selected>Blue</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" onclick="clearHistory();"><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter">
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1658922679" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1658922679" defer></script>
+    <script src="/js/featherlight.min.js?1658922679" defer></script>
+    <script src="/js/jquery.svg.pan.zoom.js?1658922679" defer></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js" defer></script>
+    <script>
+      function useMermaid( config ){
+        if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+          mermaid.initialize( Object.assign( { "securityLevel": "antiscript", "startOnLoad": false  }, config ) );
+          if( config.theme ){
+            var write_style = variants.findLoadedStylesheet( 'variant-style' );
+            write_style.setProperty( '--CONFIG-MERMAID-theme', config.theme );
+          }
+        }
+      }
+      useMermaid( JSON.parse("{ \"theme\": \"default\" }") );
+    </script>
+    <script src="/js/theme.js?1658922679" defer></script>
+  </body>
+</html>

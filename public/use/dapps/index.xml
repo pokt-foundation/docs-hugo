@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pocket-Powered dApps on Pocket Network</title>
+    <link>https://docs.pokt.network/use/dapps/</link>
+    <description>Recent content in Pocket-Powered dApps on Pocket Network</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.pokt.network/use/dapps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conquest.eth</title>
+      <link>https://docs.pokt.network/use/dapps/conquest-eth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/dapps/conquest-eth/</guid>
+      <description>We have minted a public Görli RPC endpoint with up to 10M requests per day to give players who are exploring the Conquest metaverse the opportunity to connect to Pocket&amp;rsquo;s decentralized, resilient infra!
+To get started connecting to Pocket&amp;rsquo;s infrastructure for Görli testnet, do the following:
+Click on the Networks drop-down menu, then press Custom RPC Under the Network Name field, write Görli Pocket Portal Within the New RPC URL field, copy and paste this endpoint URL https://eth-goerli.</description>
+    </item>
+    <item>
+      <title>Dark Forest</title>
+      <link>https://docs.pokt.network/use/dapps/dark-forest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/dapps/dark-forest/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/jxfOc4XjJaw&amp;quot; %}
+We have issued an xDAI RPC endpoint that grants up to 50M requests per day (&amp;amp; 250 nodes per hour) just for Dark Forest players!
+To get started connecting to Pocket&amp;rsquo;s node infrastructure for xDAI in Dark Forest, do the following:
+Click on the gear icon to open the settings page If it doesn&amp;rsquo;t open automatically, click on &amp;ldquo;+&amp;rdquo; icon to expand the settings page Scroll down until you see the &amp;ldquo;Change RPC Endpoint&amp;rdquo; section Copy and paste this endpoint URL into the text boxhttps://poa-xdai.</description>
+    </item>
+    <item>
+      <title>MyCrypto</title>
+      <link>https://docs.pokt.network/use/dapps/mycrypto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/dapps/mycrypto/</guid>
+      <description>{% embed url=&amp;ldquo;https://youtu.be/LTVNN3SBuik&amp;quot; %}
+MyCrypto is an open-source, client-side tool for generating Ethereum wallets, handling ERC-20 tokens, and interacting with the blockchain more easily. Developed by and for the community since 2015, they’re focused on building awesome products that put the power in people’s hands.
+This is why we want to give users an opportunity to connect to our own infrastructure!
+Open the MyCrypto desktop application, if you don’t have it yet, then download it here: https://download.</description>
+    </item>
+    <item>
+      <title>Rotki</title>
+      <link>https://docs.pokt.network/use/dapps/rotki/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.pokt.network/use/dapps/rotki/</guid>
+      <description>Rotki is an open-source portfolio tracker and accounting/analytics tool that protects your privacy.
+We&amp;rsquo;ve sponsored a public Ethereum RPC endpoint for Rotki users in order to add an extra layer of privacy when using the application.
+To get started connecting to Pocket&amp;rsquo;s censorship-resistant infrastructure for Ethereum, do the following:
+1. Open and login into your local application.
+2. Toggle to account, then open settings.
+3. Scroll down to the Local Nodes section, then delete the default RPC endpoint.</description>
+    </item>
+  </channel>
+</rss>

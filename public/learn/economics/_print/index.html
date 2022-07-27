@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.101.0">
+    <meta name="generator" content="Relearn 5.0.3+tip">
+    <meta name="description" content="An overview of the economics of Pocket Network">
+    <title>🪙 Economics - Pocket Network</title>
+    <link href="/learn/economics/" rel="canonical" type="text/html" title="Pocket Network">
+    <link href="/learn/economics/index.xml" rel="alternate" type="application/rss+xml" title="Pocket Network">
+    <link href="/images/favicon.svg?1658922678" rel="icon" type="image/svg+xml">
+    
+    <link href="/css/fontawesome-all.min.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/featherlight.min.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/auto-complete.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <noscript>
+      <link href="/css/fontawesome-all.min.css?1658922678" rel="stylesheet">
+      <link href="/css/featherlight.min.css?1658922678" rel="stylesheet">
+      <link href="/css/auto-complete.css?1658922678" rel="stylesheet">
+    </noscript>
+    <link href="/css/perfect-scrollbar.min.css?1658922678" rel="stylesheet">
+    <link href="/css/nucleus.css?1658922678" rel="stylesheet">
+    <link href="/css/fonts.css?1658922678" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+    <link href="/css/theme.css?1658922678" rel="stylesheet">
+    <link href="/css/theme-blue.css?1658922678" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1658922678" rel="stylesheet">
+    <link href="/css/variant.css?1658922678" rel="stylesheet">
+    <link href="/css/print.css?1658922678" rel="stylesheet">
+    <script src="/js/variant.js?1658922678"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/docs.pokt.network/';
+      variants.init( [ 'blue' ] );
+    </script>
+    <script src="/js/jquery.min.js?1658922678" defer></script>
+  </head>
+  <body class="mobile-support print" data-url="/learn/economics/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/learn/economics/token/" title="🪙 Token Economics (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/learn/protocol/security/" title="🛡 Security (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="top-print-link">
+            <a class="print-link" title='Print whole chapter (CTRL+ALT+p)' href="/learn/economics/_print/">
+              <i class="fas fa-print fa-fw"></i>
+            </a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+m)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
+            <span class="links">
+              🪙 Economics
+            </span>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#overview">Overview</a></li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable chapter narrow" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+    
+          <article class="chapter">
+<div class="article-subheading">Chapter 7</div>
+<h1>🪙 Economics</h1>
+
+<h2 id="tldr">TL;DR</h2>
+<p>Pocket Network requires both developers and nodes to stake its native utility token, POKT, to participate in the network. Nodes earn rewards for fulfilling API requests for developers on a per request basis. POKT is permanently inflationary, but total supply will be capped through a burning mechanism put in place by the DAO, who controls the monetary policy. The final total supply of POKT will be dictated by the DAO.</p>
+<h2 id="overview">Overview</h2>
+<p>Pocket Network uses a native cryptocurrency (POKT) to create a permissionless, two-sided market between node providers who run full nodes and developers that want to query data from a blockchain for their application/service. POKT is purchased and staked by both developers and node providers to participate in the network. Due to the unique incentives on each side of the market, staking differs between the parties.</p>
+<p>Developers, requiring reliable infrastructure and relay amounts for their applications, stake POKT a single time for a guaranteed amount of relays per session for the life of the stake. The amount of POKT required to be staked is directly proportional to the number of relays required. The number of relays allowed per session can be adjusted for price fluctuations of the POKT token through governance mechanisms.</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>The current price per relay is called <code>BaseRelaysPerPOKT</code>, and you can find the current value on the <a href="/learn/economics/../protocol-parameters.md#baserelaysperpokt">Protocol Parameters</a> page.</p>
+    </div>
+</div>
+<p>While paying upfront for infrastructure appears to be burdensome at first glance, it has strong advantages and stickiness that help grow network adoption. The use of a token eliminates recurring payments to legacy infrastructure providers, vastly reducing the cost of infrastructure over the lifecycle of an application - <em>bringing your cost-basis closer to zero the longer the service is used</em>. Further, the upfront purchase of POKT can be viewed as a recoverable expense because the stake can be sold to another user if the service is no longer required helping to recover any costs associated with the network&rsquo;s use. Instead of recurring payments, developers’ stakes are diluted over time through the inflation of the supply of POKT.</p>
+<p>Node Providers also stake POKT but do so on a per-node basis. In exchange for servicing relays for applications, nodes are compensated in POKT. Unlike most traditional block rewards, Pocket Network’s is dynamic; POKT rewards are directly proportional to the number of relays and transaction fees in a given block. A node receives a certain amount of POKT per relay fulfilled and proved, minus certain percentages for both the block producer and the DAO.</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>The current block producer percentage is called <code>ProposerAllocation</code>, and you can find the current value on the <a href="/learn/economics/../protocol-parameters.md#proposerallocation">Protocol Parameters</a> page.</p>
+<p>Furthermore, the DAO allocation of block rewards is called <code>DAOAllocation</code>, and that also can be found on the <a href="/learn/economics/../protocol-parameters.md#daoallocation">Protocol Parameters</a> page.</p>
+    </div>
+</div>
+<p>All nodes in the network have an opportunity to produce a block, but their chances are proportional to their stake.</p>
+<p>Because of the way that nodes are incentivized, the Pocket Network economic model is inflationary during the Growth Phase, where the monetary policy is intentionally designed to encourage adoption. At network maturity, the Maturity Phase, a burn rate will initiate for application stakes that will offset the creation of newly minted POKT, stabilizing the total supply of POKT. This economic model encourages early network participation and reduces coordination costs.</p>
+<p>At launch, the optimal economic strategy for node operators is to replicate as many nodes as possible with the amount of POKT held. By spreading their stake across multiple nodes, node operators maximize their chances of being chosen in as many sessions as possible, providing them with the most opportunity to serve relays within the network. These incentives promote further decentralization, redundancy, and increase the number of nodes available for each blockchain network supported by Pocket Network.</p>
+<p>Maintaining a balance between both sides of the market will be critical to the long-term success of the network. To maintain and secure the future of the protocol, Pocket Network will be run by the Pocket DAO. To accomplish its mission, the DAO receives a certain percentage of block rewards to reinvest in the network. In addition to protocol upgrades, the DAO will dictate the economic policy, making every effort to create sustainable economics that caters to both sides of the market through built-in governance mechanisms. These governance mechanisms allow the DAO to maintain an equilibrium between the two sides of the market and ensure accessibility to new participants.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+    
+          <article class="default">
+<h1>🪙 Token Economics</h1>
+
+<h2 id="the-purpose-of-pokt">The Purpose of POKT</h2>
+<p>POKT is not a transactional cryptocurrency. The Pocket Network blockchain is not meant to have sub-5-second block times, provide 10,000 transactions per second, facilitate direct payments (generally speaking), or act as a smart contract platform. The majority of the transactions occurring will be staking by Applications and Service Nodes, Proof-of-Relay batches by Service Nodes, and block reward payments to Service Nodes for facilitating Relay requests, which all POKT holders will pay for via inflation.</p>
+<p>This is in contrast to most layer 1 chains, which will eventually need to rely predominantly on transaction fees. At network maturity, Pocket will become a simple fee market with the demand side (Applications) burning POKT and the supply side (Service Nodes) receiving newly minted POKT via the block reward inflation mechanism. This allows for the transfer of value without using direct fees and incurring further costs of coordination.</p>
+<p>By building a set of crypto-economic mechanisms to ensure the validation of Proofs-of-Relays, Pocket’s architecture can provide blockchain infrastructure at an order-of-magnitude lower cost than other options by virtue of being a permissionless, non-rent-seeking, and open marketplace for anyone to participate. Pocket Network uses these validated Proofs-of-Relays to reward Service Nodes through inflation.</p>
+<p>Both Applications and Service Nodes must stake POKT to access or provide work to Pocket Network. For Applications utilizing the Pocket network, POKT represents an ongoing right to an allocation of the network’s throughput, whereas, for Service Nodes, POKT represents a right to provide ongoing work on the network and the future inflation rewards for performing that work.</p>
+<h2 id="useful-proofs-of-work">Useful Proofs of Work</h2>
+<p>Pocket uses Proof-of-Stake (PoS) to secure the state machine and falls under the umbrella of generalized mining or &ldquo;useful proofs of work.&rdquo; Submitting proofs of work mints POKT in proportion to the amount of work completed increasing the overall supply of POKT. How this affects the overall supply is determined by the monetary policy.</p>
+<p>Our current monetary policy is broken down into two phases: the Growth Phase and the Maturity Phase. During the Growth Phase, applications stake just once to access the protocol (assuming they don’t change their throughput) attracting new applications to use the service due to the low cost of service - only paying through their initial stake and through inflation. At network maturity (the Maturity Phase), Pocket will become a simple fee market with the demand side (Applications) stakes are burned in proportion to the amount of POKT minted by the supply side (Nodes) - eliminating the growth in total supply of POKT. This allows for the transfer of value without using direct fees and incurring further costs of coordination.</p>
+<p>For more information, read our page on Pocket <a href="/learn/economics/token/monetary-policy.md">monetary policy</a>.</p>
+<h2 id="transactions">Transactions</h2>
+<p>Leader-elected nodes are rewarded for facilitating P2P transfers of POKT on the Pocket blockchain via a transaction fee. This is required for the security of the network in order to prevent spam or “dust” attacks. A transaction fee is paid by the individual or entity making a transaction, 99% of which is burned, and the remaining 1% is awarded to the leader-elected node for including transactions in the relevant block. The 1% fee provides an incentive for block producers to include transactions in the next block.</p>
+<h2 id="-token-staking">🌱 Token Staking</h2>
+<p>There are two distinct types of stake functions within Pocket: <code>StakeApp()</code> and <code>StakeNode()</code>. Both stake functions use the POKT cryptocurrency.</p>
+<h3 id="application-staking">Application Staking</h3>
+<p>Applications pay for the service in advance by staking POKT. When they invoke the <code>StakeApp()</code> function, the minimum staking period is 21 days. By incurring the minimum unstaking period, Applications forego the potential of using their resources,  POKT in this case, for other alternatives as an opportunity cost. Additionally, Applications pay through dilution, where each time a Relay is serviced and validated by the network, a specific sum of POKT is awarded to the relevant Service Nodes in the next block reward.</p>
+<p>The protocol limits the number of Relays an Application may access based on the number of POKT staked in relation to the Protocol Throttling Formula (as defined below). Once an Application stakes POKT, the Maximum Relays (MaxRelays) it can use is locked in perpetuity unless the Application re-stakes that POKT or their stake is burned.</p>
+<h3 id="node-staking">Node Staking</h3>
+<p>Like with applications, when nodes invoke the <code>StakeNode()</code> function, the minimum staking period is 21 days. The minimum stake at launch required to become a Service Node is 15,000 POKT. This node stake keeps nodes honest and incentivized to provide high quality service. Additionally, a node sufficient stake allows nodes to participate in PoS consensus as a Validator Node. Per the changes in <a href="https://forum.pokt.network/t/pip-4-consensus-rule-change-0-6-0/834">R.C.0.6.0</a>, not all nodes are validators, but all validators are service nodes. To become a Validator Node, you must be in the top 1,000 node stakes (subject to change on DAO parameter vote) on the network. Validator Nodes can claim the block reward for submitting the block which is equal to the value of the <a href="/learn/economics/token/../../protocol-parameters.md#proposerallocation"><code>ProposerAllocation</code></a> parameter.</p>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p>While the Minimum Node Stake is 15,000 POKT, we highly recommend staking an amount greater than 15,000 the minimum in case of burning that may be caused by misconfiguration. Node runners have reported a stake of 15,100 POKT is a best practice.</p>
+    </div>
+</div>
+<h2 id="-pokt-denominations">🔟 POKT Denominations</h2>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>The current denomination used by the protocol is defined by the <code>StakeDenom</code> parameter. When using the Pocket CLI or PocketJS library to send transactions to the network, you will need to use this denomination.</p>
+    </div>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Level</th>
+<th style="text-align:left">Denomination</th>
+<th style="text-align:left">Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">10^24</td>
+<td style="text-align:left">EPOKT</td>
+<td style="text-align:left">ExaPOKT</td>
+</tr>
+<tr>
+<td style="text-align:left">10^21</td>
+<td style="text-align:left">PPOKT</td>
+<td style="text-align:left">PetaPOKT</td>
+</tr>
+<tr>
+<td style="text-align:left">10^18</td>
+<td style="text-align:left">TPOKT</td>
+<td style="text-align:left">TeraPOKT</td>
+</tr>
+<tr>
+<td style="text-align:left">10^15</td>
+<td style="text-align:left">GPOKT</td>
+<td style="text-align:left">GigaPOKT</td>
+</tr>
+<tr>
+<td style="text-align:left">10^12</td>
+<td style="text-align:left">MPOKT</td>
+<td style="text-align:left">MegaPOKT</td>
+</tr>
+<tr>
+<td style="text-align:left">10^9</td>
+<td style="text-align:left">KPOKT</td>
+<td style="text-align:left">KiloPOKT</td>
+</tr>
+<tr>
+<td style="text-align:left">10^6</td>
+<td style="text-align:left">POKT</td>
+<td style="text-align:left">POKT</td>
+</tr>
+<tr>
+<td style="text-align:left">10^3</td>
+<td style="text-align:left">mPOKT</td>
+<td style="text-align:left">MiliPOKT</td>
+</tr>
+<tr>
+<td style="text-align:left">10^0</td>
+<td style="text-align:left">uPOKT</td>
+<td style="text-align:left">Micro or ‘you’POKT</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Upper Bound = 9,223,372,036,854,775,807,000,000 STAKED uPOKT
+</span></span></code></pre></div>
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>💻 App Economics</h1>
+
+<h2 id="important-initial-application-parameters">Important Initial Application Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Initial Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum Application Stake</td>
+<td>1 POKT</td>
+</tr>
+<tr>
+<td>Minimum Unbonding Period (Apps)</td>
+<td>21 days</td>
+</tr>
+<tr>
+<td>BaseRelaysPerPOKT</td>
+<td>1.67 relays per session</td>
+</tr>
+<tr>
+<td>Stability Adjustment</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Participation Rate Active</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Block Time</td>
+<td>15 minutes</td>
+</tr>
+<tr>
+<td>Session Time</td>
+<td>4 blocks (60 minutes)</td>
+</tr>
+<tr>
+<td>Session Node Count</td>
+<td>5 nodes</td>
+</tr>
+<tr>
+<td>Max Chains per Stake</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2 id="application-economics">Application Economics</h2>
+<p>Pocket Network is a developer-driven protocol, with demand from Applications driving the rewards the Service Nodes earn. Applications use Pocket Network to retrieve data and write state to and for their blockchain applications. Each Relay that is created by an Application results in the creation of newly-minted POKT as a reward for the Service Nodes facilitating such Relays. Applications stake just once to access the protocol (assuming they don&rsquo;t change their throughput), using the native cryptocurrency POKT which is tied for single-use to the Pocket blockchain.</p>
+<p>The protocol limits the number of Relays an Application may access based on the number of POKT staked in relation to the Protocol Throttling Formula (as defined below). Once an Application stakes POKT, the Maximum Relays (<code>MaxRelays</code>) it can use is locked in perpetuity unless the Application re-stakes that POKT or their stake is burned.</p>
+<p>Due to the oracle problem, the protocol cannot infer external factors that might influence the market price of POKT, or therefore account for these factors in the Protocol Throttling Formula. This introduces a risk to the demand side of the protocol, where fluctuations in the market price of POKT may affect the price Applications must pay for Relays.</p>
+<p>We aim to allow the market to find a $USDPerRelay Target for POKT, to ensure the real price borne by Applications is within a relatively stable and acceptable range. This $USDPerRelay Target is not an on-chain variable, but a publicly agreed price that the DAO will target with its monetary policy, by adjusting variables in the Protocol Throttling Formula.</p>
+<h2 id="calculating-throughput">Calculating Throughput</h2>
+<p>When Applications stake POKT, their rate for the number of Relays they may access (MaxRelays) is locked in for the entire length of the stake. Due to the oracle problem, the protocol cannot infer external factors that might influence the market price of POKT, or therefore account for these factors in the Protocol Throttling Formula. This introduces a risk to the demand side of the protocol, where fluctuations in the market price of POKT may affect the price Applications must pay for Relays.</p>
+<p>We aim to allow the market to find a $USDPerRelay Target for POKT, to ensure the real price borne by Applications is within a relatively stable and acceptable range. This $USDPerRelay Target is not an on-chain variable, but a publicly agreed price that the DAO will target with its monetary policy, by adjusting variables in the Protocol Throttling Formula.</p>
+<p>When Applications stake POKT, their rate for the number of Relays they may access (MaxRelays) is locked in for the entire length of the stake. We use the following simple formula to calculate the amount of Relays Applications are entitled to per Session.</p>
+
+<span class="math align-center">$$
+MaxRelays = StabilityAdjustment + (ParticipationRate * BaseThroughput)
+$$</span><p>These three variables, <code>StabilityAdjustment</code>, <code>ParticipationRate</code>, and <code>BaseThroughput</code> aim to dynamically reflect POKT&rsquo;s usage and ensure that Applications will be able to enter the ecosystem adjusting to changes in the market price of POKT.</p>
+<p>To keep the real $USDPerRelay price as close to the $USDPerRelay Target as possible, the Protocol Throttling Formula multiplies <code>BaseThroughput</code> by the total <code>ParticipationRate</code> of the protocol to reflect any changes in demand for Relays, then the DAO will use the <code>StabilityAdjustment</code> in the short-term to correct deviations from the $USDPerRelay Target that are most likely attributed to short-term changes inherent in the random walk of the cryptocurrency/FOREX markets. If the StabilityAdjustment persists above/below zero without resetting, we can attribute the deviation from the $USDPerRelay Target to a more permanent change in POKT&rsquo;s market value, at which point the DAO will update BaseRelaysPerPOKT and reset StabilityAdjustment to zero.</p>
+<p>Learn more about each variable below.</p>
+<h2 id="stability-adjustment">Stability Adjustment</h2>
+<p>The <code>StabilityAdjustment</code> parameter helps smooth out pricing for applications because there is a <a href="https://en.m.wikipedia.org/wiki/Menu_cost">menu cost</a> associated with changing <code>BaseRelaysPerPOKT</code> too often. Applications will be reliant on a relatively stable real <code>$USDPerRelay</code> price to access throughput. Community resources and consistent communication will help them make decisions about how much POKT to stake at any given moment.</p>
+<p>Pocket&rsquo;s price target optimization problem will rely on off-chain data about a given currency&rsquo;s current exchange rate with POKT, e.g. using <code>$USDPerPOKT</code> to measure how close the real <code>$USDPerRelay</code> price is to the DAO&rsquo;s current <code>$USDPerRelay</code> Target. Short-term fluctuations will therefore be arbitrary depending on which currency has been chosen to anchor the DAO&rsquo;s price target against and what is happening day-to-day in the crypto and FOREX markets; today <code>$USDPerPOKT</code> might change by 5% but <code>€EURPerPOKT</code> only changes by 1%. It is important that we don&rsquo;t let short-term fluctuations impact the stability and accessibility of the network.</p>
+<p>We can therefore use the <code>StabilityAdjustment</code> to dynamically adjust the <code>MaxRelays</code> computed in the Protocol Throttling Formula, while only changing our “menu price” (<code>BaseRelaysPerPOKT</code>) when there is a long-term deviation that can be more assuredly attributed to long-term changes in POKT&rsquo;s value.</p>
+<p>The <code>StabilityAdjustment</code> will be updated at the discretion of the DAO.</p>
+<h2 id="participation-rate">Participation Rate</h2>
+<p>Not implemented initially, the <code>ParticipationRate</code> is a tool to dynamically adjust max relays for applications without the intervention of the DAO as network usage changes. <code>ParticipationRate</code>acts as a proxy for utilization of the network and is reflected on a block by block basis, adjusting an Application’s <code>MaxRelays</code> dynamically based on the growth or decline in network-wide stake rates. Participation Rate is calculated by:</p>
+
+<span class="math align-center">$$
+ParticipationRate = (appStakedPOKT + nodeStakedPOKT) / TotalPOKT
+$$</span><p>The StabilityAdjustment and BaseRelaysPerPOKT help calibrate the natural ParticipationRate. Changes to the $USDPerRelay Target will be made by the Pocket DAO using a proposal system similar to MakerDAO’s <a href="https://community-development.makerdao.com/makerdao-mcd-faqs/faqs/stability-fee">Stability fee votes</a>.</p>
+<p>As the protocol matures, the market will dictate what price Applications should be paying for Relays, reflected by the Pocket DAO deciding on the $USDPerRelay Target. As the on-chain MaxRelays for Applications adjusts over time, existing Applications with locked-in rates for MaxRelays will be faced with two scenarios:</p>
+<ul>
+<li>In a downside scenario, where the rate for MaxRelays drops below an Application’s current locked-in rate, Applications are incentivized to keep their POKT staked to continue receiving throughput at an above market rate.</li>
+<li>In an upside scenario, where the rate for MaxRelays rises above an Application’s current locked-in rate, Applications will be incentivized to unstake and restake their POKT to receive more Relays for the same amount of POKT.</li>
+</ul>
+<p>Regardless of the scenario, applications are able to benefit from shifts in the market for POKT making the most of their stake.</p>
+<h2 id="base-throughput">Base Throughput</h2>
+<p>BaseThroughput is the baseline number of Relays we aim for an Application to get per POKT staked, assuming no external factors influencing POKT. This is calculated as:</p>
+
+<span class="math align-center">$$
+BaseThroughput = BaseRelaysPerPOKT * StakedPOKT
+$$</span><p><code>BaseRelaysPerPOKT</code> is a uint64, governed by the Pocket DAO, which describes the baseline number of Relays the Pocket DAO aims for each Application to receive per POKT staked. As a multiplier, changing this number more significantly impacts MaxRelays than changing <code>StabilityAdjustment</code>. For further granularity, <code>BaseRelaysPerPOKT</code> can be expressed as:</p>
+
+<span class="math align-center">$$
+BaseRelaysPerPOKT = BaseRelaysPerPOKTNumerator / BaseRelaysPerPOKTDenominator
+$$</span><p>This allows the protocol to express decimals in the form of fractional integers, enabling more granularity for the BaseRelaysPerPOKT number.</p>
+<p>Due to the oracle problem, it is not possible to automatically adjust BaseRelaysPerPOKT based on the market price of POKT. The DAO will track indicators (such as ParticipationRate as well as the rate of change of new POKT being staked on the demand side), and adjust Pocket’s economic levers, as necessary, to ensure that Relays remain affordable for Applications.</p>
+<p>To keep the real <code>$USDPerRelay</code> price as close to the <code>$USDPerRelay</code> Target as possible, the Protocol Throttling Formula multiplies <code>BaseThroughput</code> by the total <code>ParticipationRate</code> of the protocol to reflect any changes in demand for Relays, then the DAO will use the <code>StabilityAdjustment</code> in the short-term to correct deviations from the <code>$USDPerRelay</code> Target that are most likely attributed to short-term changes inherent in the random walk of the cryptocurrency/FOREX markets. If the StabilityAdjustment persists above/below zero without resetting, we can attribute the deviation from the <code>$USDPerRelay</code> Target to a more permanent change in POKT’s market value, at which point the DAO will update <code>BaseRelaysPerPOKT</code> and reset <code>StabilityAdjustment</code> to zero.</p>
+<p>The <code>BaseRelaysPerPOKT</code> will be updated at the discretion of the DAO.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>🤖 Node Economics</h1>
+
+<h2 id="overview">Overview</h2>
+<p>Pocket uses Proof-of-Stake (PoS) to secure the state machine and falls under the umbrella of generalized mining or useful proofs of work, where inflation is directly tied to work validated by the network.</p>
+<p>Service Nodes batch all requests received in a session to one Pocket blockchain transaction, a “Proof-of-Relay” that Applications can validate client-side and other nodes can validate in block production, removing the need for Applications to pay constant transaction fees for this work. Once those Proofs-of-Relays are validated by the network, a new block is confirmed, then POKT is minted and issued to the relevant Service Nodes as a reward for their work.</p>
+<p>Service Nodes are pseudo-randomly assigned to a Session. Every Service Node who has staked the required node security deposit has an equal chance of being chosen in every available Session within the protocol regardless of how much POKT they have staked. New Sessions get created every 25 blocks with a new, pseudo-random set of Service Nodes.</p>
+<h2 id="node-staking">Node Staking</h2>
+<p>Like with applications, when nodes invoke the <code>StakeNode()</code> function, the minimum staking period is 21 days. The minimum stake at launch required to become a Service Node is 15,000 POKT. This node stake keeps nodes honest and incentivized to provide high quality service. Additionally, a node sufficient stake allows nodes to participate in PoS consensus as a Validator Node. Per the changes in <a href="https://forum.pokt.network/t/pip-7-consensus-rule-change-validator-servicer-split-validator-consolidation">RC-0.7.0</a>, not all nodes are validators, but all validators are service nodes. To become a Validator Node, you must be in the top 1,000 node stakes on the network. Validator Nodes can claim a block reward percentage for submitting the block equal to the value of the <a href="/learn/economics/nodes/../../protocol-parameters.md#proposerallocation"><code>ProposerAllocation</code></a> parameter.</p>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p>While the Minimum Node Stake is 15,000 POKT, we highly recommend staking an amount greater than 15,000 the minimum in case of burning that may be caused by misconfiguration. Node runners have reported a stake of 15,100 POKT is a best practice.</p>
+    </div>
+</div>
+<h2 id="distribution-of-service-nodes"><strong>Distribution of Service Nodes</strong></h2>
+<p>While Pocket Network will depend on professional infrastructure providers to provide the bulk of the infrastructure for applications, due to the low marginal cost of running a full Service Node, we expect there to be a long tail of individuals running Service Nodes. There are two primary objectives that the network will focus on to avoid any stagnation in the number of Service Nodes in the network:</p>
+<ul>
+<li>Continuing to lower the barrier to entry for non-technical users to run full nodes by providing clear documentation as well as technical support in the bootstrapping days of the network</li>
+<li>Ensuring that the minimum stake to become a Service Node within Pocket is kept low enough to maximize the number of nodes within the network</li>
+</ul>
+<p>Additional efforts to prevent stagnation include supporting distribution channels such as local mining pools through data centers, run-your-own node distribution partners and the Pocket DAO’s R&amp;D efforts.</p>
+<p>Incentivizing the long tail of individuals running Service Nodes and keeping barriers to entry low is important to keep large node providers honest, and to minimize the odds of having an entire set of Service Nodes in a Session owned by one entity, which could lead to collusion attempts.</p>
+<h2 id="optimal-deployment-strategy">Optimal Deployment Strategy</h2>
+<p>The optimal economic strategy for node operators is to replicate as many Service Nodes as they can with the amount of POKT they hold, thereby spreading out their POKT holdings. By dispersing their stake amongst many Service Nodes, node operators maximize their chances of being chosen in as many Sessions as possible, providing them with the opportunity to serve Relays within the network. These incentives promote further decentralization, redundancy and the number of nodes available for each blockchain network supported by Pocket.</p>
+<h2 id="cost-to-nodes">Cost to Nodes</h2>
+<h3 id="upfront-costs">Upfront costs</h3>
+<p>There are two initial costs to becoming a Service Node:</p>
+<ul>
+<li>Minimum Node Stake</li>
+<li>Hardware (if chosen)</li>
+</ul>
+<h3 id="hardware">Hardware</h3>
+<p>Pocket Network is neutral to the hardware utilized by Service Nodes, meaning that hardware can be a physical server that is run in a home or a local data center, or computing power can be purchased through popular cloud providers. The specs required for a Service Node’s hardware is dependent on the blockchain(s) that a Service Node chooses to support. For example, if a Service Node were to choose to support Ethereum, the server would need to have at least 1TB of storage (as of writing) to support an archival node for Ethereum.</p>
+<h3 id="stake">Stake</h3>
+<p>The minimum stake at launch required to become a Service Node is 15,000 POKT. This minimum stake also allows Service Nodes to participate in PoS consensus. If a Service Node stake falls below the minimum amount through serving incorrect data or incorrect block validation, 20% of the minimum stake for that Service Node will be slashed and jailed. If a Service Node submits a fraudulent Relay batch, 100% of their stake will be slashed. The initial amount of POKT needed to stake as a Service Node is not dynamic, but can be raised or lowered by the Pocket DAO to ensure a stable barrier to entry.</p>
+<p>Once the initial costs of a Service Node are covered, the only additional cost is electricity and bandwidth for providing the computing power to complete Relays. Marginal costs for Service Nodes are extremely low and increase linearly as work increases.</p>
+<h3 id="recurring-costs">Recurring costs</h3>
+<ul>
+<li>Cloud providers</li>
+<li>Electricity</li>
+<li>Bandwidth</li>
+<li>Data center</li>
+</ul>
+<p>Outside of the fixed costs associated with running a node, Service Node operators will also incur costs like electricity, data center fees, and bandwidth costs for physical hardware. Alternatively, if they opt for a cloud-hosted service, they&rsquo;ll be paying an all-in fee for hosting. Again, these marginal fees are low, but will play a factor in node profitability and total node counts.</p>
+<h2 id="economic-security">Economic Security</h2>
+<p>The initial amount of POKT needed to stake as a Service Node is not dynamic, but can be raised or lowered by the Pocket DAO to ensure a stable barrier to entry.</p>
+<h3 id="jailing-and-slashing">Jailing and Slashing</h3>
+<ul>
+<li><em>Jailing</em> a Validator removes them from both protocol service and consensus.</li>
+<li><em>Slashing</em> a Validator burns a percentage of the &lsquo;Staked Tokens&rsquo;</li>
+</ul>
+<p>A Validator is jailed and subsequently slashed for not signing (or incorrectly signing) block proposals. More often than not, this is the reason why Validators are jailed.</p>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p>If a Validator falls below the minimum stake (due to slashing) it will be forcibly removed by the protocol and all Staked Tokens burned. This feature of the protocol highlights the importance of staking &lsquo;well above&rsquo; the minimum stake.</p>
+    </div>
+</div>
+<h3 id="jailing-penalties">Jailing Penalties</h3>
+<p>A Pocket Validator Node can be jailed for 1 of 2 reasons:</p>
+<ol>
+<li>Fails to produce <code>min_signed_per_window</code> amount of blocks over a <code>signed_blocks_window</code>. When jailed because of this reason, a Pocket Validator Node is Slashed a <code>slash_fraction_downtime</code>% of their Stake.</li>
+<li>For Double Signing a Block. When jailed because of this reason, a Pocket Validator Node is slashed a <code>slash_fraction_double_sign</code>% of their Stake.</li>
+</ol>
+<p>When a Pocket Validator Node becomes Jailed, it remains in the Staked list of Pocket Validator Nodes, however it becomes ineligible to become for Block Production or participating in <code>Sessions</code>. In order to become Unjailed again, and after waiting <code>downtime_jail_duration</code> nano-seconds, a Node Unjail transaction must be sent to the Pocket Network, and upon approval, the Pocket Validator Node will become Unjailed again.</p>
+
+<div class="box notices cstyle danger">
+    <div class="box-label"></div>
+    <div class="box-content">
+<p>If a Pocket Validator Node is left jailed for <code>max_jailed_blocks</code> blocks, it will be Force Unstaked.</p>
+    </div>
+</div>
+<h3 id="double-sign-penalties">Double Sign Penalties</h3>
+<p><a href="https://forum.pokt.network/t/pup-1-change-slashfractiondoublesign-to-0-000001/273">0.0001% percentage</a> of the validator&rsquo;s stake that will be slashed upon reporting of double vote Evidence type from Tendermint, where a double vote on a block is/can be a submission for two differing states, transactions, apphashes, etc. and result in a forked network.</p>
+<h3 id="relay-challenges">Relay Challenges</h3>
+<p>In order to participate in the network economic incentive mechanism, the Validator must first <strong>Claim</strong> and then <strong>Prove</strong> the completed work.</p>
+<h3 id="burning-for-bad-fraud-proofs">Burning for Bad Fraud Proofs</h3>
+<p>If a Service Node submits a fraudulent Relay batch, 100% of their stake will be slashed.</p>
+<h3 id="economic-incentives">Economic Incentives</h3>
+<p>For providing infrastructure access to applications, Validators are rewarded proportional to the work they provide. Pocket Core attempts to send a <em>Claim</em> and subsequent <em>Proof</em> transaction automatically after the <code>proof_waiting_period</code> elapses. If both transactions are successful, Tokens are minted to the address of the Validator.</p>
+<p>Read more about <a href="/learn/economics/nodes/monetary-policy.md">Pocket monetary policy</a>.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>🏦 Monetary Policy</h1>
+
+<p>Pocket&rsquo;s staking and inflation mechanisms enable a more efficient resource allocation structure by limiting the number of transactions (and thus block validation costs) to one-time staking transactions. All nodes are able to focus primarily on servicing and validating Relay requests by Applications, with minimal energy spent on block validation. By being <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventually consistent</a> and tying rewards directly to inflation, Service Nodes are in effect receiving micropayments for work validated by two parties without the need for constant on-chain fee payments.</p>
+<h2 id="allocation-of-minted-pokt">Allocation of Minted POKT</h2>
+<p>For each Relay served and validated by the protocol, POKT is added to the next block reward according to the mint rate. The following is a breakdown of each participant&rsquo;s share of the block reward given no parameter changes.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Participant</th>
+<th style="text-align:left">Parameter Name</th>
+<th style="text-align:left">Current Allocation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Service Nodes</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">85%</td>
+</tr>
+<tr>
+<td style="text-align:left">Block Producer</td>
+<td style="text-align:left"><a href="/learn/economics/monetary-policy/../protocol-parameters.md#proposerallocation">ProposerAllocation</a></td>
+<td style="text-align:left">5%</td>
+</tr>
+<tr>
+<td style="text-align:left">DAO</td>
+<td style="text-align:left"><a href="/learn/economics/monetary-policy/../protocol-parameters.md#daoallocation">DAOAllocation</a></td>
+<td style="text-align:left">10%</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>Current values of these parameters (and all others) can be found on the <a href="/learn/economics/monetary-policy/../protocol-parameters.md">Protocol Parameters</a> page.</p>
+    </div>
+</div>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>The value for ProposerAllocation has recently changed. Please see <a href="https://forum.pokt.network/t/pup-19-increase-validator-reward-from-1-to-5-immediately/3169/13">PUP-19</a> for details.</p>
+    </div>
+</div>
+<p>As part of the Proof-of-Stake consensus, each Service Node has a weighted chance of being selected to be the block producer for any given block based on the total amount staked for that given node. The block producer receives a portion of the entire block reward, as does the Pocket DAO, which provides continuous and sustainable funding for supporting the continued adoption and utility of Pocket Network.</p>
+<h2 id="monetary-phases">Monetary Phases</h2>
+<p>As the Pocket Network develops, we envision the POKT monetary policy evolving through three stages: Bootstrapping, Growth, and Maturity. The following sections will discuss each of these phases. Note that some of these ideas are forward-thinking and so are subject to change.</p>
+<h3 id="bootstrapping-phase">Bootstrapping Phase</h3>
+<p>During the bootstrapping phase of the network, it is important to build a strong foundation for the service, securing as many individual entities running nodes as possible. We do this by creating an environment where it is simple and inexpensive for initial Applications to access the network, and significantly profitable for Service Nodes to provide infrastructure.</p>
+<p>Application usage and traction dictate the initial rewards that the Service Node pool will receive. By decreasing the barrier to entry for Applications (freemium access, low cost), the demand for Relays should be high during the Bootstrapping Phase, providing the initial pool of Service Nodes with ample opportunities to earn the high rate of POKT awarded for Relays serviced in the bootstrapping phase of the network.</p>
+<p>As inflation and revenue increase per Service Node, the potential for competition increases, as rational, profit-seeking agents discover the protocol. This creates the flywheel to spur the network effects of Service Nodes purchasing and using POKT to participate until an equilibrium is found.</p>
+<p>As the Protocol Throttling Formula adjusts to market demands, Applications being able to purchase more Relays results in more revenue for Service Nodes, further increasing the incentive for existing Service Nodes to re-stake their earned POKT. Increased participation in Pocket Network from Applications and Service Nodes ultimately benefits all parties by providing new revenue opportunities for Service Nodes and improving the service and resilience of the network for Applications. Due to Pocket Network being a permissionless Proof-of-Stake protocol and Service Nodes having an extremely low marginal cost of operation, the barriers to entry are significantly lower compared to Proof-of-Work mining based protocols. Pocket&rsquo;s economic primitives incentivize a diverse set of entities and individuals such as data centers, existing infrastructure providers and hobbyists to participate as node operators within the network.</p>
+<h3 id="growth-phase">Growth Phase</h3>
+<p>The growth phase is the period from launch which will see the greatest increase in the overall <code>ParticipationRate</code> of the protocol. When Applications stake during the growth phase, they earn more <code>MaxRelays</code> as the network grows (assuming they un-stake and re-stake), and don&rsquo;t pay for anything else until the network has matured and the Application Burn is activated.</p>
+<p>One result of this is inflation. It is a priority of the DAO to manage inflation in a manner that encourages sustainable growth of the Pocket ecosystem, protects rewards against a potential decrease in relays, and sensibly updates rewards as Pocket Network grows.</p>
+<p>If both sides of the marketplace (Applications and Service Nodes) grow, there will be continuous demand for Relays resulting in Service Nodes spinning up new Pocket nodes to increase the number of Relays they can service.</p>
+<p>Early Applications will receive more infrastructure throughput as the network grows providing an incentive to early adopters of the network. When both the percentage of POKT staked and Service Node margins begin reaching their equilibrium, the protocol will have entered its maturity phase.</p>
+<p>See the section below on inflation for more details.</p>
+<h3 id="maturity-phase">Maturity Phase</h3>
+<p>While the Growth Phase is inflationary, designed to incentivize active participation and supply-side staking for the security of the network, the Maturity Phase is designed to ensure the long-term sustainability of Pocket. The Maturity Phase is defined as the point in which Pocket Network has crossed equilibrium and the growth in inflation begins outpacing growth in the total staked supply of POKT.</p>
+<p>This shift to long-term sustainability revolves around burning POKT to ensure the POKT supply is stable doesn&rsquo;t lose its value as a form of consideration to Service Nodes. In this phase, Pocket becomes similar to traditional Software as a Service pricing models, where Applications must &ldquo;top up&rdquo; their stakes periodically to avoid going below their needed Relay limit.</p>
+<p>This should result in a decline in the <code>ParticipationRate</code> and Service Node margins due to an imbalance from more supply than demand for POKT.</p>
+<p>In addition, to ensure the continued sustainability of POKT, to retain reasonable margins for Service Nodes, and to eliminate unnecessary overinflation of POKT, the Pocket DAO may activate an Application Burn Rate (ABR) at the Maturity Phase. This means that any POKT minting is balanced out by Application stake being burned at the same rate.</p>
+<p>Once activated, the ABR results in a shift from Applications paying through dilution, to Application POKT being burned on a block by block basis to balance the minting of POKT as inflation awards to Service Nodes.</p>
+<p>The effect of this is a logarithmic decay until the minimum App stake of 1 POKT is reached. Unless an Application increases the number of POKT they have staked, their holdings will fall under their desired amount causing applications to &ldquo;top up&rdquo; their stakes turning the network into a self-sustaining SaaS-like infrastructure protocol.</p>
+<p>The rate of Application burn is determined by using indicators such as the decay in the growth of Application and Service Node stake over time.</p>
+<h2 id="pokt-inflation">POKT Inflation</h2>
+<h3 id="overview">Overview</h3>
+<p>As the number of Nodes grows in the Pocket ecosystem, if we assume a constant per-relay payout, it follows that the total amount of POKT generated by the nodes will increase. While POKT was designed to be permanently inflationary, the high rate of inflation which this situation causes has strong repercussions for the network itself.</p>
+<p>There are plenty of benefits to inflation, such as attractive rewards for new and existing participants, near term buying pressure from new node runners, and the ability to bootstrap new chains more easily. And excitement in the marketplace driven by node rewards can lead to increased adoption.</p>
+<p>However, there are many drawbacks to excessive inflation, such as sell pressure which may reduce activity on the network, network underutilization and unnecessary hardware costs, and a general perception of long-term unsustainability.</p>
+<p>With this in mind, the DAO has voted on implementing and ongoing adjustment to the value of the rewards per relay (in parameter form, known as <code>RelaysToTokensMultiplier</code>).</p>
+
+<div class="box notices cstyle info">
+    <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Info</div>
+    <div class="box-content">
+<p>For more information and to read the actual DAO proposals on inflation management, please see the following:</p>
+<ul>
+<li><a href="https://forum.pokt.network/t/pup-11-wagmi-inflation/1369/1">PUP-11: WAGMI Inflation</a></li>
+<li><a href="https://forum.pokt.network/t/pup-12-inflation-stop-gap-proposal-double-trouble/2011">PUP-12: Inflation Stop-Gap Proposal: Double Trouble</a></li>
+<li><a href="https://forum.pokt.network/t/pup-13-initial-wagmi-parameters/2238">PUP-13: Initial WAGMI Parameters</a></li>
+</ul>
+    </div>
+</div>
+<h3 id="inflation-management">Inflation management</h3>
+<p>The DAO&rsquo;s currently approved inflation management framework is called the Weighted Annual Gross Max Inflation rate (WAGMI).</p>
+<p>A WAGMI target of 100% was implemented on Feb 28, 2022, which corresponds to a per-node reward of 0.008461 POKT/relay. It was previously set to 0.01 POKT/relay.</p>
+<p>WAGMI targets will be stepped down to 50% over the following five months as follows:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Date</th>
+<th style="text-align:left">WAGMI Target Inflation Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Feb 28, 2022</td>
+<td style="text-align:left">100%</td>
+</tr>
+<tr>
+<td style="text-align:left">Mar 26, 2022</td>
+<td style="text-align:left">90%</td>
+</tr>
+<tr>
+<td style="text-align:left">Apr 25, 2022</td>
+<td style="text-align:left">80%</td>
+</tr>
+<tr>
+<td style="text-align:left">May 25, 2022</td>
+<td style="text-align:left">70%</td>
+</tr>
+<tr>
+<td style="text-align:left">Jun 24, 2022</td>
+<td style="text-align:left">60%</td>
+</tr>
+<tr>
+<td style="text-align:left">Jul 24, 2022</td>
+<td style="text-align:left">50%</td>
+</tr>
+</tbody>
+</table>
+<p>The per-node reward (also known by its parameter value <a href="/learn/economics/monetary-policy/../protocol-parameters.md#relaystotokensmultiplier">RelaysToTokensMultiplier</a>) is calculated using:</p>
+<ul>
+<li>The 30-day trailing average of daily relays at the time of each adjustment</li>
+<li>The total supply at the time of the proposal passing (&ldquo;Total Supply Baseline&rdquo;):</li>
+</ul>
+
+<span class="math align-center">$$
+\text{Mint rate} = \frac{\text{Total Supply Baseline} \times \text{Inflation rate}}{\text{30-day trailing average of daily relays} \times \text{365 days}}
+$$</span><p>The timestamp of the proposal was Feb 24, 2022, 6:37 GMT (block height: 51909), and the Total Supply Baseline was 945,014,989 POKT.</p>
+<p>Also note that the DAO is empowered to recalculate the mint rate more frequently than the above monthly schedule in times of sharp increases or decreases in the amount of relays. In this case, a weekly recalculation may occur.</p>
+<p>Recent recalculations:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Date</th>
+<th style="text-align:left">Target inflation rate</th>
+<th style="text-align:left">Approx. 30-day trailing avg. of daily relays</th>
+<th style="text-align:left">Mint rate</th>
+<th style="text-align:left">RelaysToTokensMultiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[Initial]</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">0.010000</td>
+<td style="text-align:left">10000</td>
+</tr>
+<tr>
+<td style="text-align:left">Feb 24, 2022</td>
+<td style="text-align:left">100%</td>
+<td style="text-align:left">306,000,000</td>
+<td style="text-align:left">0.008461</td>
+<td style="text-align:left">8461</td>
+</tr>
+<tr>
+<td style="text-align:left">Mar 25, 2022</td>
+<td style="text-align:left">90%</td>
+<td style="text-align:left">311,000,000</td>
+<td style="text-align:left">0.007498</td>
+<td style="text-align:left">7498</td>
+</tr>
+<tr>
+<td style="text-align:left">Apr 1, 2022</td>
+<td style="text-align:left">90%</td>
+<td style="text-align:left">403,000,000</td>
+<td style="text-align:left">0.005776</td>
+<td style="text-align:left">5776</td>
+</tr>
+<tr>
+<td style="text-align:left">Apr 8, 2022</td>
+<td style="text-align:left">90%</td>
+<td style="text-align:left">481,000,000</td>
+<td style="text-align:left">0.004847</td>
+<td style="text-align:left">4847</td>
+</tr>
+<tr>
+<td style="text-align:left">Apr 25, 2022</td>
+<td style="text-align:left">80%</td>
+<td style="text-align:left">693,000,000</td>
+<td style="text-align:left">0.002988</td>
+<td style="text-align:left">2988</td>
+</tr>
+<tr>
+<td style="text-align:left">May 31, 2022</td>
+<td style="text-align:left">70%</td>
+<td style="text-align:left">860,000,000</td>
+<td style="text-align:left">0.002109</td>
+<td style="text-align:left">2109</td>
+</tr>
+<tr>
+<td style="text-align:left">Jun 30, 2022</td>
+<td style="text-align:left">60%</td>
+<td style="text-align:left">879,000,000</td>
+<td style="text-align:left">0.001768</td>
+<td style="text-align:left">1768</td>
+</tr>
+</tbody>
+</table>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+    
+          <article class="default">
+<h1>💰 Pricing &amp; Economics FAQ</h1>
+
+<h2 id="what-is-pokt">What is POKT?</h2>
+<p>POKT is the native utility token that powers the economics of the protocol. Pocket Network requires both developers and nodes to stake POKT to participate in the network. Nodes earn POKT for fulfilling API requests for apps on a per request basis.</p>
+<h2 id="how-much-does-it-cost-to-send-a-relay">How much does it cost to send a relay?</h2>
+<p>This is determined by the <a href="/learn/economics/faq/../protocol-parameters.md#baserelaysperpokt"><code>BaseRelaysPerPOKT</code></a> parameter.</p>
+<h2 id="how-much-can-i-earn-by-running-a-node">How much can I earn by running a node?</h2>
+<p>Pocket is quite a unique blockchain network, because there are two ways for nodes to earn POKT:</p>
+<ol>
+<li><strong>Servicing:</strong> processing requests to/from blockchains on behalf of apps</li>
+<li><strong>Validating:</strong> confirming blocks, which contain proofs of the above relays done</li>
+</ol>
+<p>Each time a block is validated, POKT is minted according to the <a href="/learn/economics/faq/../protocol-parameters.md#relaystotokensmultiplier"><code>RelaysToTokensMultiplier</code></a> parameter which means, for every relay processed by a node, this amount of POKT is minted.</p>
+<p>This mint is then divided according to the following percentages:</p>
+<ul>
+<li><code>1 -(</code><a href="/learn/economics/faq/../protocol-parameters.md#proposerallocation"><code>ProposerAllocation</code></a><code>+</code><a href="/learn/economics/faq/../protocol-parameters.md#daoallocation"><code>DAOAllocation</code></a><code>)</code> to all the nodes who did #1, proportional to the number of relays they did</li>
+<li><a href="/learn/economics/faq/../protocol-parameters.md#proposerallocation"><code>ProposerAllocation</code></a> to the node who validated the block (#2)</li>
+<li><a href="/learn/economics/faq/../protocol-parameters.md#daoallocation"><code>DAOAllocation</code></a> to the DAO</li>
+</ul>
+<p>So what does this mean in practice?</p>
+<p>Check out <a href="https://c0d3r.org/NetworkCharts">these charts</a> to view the profitability of nodes over the lifetime of the network.</p>
+<h2 id="what-is-the-minimum-staking-amount-for-a-node">What is the minimum staking amount for a node?</h2>
+<p>The minimum staking amount for nodes is determined by the <a href="/learn/economics/faq/../protocol-parameters.md#stakeminimum"><code>StakeMinimum</code></a> parameter.</p>
+<p>However, if a node stake falls below this minimum stake the entire stake will be burned by the protocol. Therefore, as a <strong>best practice</strong>, we <strong>recommend staking an extra 7% to 10% buffer of POKT</strong> above the minimum stake per node. This is to account for any unforeseen slashing events due to node misconfiguration, bad behavior, natural disaster, or potential accidents.</p>
+<h2 id="what-determines-my-odds-of-being-selected-to-validate-a-block">What determines my odds of being selected to validate a block?</h2>
+<p>The following formula:</p>
+<p><code>round down (node stake / avg node stake) = # of tickets in the hat for block producer</code></p>
+<h2 id="is-there-an-advantage-to-staking-all-of-my-pokt-on-one-node">Is there an advantage to staking all of my POKT on one node?</h2>
+<p>There is no advantage.</p>
+<p>All nodes with the minimum stake have an equal chance of being selected to serve an app during a session. Therefore, to maximize the work you are being selected for, you should split your stake across as many nodes as possible, accounting for the minimum stake plus a buffer as described in <a href="/learn/economics/faq/faq.md#what-is-the-minimum-staking-amount-for-a-node">What is the minimum staking amount for a node?</a></p>
+<p>Similarly, tickets for block production are weighted according to POKT staked in comparison to the average, based on the formula <a href="/learn/economics/faq/faq.md#what-determines-my-odds-of-being-selected-to-validate-a-block">above</a>, however it makes no difference to you whether this POKT is all staked on one node or across multiple.</p>
+<h2 id="why-is-the-number-of-staked-nodes-growing-faster-than-the-number-of-staked-apps">Why is the number of staked nodes growing faster than the number of staked apps?</h2>
+<p>While it&rsquo;s true that the supply (nodes) of Pocket&rsquo;s two-sided market should respond to demand (apps), the important metric is the number of relays, not the number of staked apps.</p>
+<p>Nodes are paid proportionally to the relays they process, so if the number of staked apps remains constant while the relays the submit increases, the node supply will grow in response to growing revenue opportunities.</p>
+<p>Many apps use the <a href="https://portal.pokt.network">Pocket Portal</a> to connect to the network, which stakes and integrates with <a href="https://docs.pokt.network/js">PocketJS</a> on their behalf. The Dashboard can divide the throughput it has staked for across multiple URLs, which means we don&rsquo;t need to stake a new account for every new app that uses the Dashboard.</p>
+<h2 id="how-do-i-buy-pokt">How do I buy POKT?</h2>
+<p>Visit this <a href="https://forum.pokt.network/t/secondary-markets-for-pokt/629">forum post</a>.</p>
+<h2 id="what-is-the-supply-of-pokt">What is the supply of POKT?</h2>
+<h3 id="genesis--circulating-supply">Genesis &amp; Circulating Supply</h3>
+<p>The initial supply of POKT is 650M, which is divided according to the following genesis distribution:</p>
+<p><img src="/images/initial-distribution.jpg" alt="">
+The vast majority of these tokens are non-transferable and subject to use restrictions by the holders, starting from mainnet launch. __</p>
+<ul>
+<li><strong>Private Sale 1/2:</strong> one-year lockup and use restriction from the date of purchase. Those whose year had already expired pre-mainnet also agreed to an additional lockup according to the following schedule: 50% of tokens unlocked after 6 months, 100% of tokens unlocked after 12 months.</li>
+<li><strong>Founder Vesting:</strong> the founders agreed to restart a 3 year vesting schedule upon mainnet launch, with 10% of their allocations immediately vesting upon mainnet launch and subject to a 1-year lockup and use restriction. __</li>
+<li><strong>Pocket Network, Inc. (PNI)</strong>:
+<ul>
+<li><strong>Token Sale Pool:</strong> fully unlocked at launch and available for direct sale to users of the network. __</li>
+<li><strong>Employee/Contractor Pool:</strong> already-vested tokens subject to a 1-year lockup and use restriction, with varying vesting agreements per contractor on average of 3-4 years.</li>
+<li><strong>PNI Reserves:</strong> subject to 4 years of vesting and non-transferable for five unbonding periods (105 days total) following mainnet launch. __</li>
+</ul>
+</li>
+<li><strong>Foundation/DAO:</strong>
+<ul>
+<li><strong>Foundation Reserves:</strong> subject to 4 years of vesting and non-transferable for five unbonding periods (105 days total) following mainnet launch. __</li>
+<li><strong>DAO Funds:</strong> fully unlocked at launch and distributed according to DAO grants.</li>
+<li><strong>All other genesis addresses (e.g. incentivized testnet participants):</strong> non-transferable for five unbonding periods (105 days total) following mainnet launch.</li>
+</ul>
+</li>
+</ul>
+<p>This all results in the following circulating supply schedule:</p>
+<p><img src="/images/circulating-supply-schedule.jpg" alt=""></p>
+<h3 id="fully-diluted-supply">Fully Diluted Supply</h3>
+<p>While the initial total supply of POKT is 650M, Pocket Network uses minting to compensate nodes for performing work on the network. For this reason, POKT is permanently inflationary proportional to usage of the network, i.e. proportional to the number of relays being processed by nodes, but the total supply will be capped through a burning mechanism put in place by the DAO (more on this below).</p>
+<p>The Growth Phase of the network is characterized by relatively high rewards and an increase in the POKT supply designed to subsidize the bootstrapping of the network from a node and application perspective.</p>
+<p>Once the growth rate of relays begins to decrease because Pocket Network has saturated the broader decentralized infrastructure market, Pocket Network will enter the Maturity Phase. It&rsquo;s at this point that the DAO can choose to institute the Application Burn Rate (ABR) which burns developers’ stake at a rate that offsets future inflation - capping the total supply of POKT. The ABR caps the total amount of POKT and ushers in network equilibrium where mint and burn rate is equal. This is reflected in our model by a flattening in the growth in POKT. In all three scenarios, ABR is instituted at the same time but could happen earlier or later as the DAO sees fit.</p>
+<p>You can read more about these topics in the section on <a href="/learn/economics/faq/monetary-policy.md">Monetary Policy</a>.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img alt="POKT Logo" src="/images/logo-white.svg" />
+
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1658922679" defer></script>
+        <script src="/js/lunr.min.js?1658922679" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1658922679" defer></script>
+        <script src="/js/lunr.multi.min.js?1658922679" defer></script>
+        <script src="/js/lunr.en.min.js?1658922679" defer></script>
+        <script src="/js/search.js?1658922679" defer></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/">👋 Welcome</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics collapsible-menu">
+          <li data-nav-id="/supported-blockchains/" title="✅ Supported Blockchains" class="dd-item"><a href="/supported-blockchains/">Supported Blockchains</a></li>
+          <li data-nav-id="/pokt/" title="💰 Get POKT" class="dd-item"><input type="checkbox" id="section-988f0a59c06aa1ec7897abdaf06824dd" class="toggle"/><label for="section-988f0a59c06aa1ec7897abdaf06824dd" ></label><a href="/pokt/">Own POKT</a><ul>
+          <li data-nav-id="/pokt/wallets/" title="Manage POKT" class="dd-item"><a href="/pokt/wallets/">Manage POKT</a></li>
+          <li data-nav-id="/pokt/buy/" title="Buy POKT" class="dd-item"><a href="/pokt/buy/">Buy POKT</a></li>
+          <li data-nav-id="/pokt/stake/" title="Stake POKT" class="dd-item"><a href="/pokt/stake/">Stake POKT</a></li>
+          <li data-nav-id="/pokt/wpokt/" title="🎁 Wrapped POKT (wPOKT)" class="dd-item"><a href="/pokt/wpokt/">Wrapped POKT (wPOKT)</a></li></ul></li>
+          <li data-nav-id="/learn/" title="Learn Pocket" class="dd-item parent"><input type="checkbox" id="section-b30da781944ae4db0143d27203425a9c" class="toggle" checked/><label for="section-b30da781944ae4db0143d27203425a9c" ></label><a href="/learn/">Learn Pocket</a><ul>
+          <li data-nav-id="/learn/vision/" title="Vision" class="dd-item"><a href="/learn/vision/">Vision</a></li>
+          <li data-nav-id="/learn/protocol/" title="⛓ Protocol" class="dd-item"><input type="checkbox" id="section-7b0ba589eab3b7bc81771ad16ca9eaa3" class="toggle"/><label for="section-7b0ba589eab3b7bc81771ad16ca9eaa3" ></label><a href="/learn/protocol/">Protocol</a><ul>
+          <li data-nav-id="/learn/protocol/servicing/" title="🤝 Servicing" class="dd-item"><a href="/learn/protocol/servicing/">Servicing</a></li>
+          <li data-nav-id="/learn/protocol/security/" title="🛡 Security" class="dd-item"><a href="/learn/protocol/security/">Security</a></li></ul></li>
+          <li data-nav-id="/learn/economics/" title="🪙 Economics" class="dd-item active parent"><input type="checkbox" id="section-8041da21916b100a66d56b9fffe9d2a7" class="toggle" checked/><label for="section-8041da21916b100a66d56b9fffe9d2a7" ></label><a href="/learn/economics/">Economics</a><ul>
+          <li data-nav-id="/learn/economics/token/" title="🪙 Token Economics" class="dd-item"><a href="/learn/economics/token/">Token Economics</a></li>
+          <li data-nav-id="/learn/economics/apps/" title="💻 App Economics" class="dd-item"><a href="/learn/economics/apps/">App Economics</a></li>
+          <li data-nav-id="/learn/economics/nodes/" title="🤖 Node Economics" class="dd-item"><a href="/learn/economics/nodes/">Node Economics</a></li>
+          <li data-nav-id="/learn/economics/monetary-policy/" title="🏦 Monetary Policy" class="dd-item"><a href="/learn/economics/monetary-policy/">Monetary Policy</a></li>
+          <li data-nav-id="/learn/economics/faq/" title="💰 Pricing &amp; Economics FAQ" class="dd-item"><a href="/learn/economics/faq/">FAQ</a></li></ul></li>
+          <li data-nav-id="/learn/future/" title="👀 Future (v1)" class="dd-item"><input type="checkbox" id="section-9461954986787100253a049ef82f97d4" class="toggle"/><label for="section-9461954986787100253a049ef82f97d4" ></label><a href="/learn/future/">Future</a><ul>
+          <li data-nav-id="/learn/future/utility/" title="🪙 Utility" class="dd-item"><a href="/learn/future/utility/">Utility</a></li>
+          <li data-nav-id="/learn/future/consensus/" title="🤝 Consensus" class="dd-item"><a href="/learn/future/consensus/">Consensus</a></li>
+          <li data-nav-id="/learn/future/peer-to-peer/" title="💬 Peer to Peer" class="dd-item"><a href="/learn/future/peer-to-peer/">Peer To Peer</a></li>
+          <li data-nav-id="/learn/future/persistence/" title="🗄 Persistence" class="dd-item"><a href="/learn/future/persistence/">Persistence</a></li></ul></li>
+          <li data-nav-id="/learn/protocol-parameters/" title="🎚 Protocol Parameters" class="dd-item"><a href="/learn/protocol-parameters/">Parameters</a></li>
+          <li data-nav-id="/learn/glossary/" title="Glossary" class="dd-item"><a href="/learn/glossary/">Glossary</a></li></ul></li>
+          <li data-nav-id="/use/" title="Use Pocket" class="dd-item"><input type="checkbox" id="section-9c8f252997a5013ebfdc92ac7869fc4d" class="toggle"/><label for="section-9c8f252997a5013ebfdc92ac7869fc4d" ></label><a href="/use/">Use Pocket</a><ul>
+          <li data-nav-id="/use/get-endpoint/" title="Get An Endpoint" class="dd-item"><a href="/use/get-endpoint/">Get an Endpoint</a></li>
+          <li data-nav-id="/use/public-rpc/" title="Public RPC Endpoints" class="dd-item"><input type="checkbox" id="section-5d1bd50b2ec2e182f37a6e240ac8eab5" class="toggle"/><label for="section-5d1bd50b2ec2e182f37a6e240ac8eab5" ></label><a href="/use/public-rpc/">Public RPC Endpoints</a><ul>
+          <li data-nav-id="/use/public-rpc/avax/" title="Avalanche \(AVAX\)" class="dd-item"><a href="/use/public-rpc/avax/">Avalanche</a></li>
+          <li data-nav-id="/use/public-rpc/bsc/" title="Binance Smart Chain \(BSC\)" class="dd-item"><a href="/use/public-rpc/bsc/">Binance Smart Chain</a></li>
+          <li data-nav-id="/use/public-rpc/dfk-chain/" title="Connecting MetaMask to DFK Chain" class="dd-item"><a href="/use/public-rpc/dfk-chain/">DFK Chain</a></li>
+          <li data-nav-id="/use/public-rpc/ethereum/" title="Ethereum \(ETH\)" class="dd-item"><a href="/use/public-rpc/ethereum/">Ethereum</a></li>
+          <li data-nav-id="/use/public-rpc/evmos/" title="Evmos" class="dd-item"><a href="/use/public-rpc/evmos/">Evmos</a></li>
+          <li data-nav-id="/use/public-rpc/fuse/" title="Fuse" class="dd-item"><a href="/use/public-rpc/fuse/">Fuse</a></li>
+          <li data-nav-id="/use/public-rpc/gnosis-chain/" title="Gnosis Chain (xDAI)" class="dd-item"><a href="/use/public-rpc/gnosis-chain/">Gnosis Chain (fka xDAI)</a></li>
+          <li data-nav-id="/use/public-rpc/harmony/" title="Harmony" class="dd-item"><a href="/use/public-rpc/harmony/">Harmony</a></li>
+          <li data-nav-id="/use/public-rpc/iotex/" title="IoTeX" class="dd-item"><a href="/use/public-rpc/iotex/">IoTeX</a></li>
+          <li data-nav-id="/use/public-rpc/polygon/" title="Polygon" class="dd-item"><a href="/use/public-rpc/polygon/">Polygon</a></li></ul></li>
+          <li data-nav-id="/use/dapps/" title="Pocket-Powered dApps" class="dd-item"><input type="checkbox" id="section-7c46178e6f5bbc55407fafefbfe1baa3" class="toggle"/><label for="section-7c46178e6f5bbc55407fafefbfe1baa3" ></label><a href="/use/dapps/">Pocket-Powered dApps</a><ul>
+          <li data-nav-id="/use/dapps/conquest-eth/" title="Conquest.eth" class="dd-item"><a href="/use/dapps/conquest-eth/">Conquest.eth</a></li>
+          <li data-nav-id="/use/dapps/dark-forest/" title="Dark Forest" class="dd-item"><a href="/use/dapps/dark-forest/">Dark Forest</a></li>
+          <li data-nav-id="/use/dapps/mycrypto/" title="MyCrypto" class="dd-item"><a href="/use/dapps/mycrypto/">MyCrypto</a></li>
+          <li data-nav-id="/use/dapps/rotki/" title="Rotki" class="dd-item"><a href="/use/dapps/rotki/">Rotki</a></li></ul></li></ul></li>
+          <li data-nav-id="/node/" title="Run Nodes" class="dd-item"><input type="checkbox" id="section-1cd363a44403268e4bd7ae15574da217" class="toggle"/><label for="section-1cd363a44403268e4bd7ae15574da217" ></label><a href="/node/">Run Nodes</a><ul>
+          <li data-nav-id="/node/environment/" title="Environment Setup" class="dd-item"><a href="/node/environment/">Environment Setup</a></li>
+          <li data-nav-id="/node/setup/" title="Node Setup" class="dd-item"><a href="/node/setup/">Pocket Node Setup</a></li>
+          <li data-nav-id="/node/staking/" title="Custodial and non-custodial staking" class="dd-item"><a href="/node/staking/">Custodial and Non-Custodial Staking</a></li>
+          <li data-nav-id="/node/seeds/" title="🌱 Seeds" class="dd-item"><a href="/node/seeds/">Seeds</a></li>
+          <li data-nav-id="/node/tutorials/" title="Node Tutorials" class="dd-item"><input type="checkbox" id="section-250316b1db19d7bf2e89212214811654" class="toggle"/><label for="section-250316b1db19d7bf2e89212214811654" ></label><a href="/node/tutorials/">Tutorials</a><ul>
+          <li data-nav-id="/node/tutorials/zero-to-node/" title="Introduction" class="dd-item"><input type="checkbox" id="section-6ab9d8d230d608550786165898c7a0ca" class="toggle"/><label for="section-6ab9d8d230d608550786165898c7a0ca" ></label><a href="/node/tutorials/zero-to-node/">Zero To Node</a><ul>
+          <li data-nav-id="/node/tutorials/zero-to-node/server-setup/" title="Part 1 –  Server setup" class="dd-item"><a href="/node/tutorials/zero-to-node/server-setup/">Server setup</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/software-install/" title="Part 2 –  Software installation" class="dd-item"><a href="/node/tutorials/zero-to-node/software-install/">Software installation</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/pocket-config/" title="Part 3 –  Pocket configuration" class="dd-item"><a href="/node/tutorials/zero-to-node/pocket-config/">Pocket configuration</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/proxy-config/" title="Part 4 –  Proxy configuration" class="dd-item"><a href="/node/tutorials/zero-to-node/proxy-config/">Proxy configuration</a></li>
+          <li data-nav-id="/node/tutorials/zero-to-node/going-live/" title="Part 5 –  Going live" class="dd-item"><a href="/node/tutorials/zero-to-node/going-live/">Going live</a></li></ul></li></ul></li>
+          <li data-nav-id="/node/automated-deployments/" title="Automated Deployments" class="dd-item"><a href="/node/automated-deployments/">Automated Deployments</a></li>
+          <li data-nav-id="/node/hosting-services/" title="Node-Hosting Services" class="dd-item"><a href="/node/hosting-services/">Node-Hosting Services</a></li>
+          <li data-nav-id="/node/faq/" title="Node FAQ" class="dd-item"><a href="/node/faq/">Node FAQ</a></li></ul></li>
+          <li data-nav-id="/integrate/" title="Integrate" class="dd-item"><input type="checkbox" id="section-d4bb38a7d13f002c4014ff23289c50e8" class="toggle"/><label for="section-d4bb38a7d13f002c4014ff23289c50e8" ></label><a href="/integrate/">Integrate</a><ul>
+          <li data-nav-id="/integrate/sdk/" title="SDKs" class="dd-item"><a href="/integrate/sdk/">SDKs</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/" title="Accounts and Transactions" class="dd-item"><input type="checkbox" id="section-1f772117c78cb1420090c8202df835ca" class="toggle"/><label for="section-1f772117c78cb1420090c8202df835ca" ></label><a href="/integrate/accounts-transactions/">Accounts and Transactions</a><ul>
+          <li data-nav-id="/integrate/accounts-transactions/account-generation-validation/" title="Account Generation and Validation" class="dd-item"><a href="/integrate/accounts-transactions/account-generation-validation/">Account Generation and Validation</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/transaction-construction/" title="Transaction Construction" class="dd-item"><a href="/integrate/accounts-transactions/transaction-construction/">Transaction Construction</a></li>
+          <li data-nav-id="/integrate/accounts-transactions/transaction-verification/" title="Transaction Verification" class="dd-item"><a href="/integrate/accounts-transactions/transaction-verification/">Transaction Verification</a></li></ul></li></ul></li>
+          <li data-nav-id="/community/" title="Community" class="dd-item"><input type="checkbox" id="section-5222f03197abba24f0c665fe1d22532c" class="toggle"/><label for="section-5222f03197abba24f0c665fe1d22532c" ></label><a href="/community/">Join Us</a><ul>
+          <li data-nav-id="/community/governance/" title="👑 Governance" class="dd-item"><input type="checkbox" id="section-58d7c2e4187c5d62f879f3f81802f3c9" class="toggle"/><label for="section-58d7c2e4187c5d62f879f3f81802f3c9" ></label><a href="/community/governance/">Governance</a><ul>
+          <li data-nav-id="/community/governance/proposals/" title="Proposals" class="dd-item"><a href="/community/governance/proposals/">Proposals</a></li></ul></li>
+          <li data-nav-id="/community/contribute/" title="🦸 Contribute" class="dd-item"><input type="checkbox" id="section-1455a3dbf4677a4000103a13e3e0af39" class="toggle"/><label for="section-1455a3dbf4677a4000103a13e3e0af39" ></label><a href="/community/contribute/">Contribute</a><ul>
+          <li data-nav-id="/community/contribute/scholarships/" title="Scholarships" class="dd-item"><a href="/community/contribute/scholarships/">Scholarships</a></li></ul></li>
+          <li data-nav-id="/community/trophies/" title="🗳 Trophies" class="dd-item"><input type="checkbox" id="section-203bb11e8b6be933d85a663ca65b1a91" class="toggle"/><label for="section-203bb11e8b6be933d85a663ca65b1a91" ></label><a href="/community/trophies/">Trophies</a><ul>
+          <li data-nav-id="/community/trophies/app-developers/" title="🏆 App Developers" class="dd-item"><a href="/community/trophies/app-developers/">App Developers</a></li>
+          <li data-nav-id="/community/trophies/node-runners/" title="🏆 Node Runners" class="dd-item"><a href="/community/trophies/node-runners/">Node Runners</a></li>
+          <li data-nav-id="/community/trophies/community-shepherds/" title="🏆 Community Shepherds" class="dd-item"><a href="/community/trophies/community-shepherds/">Community Shepherds</a></li>
+          <li data-nav-id="/community/trophies/contributors/" title="🏆 Governor/Contributors" class="dd-item"><a href="/community/trophies/contributors/">Contributors</a></li></ul></li></ul></li>
+          <li data-nav-id="/more-info/" title="💬 More Information" class="dd-item"><a href="/more-info/">More Info</a></li>
+        </ul>
+        <div id="shortcuts">
+          <div class="nav-title">More</div>
+          <ul>
+            <li><a class="padding" href="https://forum.pokt.network">Forum</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pocket-js">PocketJS</a></li>
+            <li><a class="padding" href="https://discord.gg/pokt">Discord</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pypocket">pypocket</a></li>
+            <li><a class="padding" href="https://github.com/pokt-foundation/pocket-go">pocket-go</a></li>
+            <li><a class="padding" href="https://angel.co/company/pocket-network">Jobs</a></li>
+          </ul>
+        </div>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="blue" value="blue" selected>Blue</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" onclick="clearHistory();"><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter">
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1658922679" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1658922679" defer></script>
+    <script src="/js/featherlight.min.js?1658922679" defer></script>
+    <script>
+      function useMathJax( config ){
+        window.MathJax = Object.assign({
+          loader: {
+            load: ['[tex]/mhchem']
+          },
+          startup: {
+            elements: [
+              '.math'
+            ]
+          },
+          tex: {
+            inlineMath: [
+              ['$', '$'], 
+              ['\\(', '\\)']
+            ]
+          },
+          options: {
+            enableMenu: false 
+          }
+        }, config );
+      }
+      useMathJax( JSON.parse("{ \"chtml\": { \"displayAlign\": \"left\" } }") );
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="/js/jquery.svg.pan.zoom.js?1658922679" defer></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js" defer></script>
+    <script>
+      function useMermaid( config ){
+        if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+          mermaid.initialize( Object.assign( { "securityLevel": "antiscript", "startOnLoad": false  }, config ) );
+          if( config.theme ){
+            var write_style = variants.findLoadedStylesheet( 'variant-style' );
+            write_style.setProperty( '--CONFIG-MERMAID-theme', config.theme );
+          }
+        }
+      }
+      useMermaid( JSON.parse("{ \"theme\": \"default\" }") );
+    </script>
+    <script src="/js/theme.js?1658922679" defer></script>
+  </body>
+</html>
