@@ -1,4 +1,4 @@
-baseURL = 'https://docs.pokt.network/'
+baseURL = 'https://pokt-foundation.github.io/docs-hugo/'
 languageCode = 'en-us'
 title = 'Pocket Network'
 theme = 'relearn'
